@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "Awesome AI Free Tiers Dataset",
+  "version": "1.0.0",
+  "last_audit_date": "2026-09-18",
+  "maintainer": "4Pixel Tech",
+  "providers": [
+    {
+      "id": "google-ai-studio",
+      "name": "Google AI Studio",
+      "console_url": "https://aistudio.google.com/",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "permanent_free",
+      "models": [
+        {
+          "canonical_id": "gemini-2.5-flash",
+          "display_name": "Gemini 2.5 Flash",
+          "modality": "multimodal",
+          "context_window": { "input": 1048576, "output": 65536 },
+          "rate_limits": { "rpm": 15, "tpm": 1000000, "rpd": 1500 },
+          "grounding": { "search_rpd": 1500, "map_rpd": 500 }
+        },
+        {
+          "canonical_id": "gemini-2.0-flash",
+          "display_name": "Gemini 2.0 Flash",
+          "modality": "multimodal",
+          "context_window": { "input": 1048576, "output": 65536 },
+          "rate_limits": { "rpm": 15, "tpm": 1000000, "rpd": 1500 },
+          "grounding": { "search_rpd": 1500, "map_rpd": 500 }
+        },
+        {
+          "canonical_id": "gemini-3.5-flash-lite",
+          "display_name": "Gemini 3.5 Flash Lite",
+          "modality": "multimodal",
+          "context_window": { "input": 1048576, "output": 65536 },
+          "rate_limits": { "rpm": 15, "tpm": 250000, "rpd": 500 },
+          "grounding": { "search_rpd": 0, "map_rpd": 500 }
+        }
+      ]
+    },
+    {
+      "id": "groq-cloud",
+      "name": "Groq Cloud",
+      "console_url": "https://console.groq.com/",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "permanent_free",
+      "models": [
+        {
+          "canonical_id": "qwen/qwen3.8-27b",
+          "display_name": "Qwen 3.8 27B",
+          "modality": "text",
+          "context_window": { "input": 131072, "output": 8192 },
+          "rate_limits": { "rpm": 30, "tpm": 6000, "rpd": 1000 }
+        },
+        {
+          "canonical_id": "openai/gpt-oss-120b",
+          "display_name": "GPT-OSS 120B",
+          "modality": "text",
+          "context_window": { "input": 131072, "output": 8192 },
+          "rate_limits": { "rpm": 30, "tpm": 8000, "rpd": 1000 }
+        },
+        {
+          "canonical_id": "whisper-large-v3",
+          "display_name": "Whisper Large v3",
+          "modality": "audio_stt",
+          "rate_limits": { "rpm": 20, "audio_seconds_per_hour": 2000 }
+        }
+      ]
+    },
+    {
+      "id": "nvidia-nim",
+      "name": "NVIDIA NIM",
+      "console_url": "https://build.nvidia.com/",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "permanent_free",
+      "models_count": 82,
+      "universal_limits": { "rpm": 40, "rpd": 1000 }
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek API",
+      "console_url": "https://platform.deepseek.com/",
+      "credit_card_required": false,
+      "phone_required": true,
+      "billing_tier": "welcome_bonus_and_budget",
+      "welcome_free_tokens": 5000000,
+      "models": [
+        {
+          "canonical_id": "deepseek-chat",
+          "display_name": "DeepSeek-V3",
+          "pricing_per_1m": {
+            "input_cache_miss_usd": 0.14,
+            "input_cache_hit_usd": 0.014,
+            "output_usd": 0.28,
+            "off_peak_discount": 0.50
+          }
+        },
+        {
+          "canonical_id": "deepseek-reasoner",
+          "display_name": "DeepSeek-R1",
+          "pricing_per_1m": {
+            "input_cache_miss_usd": 0.55,
+            "input_cache_hit_usd": 0.14,
+            "output_usd": 2.19
+          }
+        }
+      ]
+    }
+  ]
+}

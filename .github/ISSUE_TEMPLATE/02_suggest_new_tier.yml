@@ -1,0 +1,31 @@
+name: "💡 Suggest a New Free Tier / Sugerir Novo Free Tier"
+description: "Suggest an AI inference provider or model with free quota to be added to the directory."
+title: "[Suggestion]: <Provider Name>"
+labels: ["community-suggestion", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Found an awesome new AI provider with free quotas? Share it with the community!
+  - type: input
+    id: provider_name
+    attributes:
+      label: "Provider Name"
+      placeholder: "e.g., Novita AI, Nebius"
+    validations:
+      required: true
+  - type: input
+    id: website
+    attributes:
+      label: "Official Website / Console"
+      placeholder: "https://..."
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: "Free Quota Details"
+      description: "What models are free? Are there RPM/TPM limits? Does it require a credit card or phone number?"
+      placeholder: "Describe the free tier, models available, and limits..."
+    validations:
+      required: true

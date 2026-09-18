@@ -1,0 +1,26 @@
+# Environment variables & secrets
+.env
+.env.*
+*.local
+chaves.txt
+keys.txt
+*.key
+*.pem
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor & IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node / Python temporary files
+node_modules/
+__pycache__/
+*.pyc
+venv/
+.venv/

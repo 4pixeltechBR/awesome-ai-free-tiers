@@ -1,0 +1,70 @@
+name: "🏢 Official Provider Free Tier Submission / Submissão Oficial de Provedor"
+description: "For AI Providers wishing to list their free tier or budget inference plans in the directory."
+title: "[Provider]: <Provider Name> Free Tier Listing"
+labels: ["provider-submission", "needs-verification"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Welcome AI Providers! 👋
+        Thank you for offering free compute to the global developer community.
+        Please fill out this form to request listing with the **Verified Provider Badge**.
+  - type: input
+    id: provider_name
+    attributes:
+      label: "Provider / Company Name"
+      description: "Official legal or commercial name of the inference provider."
+      placeholder: "e.g., Hyperbolic, Groq, SiliconFlow"
+    validations:
+      required: true
+  - type: input
+    id: console_url
+    attributes:
+      label: "Official Developer Console URL"
+      description: "Direct URL where developers sign up and generate API keys (NO affiliate links)."
+      placeholder: "https://console.example.com"
+    validations:
+      required: true
+  - type: dropdown
+    id: cc_required
+    attributes:
+      label: "Credit Card Required for Free Tier?"
+      description: "Does the user need to enter a credit card or payment method to use the free tier?"
+      options:
+        - "No (100% Card-Free)"
+        - "Yes (Card Required for Identity Verification)"
+        - "Optional (Unlocks higher tiers)"
+    validations:
+      required: true
+  - type: textarea
+    id: free_models
+    attributes:
+      label: "Free Models & Rate Limits (RPM, TPM, RPD)"
+      description: "List canonical model IDs, context windows, and rate limits (e.g., `model-id`: 15 RPM / 1M TPM / 1500 RPD)."
+      placeholder: |
+        - Canonical ID: `meta-llama/llama-3.3-70b-instruct`
+          Context: 131,072 in / 8,192 out
+          Rate Limits: 30 RPM, 40,000 TPM, 1,000 RPD
+    validations:
+      required: true
+  - type: textarea
+    id: curl_example
+    attributes:
+      label: "Quickstart Curl Example"
+      description: "A minimal, copy-pasteable curl command showing OpenAI-compatible or REST endpoint execution."
+      placeholder: |
+        curl -X POST https://api.example.com/v1/chat/completions \
+          -H "Authorization: Bearer $API_KEY" \
+          -H "Content-Type: application/json" \
+          -d '{"model": "example-model", "messages": [{"role": "user", "content": "Hi"}]}'
+    validations:
+      required: true
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: "Verification Commitment"
+      options:
+        - label: "I confirm this free tier is currently active and verifiable by any developer."
+          required: true
+        - label: "I understand that links containing affiliate codes will result in immediate rejection."
+          required: true

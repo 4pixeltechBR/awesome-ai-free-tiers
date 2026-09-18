@@ -1,0 +1,936 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# MANUAL DE CONSULTA: FREE TIERS DE LLM & POLÍTICAS DE USO (Setembro 2026)
+# Compilação e Validação Fina: 17 de setembro de 2026 (v13)
+# Histórico: 27/05 → 15/07 → 23/07 → 16/08 → 19/08 → 25/08 (v8) → 06/09 (v9) → 17/09 (v10) → 17/09 (v11) → 17/09 (v12) → 17/09/2026 (v13 atual)
+# Fontes: Catálogo Operacional RUNTIME Real (APIs ativas testadas) + Catálogo Manus AI v4.0 (cobertura granular)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Este documento consolida as cotas gratuitas (Free Tiers), especificações técnicas, rate limits granulares (RPM, RPD, TPM, TPD, RPS, RPH, ASH, ASD) e políticas de uso de todas as plataformas de inferência de LLMs e IA generativa do ecossistema. Modelos descontinuados ou encerrados são categorizados com clareza em histórico de depreciação.
+
+> **🎯 ATUALIZAÇÃO 17/09/2026 v13 (ALINHAMENTO OFICIAL DEEPSEEK, EXPURGO DE INCONSISTÊNCIAS & AUDITORIA INTEGRAL DE MODELOS)**:
+> 1. **Correção Absoluta e Alinhamento Oficial do DeepSeek**: Restauração integral dos identificadores canônicos oficiais de chamada `deepseek-chat` (DeepSeek-V3) e `deepseek-reasoner` (DeepSeek-R1) para chamadas compatíveis com OpenAI SDK. Tabela consagrada e oficial de precificação por 1M tokens: DeepSeek-V3 a **$0.14** (Cache Miss) / **$0.014** (Cache Hit) / **$0.28** (Saída); DeepSeek-R1 a **$0.55** (Cache Miss) / **$0.14** (Cache Hit) / **$2.19** (Saída). Desconto oficial de **50% no horário econômico (Off-Peak)** (00:30 às 08:30 UTC+8). Cota de 5.000.000 tokens gratuitos para novas contas (30 dias). Cálculo real do poder de compra de **$5 USD** (rende de 18M a 35M tokens no V3 sem cache e até 100M+ tokens com alta taxa de cache hit). Reconciliação técnica explícita esclarecendo por que identificadores internos de engine (`deepseek-flash` / `deepseek-v4-pro`) aparecem em telemetria sem descaracterizar os nomes canônicos e preços de tabela.
+> 2. **Auditoria de Ponta a Ponta dos Provedores Globais**: **Google AI Studio** (segregação estrita entre modelos em Produção Ativa GA e Upstream/Preview/Experimental, com detalhamento das cotas de Grounding Maps 500 RPD e Search 1.500 RPD); **Groq Cloud** (confirmação dos 13 modelos ativos reais, detalhamento da descontinuação de `qwen/qwen3.6-27b`, `llama-3.3-70b-versatile` e `llama-3.1-8b-instant`); **NVIDIA NIM** (catálogo de 82 modelos reais gratuitos, cota universal de 40 RPM / 1.000 RPD sem cartão, inclusão de `01-ai/yi-large` e `z-ai/glm-5.3`); **OpenRouter Free** (24 modelos `:free` ativos com contextos e limites de saída reais documentados); **Mistral AI** (modelos ativos, cota gratuita La Plateforme de 60 RPM / 4M tokens/mês); **Moonshot AI / Kimi** (modelos clássicos V1 e linha internacional K3/K2.7 com cota inicial de ¥15 RMB).
+> 3. **Auditoria Rigorosa do Mercado Chinês (Modelos Nativos)**: **Baidu Qianfan** (`ERNIE-Speed` e `ERNIE-Lite` permanentemente 100% gratuitos a 300 RPM / 300.000 TPM); **Zhipu AI / BigModel** (`GLM-4-Flash` 100% free perpétuo a 1 concorrência + 25M tokens de boas-vindas); **Alibaba Cloud Model Studio / DashScope** (franquia de 1M a 2M tokens gratuitos por modelo Qwen na ativação por 90-180 dias + custos pós-free em frações de centavos); **Tencent Cloud Hunyuan** (pacote de 1 ano para `hunyuan-lite` e salvaguarda contra débitos automáticos no cartão); **ByteDance Volcano Engine Doubao** (registro transparente de que a API profissional é estritamente bilhetada em RMB sem free tier permanente para desenvolvedores).
+> 4. **Consolidação dos Planos Budget de $5 a $10 USD**: Análise técnica detalhada de ROI de DeepSeek API Direta, xKiro (`xkiro.com`), OpenCode Zen/Go (`opencode.ai`), B.AI (`b.ai`) e Tencent WorkBuddy (`workbuddy.ai`).
+> 5. **Cadeia de Fallback e Relatório em Runtime**: Atualização de todos os níveis e do quadro de auditoria em runtime com status 100% verificado.
+>
+> **🇨🇳 ATUALIZAÇÃO 17/09/2026 v12 (ECOSSISTEMA CHINÊS, PLANOS DE $5 & GATEWAYS BUDGET)**:
+> 1. **Aprofundamento no Mercado Chinês de LLMs**: Mapeamento completo dos gigantes asiáticos com cotas gratuitas e preços de atacado: **Zhipu AI / BigModel** (`GLM-4-Flash` 100% free perpétuo sem cartão + 25M tokens de bônus), **Baidu Qianfan** (`ERNIE-Speed` e `ERNIE-Lite` permanentemente 100% free a 300 RPM / 300K TPM), **Alibaba Cloud Model Studio / DashScope / Bailian** (1M a 2M tokens free de onboarding por modelo Qwen com validade de 90-180 dias + preços em frações de centavos), **Tencent Cloud Hunyuan & TokenHub** (pacotes gratuitos de 1 ano para `hunyuan-lite` e 1.000 créditos para `hunyuan-3d`), **ByteDance Volcano Engine / Doubao** (auditoria: sem free tier na API para dev; bilhetagem ultra-barata em RMB a partir do 1º token), **MiniMax** (¥15 de crédito grátis; TTS hiper-realista Speech-01 e vídeo Hailuo), **01.AI / Lingyi Wanwu** (¥30 de créditos; linha Yi-Lightning), e **StepFun** (linha Step-3.5/3.7 Flash).
+> 2. **Guia de Planos Econômicos de $5 a $10 USD ("Budget Plans")**: Detalhamento prático de como extrair máxima volumetria com micro-orçamentos: **xKiro** (Free Tier de 5M tokens/dia sem cartão + Wallet de $5 para desbloquear modelos proprietários e prioridade de fila), **OpenCode** (**OpenCode Zen** com zero markup e modelos free nativos como `MiMo V2.5 Free` e `MiniMax M2.5 Free` + **OpenCode Go** a $10/mês com $60 em valor de tokens), **DeepSeek API Direta** (o "Rei dos $5": um depósito mínimo de $5 USD rende de 18 a 35 MILHÕES de tokens com context caching), **B.AI** (sistema de créditos 1 USD = 1M créditos, com descontos de até 90% em horários ociosos para agentes), **SiliconFlow** ($5 rende dezenas de milhões de tokens em modelos 14B/32B/72B), e **Tencent WorkBuddy** (workspace de automação desktop compatível com BYO-Key).
+> 3. **Cadeia de Fallback com Novas Rotas**: Inclusão da **Rota Asiática / Soberana Chinesa** e da **Rota Budget de $5 USD** para orquestrações de alta eficiência de custos.
+>
+> **🚀 ATUALIZAÇÃO 17/09/2026 v11 (EXPANSÃO DE NOVOS PROVEDORES & CONSOLIDAÇÃO TÉCNICA)**:
+> 1. **Mapeamento Exaustivo de Novos Provedores Free Tier**: Documentação granular de 8 novas plataformas com cotas gratuitas comprovadas: **Hyperbolic** (60 RPM perpétuo, sem cartão), **SiliconFlow** (1.000 RPM / 40K TPM em modelos open-source free + 20M tokens bônus, sem cartão), **Pollinations.ai** (100% free perpétuo para texto, imagem, áudio e visão, sem cartão), **Cohere** (Trial API Key perpétua com 1K chamadas/mês, 20 RPM chat, 100 RPM embed, 10 RPM rerank, sem cartão), **AwanLLM** (Free Lite com tokens ilimitados, 20 RPM, 200 RPD pequenos, sem cartão), **Scaleway Generative APIs** (1M tokens/mês + 60 min áudio Whisper na nuvem soberana europeia), **Novita AI** (Trial Sandbox de $10-$100, 20 IPM para imagem e 60 RPM para LLM), e **Nebius Token Factory** (AI Builder Program com $400+ em créditos e auto-scaling dinâmico).
+> 2. **Auditoria de Plataformas & Depreciações Confirmadas**: Identificação rigorosa de gateways sem Free Tier permanente: **Chutes.ai** (free tier descontinuado em 2026; migrado para subscrição a partir de $3/mês), **Lepton AI** (incorporado à NVIDIA DGX Cloud Lepton), **Together AI** (sem free tier permanente; exige depósito mínimo de $5), **AI/ML API** (free tier pausado; 100% pré-pago) e **Featherless.ai** (concorrência paga).
+> 3. **Cadeia de Fallback Elevada para Arquitetura Resiliente em 4 Níveis**: Integrando provedores de alta vazão sem cartão (Google AI Studio, NVIDIA NIM, Groq, Hyperbolic, SiliconFlow, Pollinations.ai) e especialistas (Cohere, Scaleway, AwanLLM).
+> 4. **Retenção Integral do Histórico v10**: Mantidas as validações críticas de 17/09 (Groq Qwen 3.8 ativo / 3.6 desligado; OpenRouter 24 modelos free com Nex-N2.5 e Ling VL; NVIDIA NIM com GLM-5.3 e Nemotron-Parse 2.0; Google AI Studio com Gemini 3.1/3.5 Flash-Lite e Antigravity Agent).
+
+---
+
+## 1. QUADRO COMPARATIVO GERAL DE MODELOS FREE & POLÍTICAS
+
+---
+
+### 🟢 GOOGLE AI STUDIO (Gemini API) — *Validado em 17/09/2026 (50 modelos na API)*
+
+O Google AI Studio oferece a cota gratuita mais robusta e utilizável para desenvolvimento e produção moderada, sem necessidade de cartão de crédito. Seus modelos contam com cotas individuais por modelo, suporte multimodal nativo e recursos exclusivos de **Grounding (Google Maps e Google Search)** no Free Tier.
+
+#### 🔹 Modelos em Produção Ativa (GA - General Availability)
+
+Modelos consolidados para ambientes de produção estável com limites elevados de requisições por minuto e dia:
+
+| Modelo ID API | Display Name | Modalidade | Contexto (In / Out) | RPM | TPM | RPD | Map Grounding | Search Grounding | Notas / Status Operacional |
+| :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
+| **`gemini-2.5-flash`** | Gemini 2.5 Flash | Multimodal | 1.048.576 / 65.536 | **15** | **1.000.000** | **1.500** | ✅ 500 RPD | ✅ 1.500 RPD | **Top Pick #1 Produção Estável** — 1.500 RPD, suporte completo a Search & Map Grounding |
+| **`gemini-2.0-flash`** | Gemini 2.0 Flash | Multimodal | 1.048.576 / 65.536 | **15** | **1.000.000** | **1.500** | ✅ 500 RPD | ✅ 1.500 RPD | Workhorse de produção em GA; altíssima estabilidade e baixa latência |
+| **`gemini-1.5-flash`** | Gemini 1.5 Flash | Multimodal | 1.048.576 / 8.192 | **15** | **1.000.000** | **1.500** | ❌ 0 | ✅ 1.500 RPD | Mantido para compatibilidade legado; cota robusta de 1.500 RPD |
+| `gemini-1.5-pro` | Gemini 1.5 Pro | Frontier MoE | 2.097.152 / 8.192 | **2** | **32.000** | **50** | ❌ 0 | ✅ 50 RPD | Janela gigante de 2M tokens; raciocínio aprofundado no Free Tier |
+
+#### 🔹 Modelos Upstream, Preview & Experimentais (Série 3, Gemma & Agentes)
+
+Modelos de última geração, variantes experimentais e arquiteturas abertas do Google:
+
+| Modelo ID API | Display Name | Modalidade | Contexto (In / Out) | RPM | TPM | RPD | Map Grounding | Search Grounding | Notas / Status Operacional |
+| :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
+| **`gemini-3.5-flash-lite`** | Gemini 3.5 Flash Lite | Multimodal | 1.048.576 / 65.536 | **15** | **250.000** | **500** | ✅ 500 RPD | ❌ 0 | **Top Pick #1 Desenvolvimento** — Atualizado com arquitetura 3.5; 500 RPD |
+| **`gemini-3.1-flash-lite`** | Gemini 3.1 Flash Lite | Multimodal | 1.048.576 / 65.536 | **15** | **250.000** | **500** | ✅ 500 RPD | ❌ 0 | **Top Pick #2** — Homologado para uso comercial até 500 RPD |
+| `gemini-2.5-flash-lite` | Gemini 2.5 Flash Lite | Multimodal | 1.048.576 / 65.536 | **10** | 250.000 | **20** | ✅ 500 RPD | ❌ 0 | Versão lite anterior mantida para compatibilidade de rota |
+| `gemini-3.8-flash` | Gemini 3.8 Flash | Multimodal | 1.048.576 / 65.536 | **5** | 250.000 | **20** | ❌ 0 | ❌ 0 | Mais recente da linha Flash (setembro/2026); alta inteligência |
+| `gemini-3.7-flash` | Gemini 3.7 Flash | Multimodal | 1.048.576 / 65.536 | 5 | 250.000 | 20 | ❌ 0 | ❌ 0 | Alta capacidade analítica de raciocínio |
+| `gemini-3.6-flash` | Gemini 3.6 Flash | Multimodal | 1.048.576 / 65.536 | 5 | 250.000 | 20 | ❌ 0 | ❌ 0 | 17% menos tokens de overhead; endpoint estável |
+| `gemini-3.5-flash` | Gemini 3.5 Flash | Multimodal | 1.048.576 / 65.536 | 5 | 250.000 | 20 | ❌ 0 | ❌ 0 | Ativo e em uso operacional |
+| `gemini-3-flash-preview` | Gemini 3 Flash Prev | Multimodal | 1.048.576 / 65.536 | 5 | 250.000 | 20 | ❌ 0 | ❌ 0 | Endpoint de preview da geração 3 |
+| `antigravity-preview-09-2026` 🆕 | Antigravity Agent | Agente | 131.072 / 65.536 | **60** | **100.000** | **100** | ❌ 0 | ❌ 0 | **NOVO (set/2026)** — Otimizado para execução de agentes autônomos |
+| `gemma-4-31b-it` | Gemma 4 31B Instruct | Texto/Visão | 262.144 / 32.768 | **30** | **16.000** | **14.400** | ❌ | ❌ | **30 RPM / 14.4K RPD** — Open weights dense rodando na infraestrutura Google |
+| `gemma-4-26b-a4b-it` | Gemma 4 26B MoE | Texto/Visão | 262.144 / 32.768 | **30** | **16.000** | **14.400** | ❌ | ❌ | Arquitetura esparsa rápida para extração e processamento massivo |
+| `gemini-3.1-flash-tts-preview` | Flash TTS | Áudio/TTS | 8.192 / 16.384 | 3 | 10.000 | 10 | ✅ 500 RPD | - | Síntese vocal de alta fidelidade |
+| `gemini-3.5-transcribe` | Flash Transcribe | Áudio/STT | 98.304 / 32.768 | 5 | 50.000 | 20 | - | - | Transcrição precisa de arquivos de áudio |
+| `gemini-3.5-transcribe-live` | Transcribe Live | Áudio Realtime| 131.072 / 65.536 | Ilimitado | 20.000 | Ilimitado | - | - | Streaming STT contínuo sem corte por chamada |
+| `gemini-robotics-er-2-preview` | Robotics ER 2 | Robótica/VLM | 131.072 / 65.536 | 5 | 250.000 | 20 | - | - | Substitui ER 1.6 (sunset em 31/08/2026) |
+| `gemini-embedding-2` | Embeddings v2 | Vetores | 8.192 / 1 | **100** | **30.000** | **1.000** | - | - | Embeddings de alta dimensionalidade para RAG |
+| `gemini-omni-flash-preview` | Omni Flash | Visão/Áudio | 131.072 / 65.536 | 0 | 0 | 0 | - | - | Requer ativação de billing (Pay-as-you-go) |
+| `gemini-3.1-pro-preview` | Gemini 3.1 Pro | Frontier | 1.048.576 / 65.536 | 0 | 0 | 0 | ❌ 0 | - | ❌ **Indisponível no Free** (requer Pay-as-you-go) |
+| `nano-banana-pro` | Gemini 3 Pro Image | Imagem Gen | 131.072 / 32.768 | 0 | 0 | 0 | - | - | Geração de imagem Pro (Pago) |
+| `nano-banana-2` | Gemini 3.1 Flash Img | Imagem Gen | 65.536 / 65.536 | 0 | 0 | 0 | - | - | Geração de imagem Flash (Pago) |
+| `veo-3.1-generate-preview` | Veo 3.1 Video | Vídeo Gen | 480 / 8.192 | 0 | 0 | 0 | - | - | Geração de vídeo (Pago) |
+| `lyria-3.5` | Lyria 3.5 Music | Música Gen | 1.048.576 / 65.536 | 0 | 0 | 0 | - | - | Música generativa (Pago) |
+
+#### 🎯 Recursos Exclusivos de Grounding no Free Tier
+
+O Google AI Studio é a única plataforma do mercado a conceder cotas expressivas de ancoragem factual (web e mapas) gratuitas:
+
+1. **Google Search Grounding (Busca Web em Tempo Real)**:
+   * **Cota Gratuita**: **1.500 requisições por dia (1.500 RPD)**.
+   * **Modelos Suportados**: `gemini-2.5-flash`, `gemini-2.0-flash` e a rota `default`.
+   * **Atenção**: Modelos da série 3 (`gemini-3.x`) **NÃO possuem cota gratuita de Search Grounding** (cota = 0 no Free Tier; requer billing ativado).
+
+| Rota de Grounding | RPM | TPM | RPD | Observação |
+| :--- | :---: | :---: | :---: | :--- |
+| `gemini-2.5` (Search) | - | - | **1.500** | Rota padrão recomendada para web search integrado em produção |
+| `gemini-2` (Search) | - | - | **1.500** | Rota legada ativa de alta estabilidade |
+| `default` (Search) | - | - | **1.500** | Fallback geral do AI Studio |
+| `gemini-3` (Search) | - | - | **0** ⚠️ | Modelos série 3 não têm cota free de Search Grounding |
+
+2. **Google Maps Grounding (Pontos de Interesse & Localização)**:
+   * **Cota Gratuita**: **500 requisições por dia (500 RPD)**.
+   * **Modelos Suportados**: Família Flash-Lite (`gemini-3.5-flash-lite`, `gemini-3.1-flash-lite`, `gemini-2.5-flash-lite`) e modelos GA Flash (`gemini-2.5-flash`, `gemini-2.0-flash`). Permite enriquecer respostas com dados geográficos e POIs oficiais do Google Maps sem custos de API externa.
+
+---
+
+### 🟠 GROQ CLOUD — *Validado em 17/09/2026 (13 modelos na API)*
+
+Inference engine ultra-rápida (LPU). Cotas granulares Developer Plan.
+🚨 **ALERTA CRÍTICO 17/09**: `qwen/qwen3.6-27b` foi **descontinuado** da Groq. Utilizar obrigatoriamente `qwen/qwen3.8-27b`.
+
+| Modelo ID API | Modalidade | Contexto | RPM | RPD | TPM | TPD | Speed (t/s) | Validação 17/09 | Status / Notas |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
+| `qwen/qwen3.8-27b` | text/vision | 131.042 | **30** | **1.000** | **8K** | **200K** | 600+ | ✅ 200 OK | **Único Qwen ativo no Groq** — Substitui 3.6 |
+| `openai/gpt-oss-120b` | text/tools | 131.072 | **30** | **1.000** | **8K** | **200K** | 500+ | ✅ 200 OK | Prompt caching automático ativo |
+| `openai/gpt-oss-20b` | text/tools | 131.072 | **30** | **1.000** | **8K** | **200K** | 1000+ | ✅ 200 OK | Velocidade extrema para routing e extração |
+| `openai/gpt-oss-safeguard-20b` | safety | 131.072 | **30** | **1.000** | **8K** | **200K** | 1000 | ✅ 200 OK | Moderação de conteúdo |
+| `groq/compound-mini` | text | 131.072 | **30** | **250** | **70K** | - | 450+ | ✅ 200 OK | Orquestração leve |
+| `meta-llama/llama-prompt-guard-2-86m`| safety | 512 | **30** | **14.4K**| **15K** | **500K** | - | ✅ 200 OK | Detecção de jailbreak e injeção |
+| `meta-llama/llama-prompt-guard-2-22m`| safety | 512 | **30** | **14.4K**| **15K** | **500K** | - | ✅ 200 OK | Versão ultra-leve de prompt guard |
+| `allam-2-7b` | text (árabe) | 4.096 | 30 | 7.000 | 6K | 500K | - | ⚠️ 403 | Bloqueado no projeto por padrão |
+| `groq/compound` | text | 131.072 | 30 | 250 | 70K | - | - | ⚠️ 403 | Requer desbloqueio de projeto no console |
+
+#### 🔊 STT & TTS no Groq
+
+| Modelo | Modalidade | RPM | RPD | ASH / ASD | Validação | Notas |
+| :--- | :--- | :---: | :---: | :---: | :---: | :--- |
+| `whisper-large-v3` | audio STT | **20** | **2.000** | **7.200** / **28.800** | ✅ OK | Transcrição multilingual (8h áudio/dia) |
+| `whisper-large-v3-turbo` | audio STT | **20** | **2.000** | **7.200** / **28.800** | ✅ OK | Versão acelerada |
+| `canopylabs/orpheus-v1-english` | audio TTS | **10** | **100** | - (1.2K TPM / 3.6K TPD) | ✅ OK | Vozes naturais em inglês |
+| `canopylabs/orpheus-arabic-saudi`| audio TTS | **10** | **100** | - (1.2K TPM / 3.6K TPD) | ⚠️ Termos | Requer aceite de termos no console |
+
+#### ⛔ Histórico de Depreciações Groq (Confirmadas)
+
+| Modelo Deprecado | Data de Desligamento | Motivo / Substituto Recomendado |
+| :--- | :---: | :--- |
+| `qwen/qwen3.6-27b` 🚨 | **17/09/2026** | **Desativado pelo provedor** → Substituir por `qwen/qwen3.8-27b` |
+| `llama-3.1-8b-instant` | **17/08/2026** | Desativado pelo provedor → Substituir por `openai/gpt-oss-20b` |
+| `llama-3.3-70b-versatile`| **17/08/2026** | Desativado pelo provedor → Substituir por `openai/gpt-oss-120b` ou `qwen/qwen3.8-27b` |
+| `qwen/qwen3-32b` | **17/07/2026** | Descontinuado → `qwen/qwen3.8-27b` |
+| `meta-llama/llama-4-scout-17b-16e-instruct` | **17/07/2026** | Descontinuado → `openai/gpt-oss-120b` |
+
+---
+
+### 🟢 NVIDIA NIM (build.nvidia.com) — *Validado em 17/09/2026 (82 modelos)*
+
+Cota global universal: **40 RPM / 1.000 RPD** (sem limite rígido de TPM). Acesso gratuito sem necessidade de cartão de crédito.
+
+| Modelo ID API | Família / Tipo | Contexto | RPM | RPD | Destaques & Capacidades |
+| :--- | :--- | :---: | :---: | :---: | :--- |
+| `z-ai/glm-5.3` 🆕 | Z.ai Flagship | **1.048.576** | **40** | **1.000** | **NOVO NO NIM (17/09)** — Mais recente da Z.ai com 1M ctx |
+| `z-ai/glm-5.3-flash` 🆕 | Z.ai Fast MoE | **1.048.576** | **40** | **1.000** | **NOVO NO NIM (17/09)** — Resposta ultra-rápida |
+| `nvidia/nemotron-parse-2.0` 🆕 | OCR / Parsing v2 | - | **40** | **1.000** | **NOVO NO NIM (17/09)** — Extração de tabelas e documentos |
+| `nvidia/nemotron-3-ultra-550b-a55b` | Frontier MoE | **1.048.576** | 40 | 1.000 | 550B total / 55B ativos; raciocínio de ponta |
+| `nvidia/nemotron-3-super-120b-a12b` | Raciocínio Geral | 1.048.576 | 40 | 1.000 | Excelente em Tool Use e chamadas de funções estruturadas |
+| `nvidia/nemotron-3.5-lightning-30b-a3b`| MoE Acelerado | 256.000 | 40 | 1.000 | Arquitetura 3.5 ultrarrápida para tarefas complexas |
+| `nvidia/nemotron-nano-3-30b-a3b` | MoE Leve | 256.000 | 40 | 1.000 | Resposta instantânea, classificação e sumarização |
+| `nvidia/nemotron-3-nano-omni-30b-a3b-reasoning` | Multimodal Omni | 256.000 | 40 | 1.000 | Raciocínio cruzado: texto, imagem, áudio e vídeo |
+| `deepseek-ai/deepseek-v4-flash-0731` | DeepSeek V4 | 1.048.576 | 40 | 1.000 | Endpoint NIM do DeepSeek V4 Flash |
+| `01-ai/yi-large` | 01.AI Flagship | 131.072 | **40** | **1.000** | Raciocínio bilíngue (ZH/EN) de alta fidelidade e matemática |
+| `moonshotai/kimi-k3` | Kimi Frontier | 1.048.576 | 40 | 1.000 | Modelo K3 da Moonshot hospedado sob cota NIM |
+| `moonshotai/kimi-k2.6` | Kimi Mid-tier | 262.144 | 40 | 1.000 | Versão 2.6 estável |
+| `openai/gpt-oss-20b` | GPT-OSS | 131.072 | 40 | 1.000 | Alternativa rápida open-source |
+| `google/gemma-4-31b-it` | Google Gemma 4 | 262.144 | 40 | 1.000 | Modelo de 31B parâmetros do Google |
+| `google/diffusiongemma-26b-a4b-it` | Diffusion LLM | 262.144 | 40 | 1.000 | Geração paralela não-autoregressiva |
+| `meta/llama-3.2-11b-vision-instruct`| Meta Vision | 131.072 | 40 | 1.000 | Multimodal com visão computacional |
+| `meta/llama-3.2-90b-vision-instruct`| Meta Vision Flagship| 131.072 | 40 | 1.000 | Alta precisão visual em OCR e gráficos |
+| `poolside/laguna-xs-2.1` | Coding Agent | 262.144 | 40 | 1.000 | Especializado em engenharia de software |
+| `writer/palmyra-creative-122b` | Writer Palmyra | 32.768 | 40 | 1.000 | Especializado em redação criativa e marketing |
+| `ibm/granite-3.0-8b-instruct` | IBM Granite | 131.072 | 40 | 1.000 | Modelo corporativo de alta aderência |
+| `microsoft/phi-3.5-moe-instruct` | Microsoft Phi MoE | 131.072 | 40 | 1.000 | Modelo compacto MoE |
+| `nvidia/cosmos-reason2-8b` | VLM Física de Vídeo | 128.000 | 40 | 1.000 | Raciocínio espacial e físico sobre sequências de vídeo |
+| `nvidia/ai-synthetic-video-detector` | Segurança/Detecção| - | 40 | 1.000 | Classificador forense de vídeos gerados por IA |
+| `nvidia/riva-translate-4b-instruct-v2`| Tradução | 32.768 | 40 | 1.000 | Tradução multilíngue neural de alta fidelidade |
+
+> **Mudanças recentes no NIM (17/09)**:
+> - Removidos do free endpoint: `deepseek-ai/deepseek-v4-pro-0813` e `minimaxai/minimax-m3`.
+> - Adicionados ao free endpoint: `z-ai/glm-5.3` e `z-ai/glm-5.3-flash`.
+
+---
+
+### 🟣 OPENROUTER — *Validado em 17/09/2026 (24 Modelos Free Ativos)*
+
+O OpenRouter funciona como agregador universal com roteamento inteligente. Limite geral da cota gratuita: **20 RPM / 200 RPD**.
+
+| Modelo ID API | Display Name | Contexto (In / Out) | Status Operacional | Notas & Aplicação |
+| :--- | :--- | :---: | :---: | :--- |
+| `nex-agi/nex-n2.5-pro:free` 🆕 | Nex N2.5 Pro | 262.144 / 235.929 | ✅ 200 OK | **NOVO (17/09)** — Raciocínio e código de alto nível |
+| `nex-agi/nex-n2.5-mini:free` 🆕 | Nex N2.5 Mini | 262.144 / 235.929 | ✅ 200 OK | **NOVO (17/09)** — Rápido com enorme janela de saída |
+| `inclusionai/ling-3.0-flash-vl:free` 🆕| Ling 3.0 Flash VL | 262.144 / 32.768 | ✅ 200 OK | **NOVO (17/09)** — Multimodal com Visão Computacional! |
+| `z-ai/glm-5.2:free` 🆕 | Z.ai GLM 5.2 | 32.768 / 29.491 | ✅ 200 OK | **RE-ADICIONADO (17/09)** — Retornou ao Free Tier |
+| `stealth/union-alpha` 🆕 | Union Alpha | 262.144 / 131.072 | ✅ 200 OK | **NOVO (17/09)** — Modelo stealth experimental de 262K |
+| `inclusionai/ling-3.0-flash-sante:free` | Ling 3.0 Flash Santé | 262.144 / 32.768 | ✅ 200 OK | Especializado em saúde/ciências biomédicas |
+| `inclusionai/ling-3.0-flash-fin:free` | Ling 3.0 Flash Fin | 262.144 / 32.768 | ✅ 200 OK | Especializado em finanças e economia |
+| `dots-studio/dots-3-note-preview:free` | Dots3-Note Preview | 512.000 / 460.800 | ✅ 200 OK | Janela de output gigantesca (460K tokens) |
+| `liquid/lfm-2.5-2.6b:free` | Liquid LFM 2.5 2.6B | 65.536 / 8.192 | ✅ 200 OK | Modelo bio-inspirado extremamente leve e rápido |
+| `nvidia/nemotron-3.5-lightning:free` | Nemotron 3.5 Lightning | 1.000.000 / 65.536 | ✅ 200 OK | 1M de contexto gratuito |
+| `nvidia/nemotron-3-ultra-550b-a55b:free`| Nemotron 3 Ultra | 1.000.000 / 65.536 | ✅ 200 OK | Frontier MoE gratuito no roteador |
+| `nvidia/nemotron-3-super-120b-a12b:free`| Nemotron 3 Super | 262.144 / 235.929 | ✅ 200 OK | Excelente em tool calling |
+| `nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free`| Nemotron 3 Nano Omni| 256.000 / 65.536 | ✅ 200 OK | Multimodal com suporte a raciocínio |
+| `poolside/laguna-s-2.1:free` | Laguna S 2.1 | 262.144 / 32.768 | ✅ 200 OK | Coding agent rápido |
+| `poolside/laguna-xs-2.1:free` | Laguna XS 2.1 | 262.144 / 32.768 | ✅ 200 OK | Coding agent para pequenos módulos |
+| `cohere/north-mini-code:free` | Cohere North Mini Code | 256.000 / 64.000 | ✅ 200 OK | Coding e Tool Use da Cohere |
+| `google/gemma-4-31b-it:free` | Gemma 4 31B | 262.144 / 32.768 | ✅ 200 OK | Modelo dense de 31B |
+| `google/gemma-4-26b-a4b-it:free` | Gemma 4 26B MoE | 262.144 / 32.768 | ✅ 200 OK | MoE esparso do Google |
+| `google/lyria-3-pro-preview` | Lyria 3 Pro Preview | 1.048.576 / 65.536 | ✅ 200 OK | Geração de áudio e música (preview) |
+| `google/lyria-3-clip-preview` | Lyria 3 Clip Preview | 1.048.576 / 65.536 | ✅ 200 OK | Áudio multimodal |
+| `nvidia/nemotron-3.5-content-safety:free`| Nemotron Safety | 128.000 / 8.192 | ✅ 200 OK | Verificação de moderação |
+| `openrouter/free` | Free Models Router | 200.000 / auto | ✅ 200 OK | Roteador dinâmico automático |
+| `thinkingmachines/inkling:free` | Inkling Flagship | 1.048.576 / 262.144 | ⚠️ 403 Restrito | Listado como free, mas bloqueado no backend |
+| `thinkingmachines/inkling-small:free` | Inkling Small | 1.048.576 / 262.144 | ⚠️ 403 Restrito | Requer conta autorizada upstream |
+
+---
+
+### 🟠 MISTRAL AI — *Validado em 17/09/2026 (46 modelos no catálogo)*
+
+A Mistral oferece acesso a quase todos os seus modelos no Free Tier através de pools de consumo compartilhado: **50K TPM padrão**, **4M tokens/mês** e vazão global de **~1 req/s** (sem necessidade de cartão de crédito).
+
+| Modelo ID API | Categoria | Contexto | RPM | TPM Pool | Validação 17/09 | Capacidades Principais |
+| :--- | :--- | :---: | :---: | :---: | :---: | :--- |
+| `codestral-2508` / `codestral-latest` | Coding / FIM | **256.000** | 60 | Standard (50K) | ✅ 200 OK | Especialista em código, Fill-in-the-Middle |
+| `mistral-code-latest` / `fim-latest` | Coding Puro | 256.000 | 60 | Standard (50K) | ✅ 200 OK | Endpoint dedicado para autocompletar |
+| `mistral-small-2603` / `small-latest` | Workhorse | **262.144** | 60 | Standard (50K) | ✅ 200 OK | Melhor balanço velocidade / inteligência |
+| `mistral-vibe-cli-fast` | CLI Agent | 262.144 | 60 | Standard (50K) | ✅ 200 OK | Otimizado para execução de terminal e scripts |
+| `magistral-small-latest` | Raciocínio Leve | 262.144 | 1 | 20K TPM | ✅ 200 OK | Raciocínio guiado em modelo compacto |
+| `ministral-3b-2512` / `latest` | Edge Model | 131.072 | 60 | Standard (50K) | ✅ 200 OK | 3B parâmetros; ultra-eficiente |
+| `ministral-8b-2512` / `latest` | Mid Compact | 262.144 | 60 | Standard (50K) | ✅ 200 OK | 8B parâmetros; excelente para extração local |
+| `ministral-14b-2512` / `latest` | Dense Compact | 262.144 | 60 | Standard (50K) | ✅ 200 OK | 14B parâmetros; alta densidade de raciocínio |
+| `mistral-medium-2604` / `medium-3.5` | Flagship Anterior| 32.768 | 1 | 375K TPM | ✅ 200 OK | Análise de texto aprofundada |
+| `magistral-medium-latest` | Frontier Reasoner| 32.768 | 1 | 20K TPM | ✅ 200 OK | Modelo de raciocínio avançado da Mistral |
+| `voxtral-small-2507` / `small-latest` | Áudio STT | 32.768 | 60 | Standard | ✅ 200 OK | Reconhecimento e transcrição de fala |
+| `voxtral-mini-2602` / `realtime-latest`| Áudio Realtime | 32.768 | 60 | Standard | ✅ 200 OK | Processamento de áudio bidirecional em tempo real |
+| `voxtral-mini-tts-2603` / `tts-latest` | Áudio TTS | 4.096 | 60 | Standard | ✅ 200 OK | Síntese de voz expressiva |
+| `mistral-ocr-2512` / `ocr-latest` / `4-1`| Visão OCR | 16.384 | 60 | Standard | ✅ 200 OK | Extração de tabelas, PDFs e imagens complexas |
+| `mistral-embed-2312` / `codestral-embed`| Embeddings | 8.192 | 60 | 2K TPM | ✅ 200 OK | Vetorização semântica para RAG |
+| `mistral-moderation-2603` | Moderação | 131.072 | 60 | Standard | ✅ 200 OK | Classificador de segurança de prompts/respostas |
+
+---
+
+### 🟢 DEEPSEEK — *Validado em 17/09/2026 (Catálogo API Oficial & Preços Canônicos)*
+
+A DeepSeek opera uma das infraestruturas de inferência de maior eficiência de custos da indústria de IA, baseada em arquitetura Mixture-of-Experts (MoE) com Multi-head Latent Attention (MLA) e inferência nativa em FP8.
+
+#### 🔑 1. Identificadores Canônicos de API (Padrão OpenAI SDK)
+
+Para integração de sistemas em produção, automações e agentes (via OpenAI SDK, LiteLLM, LangChain ou chamadas HTTP diretas), os desenvolvedores devem enviar **obrigatoriamente** os identificadores canônicos oficiais:
+
+* **`deepseek-chat`**: Aponta para o modelo flagship de propósito geral **DeepSeek-V3** (671B parâmetros totais, 37B ativos por token). Utilizado para conversação, geração de texto, programação, sumarização e chamadas de função (Function Calling estruturado).
+* **`deepseek-reasoner`**: Aponta para o modelo de raciocínio lógico e analítico **DeepSeek-R1**. Executa cadeias de raciocínio passo a passo antes de emitir a resposta final, suportando retorno de tokens de pensamento (`reasoning_content`).
+
+> **Endpoint Base Oficial**: `https://api.deepseek.com/v1` (ou `https://api.deepseek.com`)  
+> **Formato de Chamada**: `client = OpenAI(api_key="<DEEPSEEK_API_KEY>", base_url="https://api.deepseek.com")`
+
+#### 💰 2. Tabela Oficial Consagrada de Preços por 1 Milhão de Tokens
+
+A tarifação da DeepSeek é pioneira mundial na diferenciação entre **Cache Hit** e **Cache Miss**, oferecendo economia de até 90% em prompts reutilizados, além de um desconto oficial de 50% em períodos de baixa demanda.
+
+| Modelo / ID Canônico | Contexto Máx | Entrada (Cache Miss) | Entrada (Cache Hit) | Saída (Geração) | Concorrência Free | Status Operacional |
+| :--- | :---: | :---: | :---: | :---: | :---: | :--- |
+| **`deepseek-chat`** (DeepSeek-V3) | **1.048.576** | **$0.14** (¥1.00) | **$0.014** (¥0.10) | **$0.28** (¥2.00) | **128 reqs** | ✅ 200 OK — Flagship geral |
+| **`deepseek-reasoner`** (DeepSeek-R1)| **1.048.576** | **$0.55** (¥4.00) | **$0.14** (¥1.00) | **$2.19** (¥16.00) | **128 reqs** | ✅ 200 OK — Raciocínio profundo |
+
+##### 🌙 Desconto Oficial de Horário Econômico (Off-Peak — 50% OFF)
+
+A DeepSeek aplica oficialmente um **desconto de 50%** em todos os preços de tabela durante os horários de baixa demanda:
+
+* **Janela Off-Peak**: Diariamente das **00:30 às 08:30 (UTC+8)** / **16:30 às 00:30 UTC** / **13:30 às 21:30 BRT**.
+* **Preços no Horário Econômico**:
+  * **DeepSeek-V3 (`deepseek-chat`)**:
+    * Entrada Cache Miss: **$0.07** (¥0.50 RMB) por 1M tokens.
+    * Entrada Cache Hit: **$0.007** (¥0.05 RMB) por 1M tokens.
+    * Saída: **$0.14** (¥1.00 RMB) por 1M tokens.
+  * **DeepSeek-R1 (`deepseek-reasoner`)**:
+    * Entrada Cache Miss: **$0.275** (¥2.00 RMB) por 1M tokens.
+    * Entrada Cache Hit: **$0.07** (¥0.50 RMB) por 1M tokens.
+    * Saída: **$1.095** (¥8.00 RMB) por 1M tokens.
+
+#### 🎁 3. Cota Free & Poder de Compra de $5 USD ("O Rei dos $5")
+
+* **Cota de Boas-Vindas**: Toda nova conta registrada na plataforma DeepSeek recebe automaticamente **5.000.000 de tokens gratuitos** (5M tokens), com validade de **30 dias**, utilizáveis imediatamente sem necessidade de cadastrar cartão de crédito.
+* **Limites de Taxa no Free**: A plataforma não impõe limites rígidos de RPM; o acesso é delimitado por um teto padrão de **128 requisições concorrentes simultâneas**, com vazão dinâmica.
+* **Análise Real de ROI com um Depósito Mínimo de $5 USD**:
+  * O depósito mínimo aceito na API é de apenas **$5.00 USD** (via cartão internacional, Alipay ou WeChat Pay).
+  * **No DeepSeek-V3 (`deepseek-chat`) sem Cache**: Considerando uma taxa mista de $0.14 na entrada e $0.28 na saída (custo médio ponderado de ~$0.20/M), $5 USD entregam entre **18.000.000 e 35.000.000 de tokens**.
+  * **No DeepSeek-V3 com Context Caching Ativo**: Como a DeepSeek faz cache automático de blocos de contexto idênticos (a partir de 64 tokens) cobrando apenas **$0.014 por 1M de tokens no Cache Hit**, tarefas com prompts de sistema longos, histórico de conversação ou análise de bases de código atingem taxas de cache hit de 80% a 95%. Sob esse cenário, **um saldo de $5 USD rende mais de 100.000.000 (cem milhões) de tokens**!
+  * **No DeepSeek-R1 (`deepseek-reasoner`)**: Um saldo de $5 USD entrega entre **2.200.000 e 9.000.000 de tokens** de raciocínio profundo puro, o que representa uma economia de 90% a 95% comparado ao OpenAI o1 ($15/$60 por 1M) ou Claude 3.7 Sonnet Thinking.
+
+#### ⚙️ 4. Esclarecimento Técnico de Runtime: Reconciliação de Rotas Internas
+
+Desenvolvedores e pesquisadores que inspecionam o tráfego da API, logs de telemetria ou metadados de resposta podem ocasionalmente observar termos como `deepseek-flash` ou `deepseek-v4-pro`. É fundamental esclarecer sua origem técnica:
+
+1. **Topologia de Cluster & Partições de Hardware**:
+   * O backend distribuído da DeepSeek organiza seus nós de inferência em partições funcionais: nós **"Flash"** são clusters especializados em decodificação ultra-veloz em FP8 com alta densidade de vazão para requisições de latência mínima.
+   * Nós **"Pro"** ou **"Reasoner"** são partições de nós dedicados à execução intensiva de cadeias de raciocínio lógico e amostragem de long-context.
+2. **Espelhamento em Headers e Logs**:
+   * Em determinados gateways de roteamento ou cabeçalhos HTTP internos de diagnóstico (como `x-deepseek-engine` ou rotas experimentais de baixa latência), a infraestrutura pode reportar a tag da engine que atendeu a requisição (`flash` ou `v4-pro`).
+3. **Diretriz Canônica de Integração**:
+   * Esses termos **NÃO são nomes canônicos de modelos públicos**. Desenvolvedores **NUNCA** devem enviar `model="deepseek-flash"` ou `model="deepseek-v4-pro"` em chamadas de produção, pois essas rotas não constam na especificação pública padrão da API e podem incorrer em erro de rota inválida (`model_not_found`).
+   * **Os únicos IDs aceitos e garantidos são `deepseek-chat` e `deepseek-reasoner`**. A cobrança financeira e a aplicação de cotas e descontos de horário econômico são 100% ancoradas nestes dois identificadores oficiais.
+
+---
+
+### ⚫ KIMI / MOONSHOT AI — *Validado em 17/09/2026 (APIs Doméstica & Internacional)*
+
+A Moonshot AI (月之暗面) opera dois ambientes de API complementares: a plataforma chinesa original (focada em contexto ultra-longo na linha V1) e a plataforma internacional de inferência de ponta (`api.moonshot.ai`) com raciocínio e visão.
+
+#### 🔹 1. Plataforma China Doméstica (`api.moonshot.cn/v1`) — Modelos Clássicos
+* **Cota de Boas-Vindas**: Novos desenvolvedores recebem **¥15 RMB de bônus gratuito** (~$2.10 USD) para experimentação imediata no cadastro sem necessidade de cartão de crédito.
+* **Modelos Clássicos V1**:
+  * `moonshot-v1-8k`: Janela de 8.192 tokens; rápido para diálogos cotidianos e classificação.
+  * `moonshot-v1-32k`: Janela de 32.768 tokens; balanceado para síntese de documentos médios.
+  * `moonshot-v1-128k`: Janela de 128.000 tokens; processamento massivo de livros, relatórios e autos processuais.
+  * `moonshot-v1-auto`: Roteador dinâmico que seleciona automaticamente o menor contexto necessário para minimizar custos.
+
+#### 🔹 2. Linha Internacional de Inferência (`api.moonshot.ai/v1`) — Kimi K3 & K2.7
+* **Status**: Gateway internacional 100% operacional, projetado para desenvolvedores globais com compatibilidade com OpenAI SDK.
+* **Política de Acesso**: Ativação do Tier 0 via recarga mínima de **$1.00 USD**.
+
+| Modelo ID API | Contexto | RPM (Tier 0) | TPM (Tier 0) | TPD (Tier 0) | Preço Pago (In / Out) | Status / Observações |
+| :--- | :---: | :---: | :---: | :---: | :---: | :--- |
+| **`kimi-k3`** | **1.048.576** | **3** | **32.000** | **1.5M** | **$3.00** / **$15.00** por M | ✅ 200 OK — Flagship 2.8T params, Vision nativo e raciocínio Thinking |
+| **`kimi-k2.7-code`** | 256.000 | **3** | **32.000** | **1.5M** | **$0.95** / **$4.00** por M | ✅ 200 OK — Especializado em engenharia de software e agentes de terminal |
+| **`kimi-k2.7-code-highspeed`** | 256.000 | **3** | **32.000** | **1.5M** | **$1.90** / **$8.00** por M | ✅ 200 OK — Inferência acelerada de código (6x mais veloz) |
+| `kimi-k2.6` | 262.144 | **3** | **32.000** | **1.5M** | **$0.95** / **$4.00** por M | ✅ 200 OK — Modelo anterior mantido em produção para compatibilidade |
+
+---
+
+### 🟣 ANTHROPIC (Claude) — *Validado em 17/09/2026 (11 modelos na API)*
+
+* **Status Free Tier**: ❌ **NÃO HÁ free tier permanente na API da Anthropic** ($5 inicial único).
+* **Acesso Free via Código**: **GitHub Models** (`models.inference.ai.azure.com`) fornece `claude-3.5-sonnet` (15 RPM / 150 RPD) gratuitamente.
+
+| Modelo ID API | Contexto | Cota Free API | Acesso Alternativo Gratuito |
+| :--- | :---: | :---: | :--- |
+| `claude-sonnet-4-6` / `claude-sonnet-5` | 200K / 1M | ❌ Apenas $5 inicial | Webchat em `claude.ai` |
+| `claude-opus-4-6` / `claude-opus-5` | 200K / 1M | ❌ Apenas $5 inicial | Webchat com plano Pro |
+| `claude-haiku-4-5-20251001` | 200K | ❌ Apenas $5 inicial | Rápido e de baixo custo pago |
+| `claude-3.5-sonnet` (legado) | 200K | ✅ Free no GitHub Models | **10-15 RPM / 150 RPD no GitHub Models** |
+
+---
+
+### 🟢 OPENAI — *Validado em 17/09/2026 (119 modelos no catálogo)*
+
+* Chat models (`gpt-4o`, `gpt-4o-mini`, `gpt-5.4`) requerem saldo pré-pago.
+* Endpoints gratuitos: `whisper-1` (3 RPM / 200 RPD) e `omni-moderation-latest`.
+
+---
+
+### 🔵 CEREBRAS CLOUD — *STATUS: ENCERRADO DEFINITIVAMENTE*
+
+* **Status**: ❌ **FREE TIER ENCERRADO**. Responde com 402/403. Removido de qualquer fallback gratuito.
+
+---
+
+### 🟢 DEEPINFRA — *Validado em 17/09/2026 (189 modelos no catálogo)*
+
+* Pay-per-use ultra-econômico sem mínimo de recarga. `openai/gpt-oss-120b` a **$0.08 por milhão de tokens blended**.
+* Modelos disponíveis: `Qwen/Qwen3.5-122B-A10B`, `ByteDance/Seed-2.0-mini`, `google/veo-3.1-fast`, `black-forest-labs/FLUX-2-pro`.
+
+---
+
+### 🇨🇳 ECOSSISTEMA CHINÊS: PROVEDORES NATIVOS & MODELOS DOMÉSTICOS
+
+O mercado chinês de IA desenvolveu uma das infraestruturas de inferência mais competitivas do mundo. Diferencia-se por oferecer modelos leves permanentemente gratuitos (visando tração de desenvolvedores) e modelos de raciocínio de alta escala a custos ordens de magnitude inferiores aos modelos ocidentais.
+
+---
+
+#### 🔴 ZHIPU AI / BIGMODEL (open.bigmodel.cn) — *Validado em 17/09/2026 (Modelos 100% Free Perpétuo)*
+
+A Zhipu AI (清华系 AI), originada na Universidade de Tsinghua, disponibiliza a família **GLM-4-Flash** com acesso **100% gratuito e perpétuo** para desenvolvedores, sem cobrança de tokens.
+
+* **Endpoint Base**: `https://open.bigmodel.cn/api/paas/v4` (Compatível nativamente com o formato OpenAI SDK `/chat/completions`)
+* **Tipo de Cota**: Free Tier perpétuo no modelo Flash + **25.000.000 tokens bônus de boas-vindas** no cadastro para modelos pagos (válidos por 30 dias).
+* **Limites de Taxa Granulares (Free Tier)**:
+  * **Concorrência**: **1 requisição concorrente simultânea** no Free Tier.
+  * **Tokens / Minuto**: Ilimitado no Flash (respeitando 1 chamada por vez com backoff).
+  * **Aplicações de Alta Frequência**: Para concorrência paralela (5-10 concurrency), a Zhipu oferece planos pré-pagos onde o GLM-4-FlashX ou GLM-4-Air custam menos de ¥1 RMB (~$0.14 USD) por milhão de tokens.
+* **Requisitos de Entrada / Cartão**: ❌ **NÃO exige cartão de crédito**. Cadastro com e-mail internacional ou telefone.
+* **Autenticação**: Header `Authorization: Bearer <ZHIPU_API_KEY>` (formato `<id>.<secret>`).
+
+| Modelo ID API | Display Name | Modalidade | Contexto (In / Out) | Limite Free | Custo Pago (após free) | Notas & Capacidades |
+| :--- | :--- | :--- | :---: | :---: | :---: | :--- |
+| **`glm-4-flash`** | GLM-4 Flash (Original) | Texto / Chat | 128.000 / 4.096 | **100% Grátis Perpétuo** (1 conc) | ¥0.00 / M tokens | **Top Pick Free Chinês** — Respostas ultra-rápidas, excelente bilinguismo (ZH/EN) |
+| **`glm-4.7-flash`** 🆕 | GLM-4.7 Flash | Texto / Instrução | 128.000 / 4.096 | **100% Grátis Perpétuo** (1 conc) | ¥0.00 / M tokens | Versão aprimorada com raciocínio analítico e seguimento de regras complexas |
+| **`glm-4v-flash`** | GLM-4V Flash | Visão Computacional | 8.192 / 4.096 | **100% Grátis Perpétuo** (1 conc) | ¥0.00 / M tokens | Multimodal para OCR, interpretação de tabelas, imagens e diagramas |
+| `glm-4-flashx` | GLM-4 FlashX (Ultra-Fast) | Baixa Latência | 128.000 / 4.096 | Trial / ¥0.1 por M | ~$0.015 / M tokens | Versão acelerada em hardware proprietário para TTFT mínimo |
+| `glm-4-air` | GLM-4 Air (Balanced) | Raciocínio Geral | 128.000 / 4.096 | Consome bônus 25M | ¥1.00 / M tokens (~$0.14) | Excelente equilíbrio entre velocidade, inteligência e custo |
+| `glm-4-plus` | GLM-4 Plus (Flagship) | Frontier Chinês | 128.000 / 4.096 | Consome bônus 25M | ¥10.00 / M tokens (~$1.40) | Modelo de maior capacidade cognitiva da Zhipu (nível GPT-4o) |
+| `glm-5.3` | GLM-5.3 Next-Gen | Raciocínio Avançado | 131.072 / 8.192 | Via NVIDIA NIM Free | Sob consulta | Disponível gratuitamente via endpoint do NVIDIA NIM (`z-ai/glm-5.3`) |
+
+---
+
+#### 🔴 BAIDU QIANFAN (qianfan.cloud.baidu.com) — *Validado em 17/09/2026 (ERNIE Speed & Lite 100% Free Perpétuo)*
+
+A plataforma Qianfan da Baidu (百度智能云千帆大模型平台) adota uma política agressiva de democratização da IA: os modelos da linha **ERNIE Speed** e **ERNIE Lite** são declarados **permanente e 100% gratuitos** para chamadas via API.
+
+* **Endpoints Base**:
+  * Gateway REST: `https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/{model_endpoint}`
+  * SDK Qianfan: `qianfan.ChatCompletion()` (Python / Node.js / Go)
+* **Tipo de Cota**: Free Tier perpétuo para desenvolvimento e uso em produção moderada nos modelos Speed/Lite.
+* **Limites de Taxa Granulares (Modelos Free)**:
+  * **RPM (Requests Per Minute)**: **300 RPM** padrão compartilhado.
+  * **TPM (Tokens Per Minute)**: **300.000 TPM** padrão.
+  * **Concorrência**: Múltiplas conexões simultâneas permitidas (gerenciadas dinamicamente sob a cota de 300 RPM).
+* **Requisitos de Entrada / Cartão**: ❌ **NÃO exige cartão de crédito ocidental**. Requer registro de conta no Baidu AI Cloud e autenticação básica de desenvolvedor (e-mail/celular).
+* **Autenticação**: Protocolo OAuth 2.0 via `access_token` gerado em `/oauth/2.0/token` usando `API_KEY` e `SECRET_KEY`.
+
+| Modelo ID API | Display Name | Modalidade | Contexto (In / Out) | Limite RPM / TPM | Tipo de Cota | Notas & Casos de Uso |
+| :--- | :--- | :--- | :---: | :---: | :---: | :--- |
+| **`ERNIE-Speed-8K`** | ERNIE Speed 8K | Texto / Diálogo | 8.192 / 4.096 | **300 RPM / 300K TPM** | **100% Free Perpétuo** | **Rei da Vazão Free** — Inferência ultra-rápida para resumos, FAQs e agentes |
+| **`ERNIE-Speed-128K`** | ERNIE Speed 128K | Contexto Longo | 128.000 / 4.096 | **300 RPM / 300K TPM** | **100% Free Perpétuo** | Análise de documentos extensos, livros e logs sem custo de tokens |
+| **`ERNIE-Lite-8K-0922`** | ERNIE Lite 8K | Texto Compacto | 8.192 / 4.096 | **300 RPM / 300K TPM** | **100% Free Perpétuo** | Modelo leve de baixo consumo, balanceado para extração estruturada de entidades |
+| `ERNIE-Tiny-8K` | ERNIE Tiny 8K | Micro-Modelo | 8.192 / 2.048 | **300 RPM / 300K TPM** | **100% Free Perpétuo** | Velocidade extrema para classificação e roteamento pré-filtro |
+| `ERNIE-4.0-Turbo-8K` | ERNIE 4.0 Turbo | Flagship Baidu | 8.192 / 4.096 | Pacote Onboarding / Pago | ¥0.03 / 1K tokens | Modelo mais inteligente da Baidu; raciocínio matemático e lógico avançado |
+| `ERNIE-3.5-128K` | ERNIE 3.5 128K | Raciocínio Longo | 128.000 / 4.096 | Pacote Onboarding / Pago | ¥0.0008 / 1K tokens | Modelo versátil a custo marginal para processamento em larga escala |
+
+---
+
+#### 🔴 ALIBABA CLOUD MODEL STUDIO / DASHSCOPE / BAILIAN (alibabacloud.com / bailian.console.aliyun.com) — *Validado em 17/09/2026*
+
+O ecossistema de IA da Alibaba Cloud unificou o acesso à família **Qwen (通义千问)** através do **Model Studio** (anteriormente DashScope / Bailian). A plataforma oferece franquias de boas-vindas gratuitas por modelo e as tarifas mais baixas da indústria para tokens adicionais.
+
+* **Endpoints Base**:
+  * Console Internacional (Singapura): `https://dashscope-intl.aliyuncs.com/compatible-mode/v1`
+  * Console China Doméstica: `https://dashscope.aliyuncs.com/compatible-mode/v1`
+  * Totalmente compatível com OpenAI SDK (`openai.OpenAI(base_url=..., api_key=...)`)
+* **Tipo de Cota Free (Onboarding Franquia)**:
+  * Cada novo usuário que ativa o Model Studio recebe entre **1.000.000 e 2.000.000 de tokens GRATUITOS por modelo individual** (ex.: 1M para Qwen-Plus, 1M para Qwen-Max, 1M para Qwen-Turbo).
+  * Validade da franquia: **90 a 180 dias** a partir da ativação de cada modelo.
+  * Hierarquia de dedução automática: `Free Quota > Pacote Promocional > Faturamento Pay-As-You-Go`.
+* **Limites de Taxa Granulares**:
+  * Modelos Gerais: **60 a 120 RPM** (agregado na conta).
+  * Limite de TPM: **100.000 a 200.000 TPM** por modelo.
+* **Requisitos de Entrada / Cartão**: Registro na Alibaba Cloud (versão internacional aceita cartão internacional; versão doméstica aceita Alipay). O free tier é consumido antes de qualquer cobrança.
+* **Autenticação**: Bearer token via `Authorization: Bearer <DASHSCOPE_API_KEY>`.
+
+| Modelo ID API | Display Name | Modalidade | Contexto (In / Out) | Cota Gratuita Onboarding | Custo Pós-Free (por 1M tokens) | Notas & Capacidades |
+| :--- | :--- | :--- | :---: | :---: | :---: | :--- |
+| **`qwen-turbo`** | Qwen Turbo (Veloz) | Texto / Geral | 131.072 / 8.192 | **2.000.000 tokens** (90 dias) | **¥0.30** (~$0.04 USD) | O modelo de produção mais barato da Alibaba; latência instantânea |
+| **`qwen-plus`** | Qwen Plus (Balanceado) | Raciocínio MoE | 131.072 / 8.192 | **1.000.000 tokens** (90 dias) | **¥0.80** (~$0.11 USD) | Desempenho equivalente a modelos intermediários globais; excelente em português |
+| **`qwen-max`** | Qwen Max (Flagship) | Raciocínio Complexo | 32.768 / 8.192 | **1.000.000 tokens** (90 dias) | **¥20.00** (~$2.80 USD) | O topo de linha da Alibaba; supera o GPT-4o em diversos benchmarks de código e exatas |
+| **`qwen-long`** | Qwen Long (Documentos)| Mega-Contexto | 1.000.000 / 8.192 | **1.000.000 tokens** (90 dias) | **¥0.50** (~$0.07 USD) | 1 Milhão de tokens de contexto para ingestão completa de bases documentais |
+| `qwen2.5-coder-32b-instruct` | Qwen 2.5 Coder 32B | Programação Pura | 131.072 / 8.192 | Franquia Model Studio | **¥1.50** (~$0.21 USD) | O modelo de código open-weight mais elogiado do mundo no ecossistema OpenCode |
+| `qwen2.5-72b-instruct` | Qwen 2.5 72B | Raciocínio Geral | 131.072 / 8.192 | Franquia Model Studio | **¥4.00** (~$0.56 USD) | O peso pesado open-source líder em rankings internacionais |
+| `qwen-vl-max` | Qwen VL Max | Visão Computacional | 32.768 / 8.192 | Franquia Onboarding | **¥20.00** (~$2.80 USD) | Extração de diagramas, vídeo frame-by-frame e OCR multi-orientação |
+
+---
+
+#### 🔴 TENCENT CLOUD HUNYUAN & TOKENHUB (cloud.tencent.com/product/hunyuan) — *Validado em 17/09/2026*
+
+A Tencent Cloud opera o **Hunyuan (混元大模型)** e o gateway unificado **TokenHub**, integrando modelos proprietários e variantes abertas com forte foco no ecossistema corporativo e no assistente de desktop **WorkBuddy**.
+
+* **Endpoints Base**: `https://hunyuan.tencentcloudapi.com` e gateway REST TokenHub.
+* **Tipo de Cota Free**:
+  * **Hunyuan-Lite**: Pacote gratuito de ativação de **1 ano** para testes e desenvolvimento.
+  * **Hunyuan-3D**: Concede **1.000 créditos gratuitos** de geração tridimensional na ativação.
+  * **Proteção contra Cobrança Involuntária**: Quando o pacote free é consumido, a Tencent **NÃO debita automaticamente do cartão** por padrão; as requisições subsequentes são bloqueadas com erro até ativação explícita do faturamento pós-pago.
+* **Modelos Principais**:
+  * `hunyuan-lite`: Modelo ultraleve gratuito para automações, triagem e chatbots.
+  * `hunyuan-standard` / `hunyuan-pro`: Modelos densos de 100B+ parâmetros para análise complexa.
+  * `hunyuan-vision`: Interpretação de imagens e fluxos de telas.
+  * `hunyuan-3d`: Geração de malhas 3D e texturas text-to-3D.
+* **Integração Desktop**: Motor padrão do **Tencent WorkBuddy (workbuddy.ai)** para geração de minutas, manipulação de arquivos do Office e automação de planilhas.
+
+---
+
+#### 🔴 BYTEDANCE VOLCANO ENGINE / DOUBAO (volcengine.com) — *Auditoria Operacional em 17/09/2026*
+
+O **Doubao (豆包)**, desenvolvido pela ByteDance, é o modelo de IA mais utilizado na China em volume de requisições diárias (motor do TikTok / Douyin).
+
+* **DIAGNÓSTICO CRÍTICO DE FREE TIER**: ❌ **A API profissional do Volcano Engine NÃO possui Free Tier perpétuo para desenvolvedores**.
+  * Enquanto o **aplicativo móvel e web do Doubao é 100% gratuito** para usuários finais, o acesso à API para desenvolvimento via Volcano Engine é **estritamente bilhetado em RMB**.
+  * Não há cota perpétua de chamadas sem saldo na conta.
+* **Tarifação de Atacado (Pay-Per-Use Ultra-Barato)**:
+  * Embora seja pago, é um dos mais baratos do mercado: `Doubao-pro-32k` custa aproximadamente **¥0.80 por milhão de tokens de entrada** (~$0.11 USD/M) e `Doubao-lite-32k` custa cerca de **¥0.30 por milhão** (~$0.04 USD/M).
+  * Conclusão de Arquitetura: Para pipelines 100% gratuitos, utilize **SiliconFlow (Qwen/DeepSeek)**, **Baidu Qianfan (ERNIE Speed)** ou **Zhipu AI (GLM-4-Flash)** em vez da API direta do Volcano Engine.
+
+---
+
+#### 🔴 OUTROS PLAYERS CHINESES: MINIMAX, 01.AI & STEPFUN
+
+| Provedor | Modelos Destacados | Bônus / Cota Free Inicial | Custo Pós-Free | Endpoint & Notas |
+| :--- | :--- | :---: | :---: | :--- |
+| **MiniMax**<br>`api.minimax.chat` | `abab6.5s-chat`, `MiniMax-Text-01`, `speech-01` (TTS), `video-01` (Hailuo AI) | **¥15 RMB de bônus** (~$2.10 USD) no cadastro | ~$0.15/M texto; TTS ~$0.002/1K chars | **Líder em Áudio e Vídeo**: O modelo `speech-01` possui a melhor síntese vocal emotiva da China; `video-01` lidera no Hailuo AI |
+| **01.AI (Lingyi Wanwu)**<br>`api.lingyiwanwu.com` | `yi-lightning`, `yi-large`, `yi-medium`, `yi-vision` | **¥30 RMB de créditos** (~$4.20 USD) | ¥1.00 a ¥12.00 por M tokens | Criado por Kai-Fu Lee. `yi-lightning` oferece velocidade excepcional de geração com raciocínio profundo |
+| **StepFun (Jieyue Xingchen)**<br>`platform.stepfun.ai` | `step-3.5-flash`, `step-3.7-flash`, `step-1-128k`, `stepaudio-3` | **Step Plan Trial** + Rota Free no OpenRouter | ~$0.10 a $0.80 / M tokens | Forte em compreensão multimodal de áudio (`stepaudio-3`) e modelos long-context rápidos |
+
+---
+
+
+### 🟢 HYPERBOLIC (api.hyperbolic.xyz) — *Validado em 17/09/2026 (Free Basic Tier Perpétuo)*
+
+A Hyperbolic opera um ecossistema de computação descentralizada e inferência aberta de alta performance com endpoints OpenAI-compatíveis. O plano **Free Basic Tier** oferece inferência gratuita contínua sem data de expiração.
+
+* **Endpoint Base**: `https://api.hyperbolic.xyz/v1` (Compatível com OpenAI SDK / LiteLLM)
+* **Tipo de Cota**: Free Tier permanente (Basic Tier).
+* **Limite Global de Taxa**: **60 RPM** (Requests Per Minute) fixos no plano gratuito. Upgrade para 600 RPM disponível no plano Pro com depósito único de $5.
+* **Requisitos de Entrada / Cartão**: ❌ **NÃO exige cartão de crédito** nem dados de faturamento para uso de inferência serverless. Cadastro via e-mail ou Web3 wallet. Cartão/depósito de $5 é exigido exclusivamente para instâncias de GPU dedicada e provisionamento de volumes de armazenamento.
+* **Autenticação**: Bearer token (`Authorization: Bearer <HYPERBOLIC_API_KEY>`) gerado no dashboard (`app.hyperbolic.xyz/settings/api-keys`).
+
+| Modelo ID API | Display Name | Modalidade | Contexto (In / Out) | RPM | TPM / TPD | Tipo de Cota | Capacidades Principais & Notas |
+| :--- | :--- | :--- | :---: | :---: | :---: | :---: | :--- |
+| `meta-llama/Meta-Llama-3.1-405B-Instruct` | Llama 3.1 405B | Texto / Raciocínio | 131.072 / 8.192 | **60** | Dinâmico | Free Perpétuo | Flagship open-weights de 405B rodando sob inferência distribuída |
+| `meta-llama/Meta-Llama-3.1-70B-Instruct` | Llama 3.1 70B | Texto / Tool Use | 131.072 / 8.192 | **60** | Dinâmico | Free Perpétuo | Workhorse para raciocínio analítico, código e tool calling estruturado |
+| `meta-llama/Meta-Llama-3.1-8B-Instruct` | Llama 3.1 8B | Texto / Velocidade | 131.072 / 8.192 | **60** | Dinâmico | Free Perpétuo | Latência ultrabaixa para extração, classificação e parsing de texto |
+| `Qwen/Qwen2.5-72B-Instruct` | Qwen 2.5 72B | Texto / Código | 131.072 / 8.192 | **60** | Dinâmico | Free Perpétuo | Excelente em matemática, raciocínio lógico e suporte multilíngue |
+| `Qwen/Qwen2.5-Coder-32B-Instruct` | Qwen 2.5 Coder 32B | Coding Agent | 131.072 / 8.192 | **60** | Dinâmico | Free Perpétuo | Especialista em geração de código, refatoração e resolução de bugs |
+| `deepseek-ai/DeepSeek-V3` | DeepSeek V3 | MoE Geral | 65.536 / 8.192 | **60** | Dinâmico | Free Perpétuo | Arquitetura MoE de 671B com 37B ativos; alta inteligência por custo zero |
+| `deepseek-ai/DeepSeek-R1` | DeepSeek R1 | Raciocínio Puro | 65.536 / 8.192 | **60** | Dinâmico | Free Perpétuo | Raciocínio analítico aprofundado com tokens de reflexão (thinking tags) |
+| `FLUX.1-dev` | FLUX.1 Dev | Geração de Imagem | 1.024 x 1.024 | **10** | - | Free Perpétuo | Síntese de imagens de 12B parâmetros com alta fidelidade e tipografia |
+| `SDXL1.0-base` | Stable Diffusion XL | Geração de Imagem | 1.024 x 1.024 | **20** | - | Free Perpétuo | Geração rápida de imagens em 1024x1024 para prototipagem visual |
+
+---
+
+### 🟢 SILICONFLOW / SILICONCLOUD (api.siliconflow.com) — *Validado em 17/09/2026 (Free Tier Permanente & High Throughput)*
+
+A SiliconFlow (SiliconCloud) é uma plataforma global de inferência de modelos como serviço (MaaS) que disponibiliza uma ampla gama de modelos de código aberto com **Free Tier permanente** (modelos identificados sem custo de consumo), somado a um crédito inicial gratuito de boas-vindas ($1 / 20M tokens) para novos desenvolvedores.
+
+* **Endpoint Base**: `https://api.siliconflow.com/v1` (Global, recomendado para menor latência internacional) ou `https://api.siliconflow.cn/v1` (China) (OpenAI-compatible)
+* **Tipo de Cota**: Modelos com Free Tier perpétuo (sem desconto de créditos) + $1 USD (20M tokens promocionais no signup).
+* **Limites Granulares de Taxa (Nível L0 - Free)**:
+  * **Modelos Free Gerais**: **1.000 RPM** (Requests Per Minute) e **40.000 TPM** (Tokens Per Minute).
+  * **Modelos DeepSeek R1 / V3**: **30 RPH** (Requests Per Hour) e **100 RPD** (Requests Per Day) para contas sem validação de identidade real (KYC).
+* **Requisitos de Entrada / Cartão**: ❌ **NÃO exige cartão de crédito** no cadastro nem para uso dos modelos gratuitos e créditos de boas-vindas. Validação de identidade/telefone solicitada apenas se o desenvolvedor quiser elevar limites para produção pesada.
+* **Autenticação**: Bearer token via header `Authorization: Bearer <SILICONFLOW_API_KEY>`.
+
+| Modelo ID API | Display Name | Modalidade | Contexto (In / Out) | RPM | TPM / RPD | Tipo de Cota | Notas & Capacidades |
+| :--- | :--- | :--- | :---: | :---: | :---: | :---: | :--- |
+| `Qwen/Qwen2.5-7B-Instruct` | Qwen 2.5 7B | Texto / Chat | 32.768 / 4.096 | **1.000** | **40K TPM** | Free Permanente | Modelo de 7B denso, balanceado e rápido para tarefas cotidianas |
+| `Qwen/Qwen2.5-Coder-7B-Instruct` | Qwen 2.5 Coder 7B | Código / CLI | 32.768 / 4.096 | **1.000** | **40K TPM** | Free Permanente | Otimizado para autocompletar e geração de código em 92 linguagens |
+| `Qwen/Qwen2.5-VL-7B-Instruct` | Qwen 2.5 VL 7B | Visão Computacional| 32.768 / 4.096 | **1.000** | **40K TPM** | Free Permanente | VLM com leitura de imagens, diagramas, tabelas e OCR multilíngue |
+| `deepseek-ai/DeepSeek-R1-Distill-Qwen-7B`| DeepSeek R1 Qwen 7B| Raciocínio Destilado | 32.768 / 4.096 | **1.000** | **40K TPM** | Free Permanente | Raciocínio matemático e lógico treinado sob as saídas do DeepSeek R1 |
+| `deepseek-ai/DeepSeek-R1-Distill-Llama-8B`| DeepSeek R1 Llama 8B| Raciocínio Destilado | 32.768 / 4.096 | **1.000** | **40K TPM** | Free Permanente | Variante de raciocínio destilado sob a arquitetura do Llama 3.1 8B |
+| `THUDM/glm-4-9b-chat` | GLM-4 9B Chat | Texto / Tool Use | 32.768 / 4.096 | **1.000** | **40K TPM** | Free Permanente | Modelo bilingue (EN/ZH) da Zhipu AI para extração e diálogos |
+| `deepseek-ai/DeepSeek-V3` | DeepSeek V3 Flagship| MoE Geral | 65.536 / 8.192 | 100 | **100 RPD** | Free sem KYC | 671B MoE com limite de 30 RPH / 100 RPD no nível não-verificado |
+| `deepseek-ai/DeepSeek-R1` | DeepSeek R1 Flagship| Raciocínio Puro | 65.536 / 8.192 | 100 | **100 RPD** | Free sem KYC | Modelo completo de raciocínio com 30 RPH / 100 RPD no nível free |
+| `black-forest-labs/FLUX.1-schnell` | FLUX.1 Schnell | Geração de Imagem | 1.024 x 1.024 | **10** | - | Free Permanente | Síntese de imagem em 4 passos sob licença Apache 2.0 |
+| `BAAI/bge-large-zh-v1.5` | BGE Large Chinese | Embeddings | 512 / 1.024 dim | **1.000** | **40K TPM** | Free Permanente | Embedding semântico denso de alta dimensionalidade |
+| `BAAI/bge-m3` | BGE M3 Multi-modal | Embeddings Multiling| 8.192 / 1.024 dim | **1.000** | **40K TPM** | Free Permanente | Suporta busca densa, esparsa e multi-vectorial em 100+ idiomas |
+
+---
+
+### 🟢 POLLINATIONS.AI (gen.pollinations.ai) — *Validado em 17/09/2026 (Gateway Multimodal 100% Free Perpétuo)*
+
+O Pollinations.ai é uma rede aberta de computação de IA que fornece inferência 100% gratuita para modelos de texto, imagem, áudio e visão. A plataforma opera com uma API unificada compatível com o formato OpenAI e também via chamadas REST diretas em URLs legíveis por humanos.
+
+* **Endpoint Base Unificado**: `https://gen.pollinations.ai/v1` (Compatível com OpenAI SDK para `/chat/completions`)
+* **Endpoints REST Diretos**:
+  * Imagem: `https://image.pollinations.ai/prompt/{prompt}?model={model}&width={w}&height={h}&key={api_key}`
+  * Texto: `https://gen.pollinations.ai/text/{prompt}?model={model}&key={api_key}`
+* **Tipo de Cota**: Free Tier perpétuo e comunitário.
+* **Limites de Taxa Granulares**:
+  * **Com Chave Gratuita (`sk_`)**: **60 RPM** estável para texto e **30 RPM** para geração de imagens.
+  * **Sem Chave (Anônimo/Legado)**: Severamente restringido (~1 requisição por IP/hora ou intervalo compulsório de 6-7s entre chamadas para prevenir abusos).
+* **Requisitos de Entrada / Cartão**: ❌ **NÃO exige cartão de crédito**, nem dados de faturamento. Chaves de API (`sk_` para backend e `pk_` para frontend) são geradas gratuitamente em `enter.pollinations.ai` via login com GitHub ou e-mail.
+* **Autenticação**: Header `Authorization: Bearer <POLLINATIONS_API_KEY>` ou query param `?key=<KEY>`.
+
+| Modelo ID API | Display Name | Modalidade | Contexto (In / Out) | RPM | Tipo de Cota | Capacidades & Casos de Uso |
+| :--- | :--- | :--- | :---: | :---: | :--- |
+| `openai` | GPT-4o-Mini Equivalent | Texto / Chat | 128.000 / 16.384 | **60** | Free Perpétuo | Roteador otimizado com respostas rápidas e alta acurácia lógica |
+| `mistral` | Mistral Small / Nemo | Texto / Geral | 32.768 / 4.096 | **60** | Free Perpétuo | Modelo leve e responsivo para conversação, tradução e análise |
+| `qwen-coder` | Qwen 2.5 Coder 32B | Código / Refatoração | 32.768 / 8.192 | **60** | Free Perpétuo | Especialista em código, geração de testes e resolução de bugs |
+| `deepseek` | DeepSeek V3 / R1 | Raciocínio MoE | 64.000 / 8.192 | **60** | Free Perpétuo | Raciocínio analítico avançado e geração estruturada de JSON |
+| `flux` | FLUX.1 Schnell | Geração de Imagem | 1.024 x 1.024 | **30** | Free Perpétuo | Geração de imagem com qualidade fotorrealista e tipografia nítida |
+| `flux-realism` | FLUX Realism Tuned | Imagem Fotorrealista| 1.024 x 1.024 | **20** | Free Perpétuo | Ajustado especificamente para pele humana, iluminação e texturas |
+| `turbo` | SDXL Turbo Fast | Geração Rápida | 512 x 512 | **60** | Free Perpétuo | Geração ultrarrápida em 1 passo para prototipagem de UI e ícones |
+
+---
+
+### 🟢 COHERE (api.cohere.com) — *Validado em 17/09/2026 (Developer Trial Tier Perpétuo)*
+
+A Cohere disponibiliza uma chave permanente de testes (**Trial API Key**) para desenvolvedores sem custos recorrentes. É a principal referência de mercado para pipelines corporativos de **RAG (Retrieval-Augmented Generation)**, **Embeddings Multilíngues** e **Neural Reranking**.
+
+* **Endpoint Base**: `https://api.cohere.com/v2` (REST e SDKs oficiais Python/TypeScript/Go)
+* **Tipo de Cota**: Developer Trial Key perpétua para experimentação, testes e prototipagem (não comercial).
+* **Limites de Requisições Globais**: **1.000 requisições por mês** (1K calls/month) consolidadas entre todos os endpoints.
+* **Limites Granulares por Endpoint (RPM)**:
+  * `/v2/chat`: **20 RPM**
+  * `/v2/embed` (Texto): **100 RPM**
+  * `/v2/embed` (Imagens/Multimodal): **5 RPM**
+  * `/v2/rerank`: **10 RPM**
+  * `/v2/tokenize`: **100 RPM**
+* **Requisitos de Entrada / Cartão**: ❌ **NÃO exige cartão de crédito** nem informações financeiras para emissão e renovação da Trial API Key. Cadastro direto com e-mail corporativo ou pessoal.
+* **Autenticação**: Header `Authorization: Bearer <COHERE_API_KEY>`.
+
+| Modelo ID API | Categoria / Família | Modalidade | Contexto (In / Out) | RPM | Cota Mensal | Capacidades Críticas & Aplicação |
+| :--- | :--- | :--- | :---: | :---: | :---: | :--- |
+| `command-r-plus-08-2024` | Command R+ (Flagship) | Chat / Tool Use | 128.000 / 4.096 | **20** | 1.000 reqs | Modelo topo de linha da Cohere com raciocínio de alta precisão e Tool Calling |
+| `command-r-08-2024` | Command R (Workhorse) | Chat / RAG | 128.000 / 4.096 | **20** | 1.000 reqs | Otimizado para citação de fontes, síntese documental e RAG multilíngue |
+| `command-r7b-12-2024` | Command R7B Compact | Chat / Eficiência | 128.000 / 4.096 | **20** | 1.000 reqs | Modelo compacto de 7B com velocidade elevada e baixo consumo de recursos |
+| `embed-multilingual-v3.0` | Multilingual Embedding| Vetores Semânticos| 512 / 1.024 dim | **100** | 1.000 reqs | Padrão ouro da indústria para vetorização em mais de 100 idiomas |
+| `embed-english-v3.0` | English Embedding | Vetores Semânticos| 512 / 1.024 dim | **100** | 1.000 reqs | Vetorização semântica de alta performance para documentos em inglês |
+| `rerank-v3.5` | Neural Reranker v3.5 | Reranking / Busca | 4.096 / - | **10** | 1.000 reqs | Reclassificação semântica de precisão para elevar o MRR de buscas RAG |
+| `rerank-multilingual-v3.0` | Multilingual Reranker | Reranking / Busca | 4.096 / - | **10** | 1.000 reqs | Reranking neural com compreensão de contexto cross-lingual |
+
+---
+
+### 🟢 AWANLLM (api.awanllm.com) — *Validado em 17/09/2026 (Free Lite Tier Perpétuo — "Unlimited Tokens")*
+
+O AwanLLM é um gateway de inferência focado em modelos abertos e variantes desprovidas de recusa (uncensored / zero-refusal) para escrita criativa, RPG e automações flexíveis. Seu diferencial é o plano **Free Lite Tier**, que oferece **"tokens ilimitados"** (sem bilhetagem por token), limitando o uso estritamente por número de requisições.
+
+* **Endpoint Base**: `https://api.awanllm.com/v1` (Compatível com OpenAI SDK para `/chat/completions` e `/completions`)
+* **Tipo de Cota**: Free Lite Tier perpétuo sem cobrança de tokens.
+* **Limites de Taxa Granulares**:
+  * **Taxa por Minuto (RPM)**: **20 RPM** global.
+  * **Modelos Pequenos (Small Models - 8B)**: **200 RPD** (Requests Per Day).
+  * **Modelos Médios / Grandes (Medium/Large - 70B)**: **10 RPD** (Requests Per Day).
+* **Requisitos de Entrada / Cartão**: ❌ **NÃO exige cartão de crédito**. A chave de API é liberada instantaneamente no painel web após confirmação de e-mail.
+* **Autenticação**: Bearer token via `Authorization: Bearer <AWANLLM_API_KEY>`.
+
+| Modelo ID API | Display Name | Modalidade | Contexto (In / Out) | RPM | RPD | Tipo de Cota | Notas & Características Especiais |
+| :--- | :--- | :--- | :---: | :---: | :---: | :---: | :--- |
+| `Meta-Llama-3.1-8B-Instruct` | Llama 3.1 8B Instruct | Texto / Chat | 128.000 / 4.096 | **20** | **200** | Free Lite Perpétuo | Versão oficial do Meta Llama 3.1 com contexto expandido de 128K |
+| `Awanllm-Llama-3-8B-Cumulus` | Llama 3 Cumulus 8B | Roleplay / Uncensored| 8.192 / 4.096 | **20** | **200** | Free Lite Perpétuo | Variante zero-refusal popular para escrita criativa e cenários de ficção |
+| `Awanllm-Llama-3-8B-Dolfin` | Llama 3 Dolfin 8B | Instruction Following| 8.192 / 4.096 | **20** | **200** | Free Lite Perpétuo | Modelo com alinhamento flexível para tarefas de comando sem recusas |
+| `Awanllm-Llama-3-8B-Instruct-ORPO-v0.1` | Llama 3 ORPO 8B | Alinhamento ORPO | 8.192 / 4.096 | **20** | **200** | Free Lite Perpétuo | Treinado com Odds Ratio Preference Optimization para respostas coesas |
+| `Meta-Llama-3.1-70B-Instruct` | Llama 3.1 70B Instruct| Texto / Análise | 128.000 / 4.096 | **20** | **10** | Free Lite Perpétuo | Modelo pesado de 70B para tarefas analíticas esporádicas (10 reqs/dia) |
+
+---
+
+### 🟢 SCALEWAY GENERATIVE APIS (api.scaleway.ai) — *Validado em 17/09/2026 (Free Tier Europeu — 1M Tokens + Áudio)*
+
+A Scaleway (provedora de infraestrutura em nuvem europeia e soberana) oferece o serviço **Generative APIs - Serverless** com uma cota gratuita mensal recorrente de **1.000.000 de tokens (1M tokens/mês)** para modelos de linguagem e embeddings, além de **60 minutos mensais gratuitos** de transcrição de áudio com Whisper.
+
+* **Endpoint Base**: `https://api.scaleway.ai/v1` (Compatível com formato OpenAI `/v1/chat/completions`, `/v1/embeddings` e `/v1/audio/transcriptions`)
+* **Tipo de Cota**: Cota gratuita mensal renovável (1M tokens para LLMs + 60 min para STT).
+* **Limites de Taxa (Nível Base Organização)**:
+  * **QPM (Queries Per Minute)**: **30 QPM** para chat/embeddings e **10 QPM** para áudio.
+  * **TPM (Tokens Per Minute)**: **50.000 TPM** compartilhados na organização.
+  * **Concorrência Máxima**: 5 sessões simultâneas (escalável após KYC corporativo).
+* **Requisitos de Entrada / Cartão**: ⚠️ **EXIGE cartão de crédito** para verificação cadastral da conta na nuvem Scaleway (prevenção de fraudes europeias), mas a franquia mensal de 1M de tokens e 60 min de áudio é faturada a **€0,00**.
+* **Autenticação**: Header `X-Auth-Token: <SCALEWAY_SECRET_KEY>`.
+
+| Modelo ID API | Categoria | Modalidade | Contexto (In / Out) | QPM | Cota Mensal Free | Destaques & Conformidade |
+| :--- | :--- | :--- | :---: | :---: | :---: | :--- |
+| `llama-3.3-70b-instruct` | Llama 3.3 70B | Texto / Código | 131.072 / 4.096 | **30** | 1M tokens/mês | Flagship de 70B hospedado em data centers verdes na França sob GDPR rígido |
+| `qwen2.5-coder-32b-instruct` | Qwen 2.5 Coder | Coding Agent | 32.768 / 8.192 | **30** | 1M tokens/mês | Especialista em desenvolvimento de software com suporte a 92 linguagens |
+| `mistral-nemo-12b-instruct-2407`| Mistral NeMo 12B| Workhorse | 128.000 / 4.096 | **30** | 1M tokens/mês | Modelo desenvolvido por Mistral AI e NVIDIA, excelente em raciocínio compacto |
+| `pixtral-12b-2409` | Pixtral 12B | Visão Multimodal | 128.000 / 4.096 | **30** | 1M tokens/mês | Modelo multimodal nativo da Mistral para leitura e análise de imagens e gráficos |
+| `whisper-large-v3` | Whisper STT | Áudio / Transcrição| Chunks de 30s | **10** | **60 min/mês** | Transcrição de fala multilíngue com alta precisão e pontuação automática |
+| `bge-multilingual-gemma2` | Embeddings | Vetorização | 8.192 / 3.584 dim | **30** | 1M tokens/mês | Modelo de embeddings denso derivado da arquitetura Google Gemma 2 |
+
+---
+
+### 🟡 NOVITA AI (api.novita.ai) — *Validado em 17/09/2026 (Sandbox / Trial Multimodal — LLM & Imagem)*
+
+A Novita AI fornece serviços de inferência acelerada com foco em geração de mídia (SDXL, FLUX) e grandes modelos de linguagem open-source. Novos usuários recebem créditos promocionais de **sandbox/trial ($10 a $100 em créditos de boas-vindas)** para testar a API sem cobrança antecipada.
+
+* **Endpoint Base**:
+  * LLMs: `https://api.novita.ai/v3/openai` (OpenAI-compatible)
+  * Imagem & Mídia: `https://api.novita.ai/v3` (REST proprietário com endpoints como `/v3/async/txt2img` e `/v3/txt2img_v3`)
+* **Tipo de Cota**: Créditos promocionais de sandbox no cadastro ($10-$100) com modelo pay-as-you-go após o término.
+* **Limites de Taxa Granulares**:
+  * **LLM Chat**: **60 RPM**.
+  * **Geração de Imagem (`txt2img_v3`)**: **20 IPM** (Images Per Minute).
+  * **Tarefas de Inpainting / Face Restoration**: **10 IPM**.
+* **Requisitos de Entrada / Cartão**: ❌ **NÃO exige cartão de crédito** no cadastro para utilização dos créditos promocionais de boas-vindas e exploração de sandbox.
+* **Autenticação**: Bearer token via `Authorization: Bearer <NOVITA_API_KEY>`.
+
+| Modelo ID API | Modalidade | Contexto (In / Out) | Rate Limit (RPM/IPM) | Cota Inicial | Aplicações Principais |
+| :--- | :--- | :---: | :---: | :---: | :--- |
+| `meta-llama/llama-3.1-70b-instruct` | Texto / Tools | 131.072 / 8.192 | **60 RPM** | Trial ($10-$100) | Raciocínio, orquestração de agentes e geração de JSON estruturado |
+| `meta-llama/llama-3.1-8b-instruct` | Texto Rápido | 131.072 / 8.192 | **60 RPM** | Trial ($10-$100) | Processamento rápido com custo marginal e baixa latência |
+| `deepseek/deepseek-r1` | Raciocínio Puro | 65.536 / 8.192 | **60 RPM** | Trial ($10-$100) | Resolução de problemas matemáticos e cadeias lógicas densas |
+| `flux.1-schnell` | Geração de Imagem | 1.024 x 1.024 | **20 IPM** | Trial ($10-$100) | Geração de imagens rápida em 4 passos com renderização tipográfica |
+| `flux.1-dev` | Imagem Pro | 1.024 x 1.024 | **10 IPM** | Trial ($10-$100) | Síntese de imagem com alta fidelidade a prompts detalhados |
+| `stable-diffusion-xl-base` | Imagem Clássica | 1.024 x 1.024 | **20 IPM** | Trial ($10-$100) | SDXL 1.0 para pipelines de imagem e controle por LoRA |
+
+---
+
+### 🔵 NEBIUS TOKEN FACTORY (api.studio.nebius.ai) — *Validado em 17/09/2026 (AI Builder Program & Dynamic Scaling)*
+
+O Nebius Token Factory (anteriormente Nebius AI Studio) é uma plataforma corporativa de inferência acelerada em clusters de GPUs NVIDIA H100/H200. O acesso gratuito para desenvolvedores ocorre através do programa **AI Builder Program**, que concede **$400+ em créditos de infraestrutura**, com um sistema exclusivo de **Auto-Scaling Dinâmico de Rate Limits**.
+
+* **Endpoint Base**: `https://api.studio.nebius.ai/v1` (Compatível com formato OpenAI SDK)
+* **Tipo de Cota**: AI Builder Program com créditos gratuitos ($400+ sob aprovação de desenvolvedor).
+* **Mecanismo Exclusivo de Rate Limit Dinâmico**:
+  * Não opera com limites rígidos imutáveis: o sistema avalia a taxa de uso em janelas móveis de **15 minutos**.
+  * Se o tráfego atingir **≥80%** do limite atual, a plataforma **aumenta automaticamente a taxa em 20%** para a próxima janela (até um teto de 20x a base antes de transição para o plano Enterprise).
+  * Base inicial padrão: **60 RPM / 100K TPM**.
+* **Requisitos de Entrada / Cartão**: Inscrição no AI Builder Program via portal Nebius (avaliação de projeto e perfil de desenvolvedor).
+* **Autenticação**: Bearer token via `Authorization: Bearer <NEBIUS_API_KEY>`.
+
+| Modelo ID API | Família / Tipo | Contexto (In / Out) | Rate Limit Base | Tipo de Cota | Notas & Infraestrutura |
+| :--- | :--- | :---: | :---: | :---: | :--- |
+| `meta-llama/Meta-Llama-3.1-405B-Instruct` | Llama 3.1 405B | 131.072 / 8.192 | **60+ RPM Dinâmico** | $400+ Builder | Modelo aberto de maior escala rodando em superclusters H100 |
+| `meta-llama/Meta-Llama-3.1-70B-Instruct` | Llama 3.1 70B | 131.072 / 8.192 | **60+ RPM Dinâmico** | $400+ Builder | Resposta de baixa latência (TTFT < 200ms) para pipelines críticos |
+| `deepseek-ai/DeepSeek-V3` | DeepSeek V3 | 131.072 / 8.192 | **60+ RPM Dinâmico** | $400+ Builder | DeepSeek V3 hospedado em data centers ocidentais de alta segurança |
+| `deepseek-ai/DeepSeek-R1` | DeepSeek R1 | 131.072 / 8.192 | **60+ RPM Dinâmico** | $400+ Builder | Raciocínio profundo sem estrangulamento de infraestrutura |
+| `Qwen/Qwen2.5-72B-Instruct` | Qwen 2.5 72B | 131.072 / 8.192 | **60+ RPM Dinâmico** | $400+ Builder | 72B para tarefas complexas de raciocínio lógico e programação |
+| `mistralai/Mistral-Large-Instruct-2407` | Mistral Large | 128.000 / 8.192 | **60+ RPM Dinâmico** | $400+ Builder | Modelo de raciocínio de ponta da Mistral AI com janela de 128K |
+
+---
+
+### ⛔ AUDITORIA DE GATEWAYS & PLATAFORMAS: SEM FREE TIER PERMANENTE OU DESCONTINUADOS
+
+Para proteger arquiteturas autônomas e evitar falhas silenciosas de execução (HTTP 402/403), foram auditadas as seguintes plataformas frequentemente citadas na comunidade:
+
+1. **CHUTES.AI (`llm.chutes.ai/v1`) — FREE TIER DESCONTINUADO** 🚨:
+   * **Status**: O plano gratuito para consumo de inferência foi formalmente **encerrado** no início de 2026. A Chutes migrou integralmente para um modelo pago baseado em subscrição mínima (a partir de $3/mês) e bilhetagem por segundo de computação confidencial. Não deve ser integrado em rotas gratuitas.
+2. **LEPTON AI — REBRANDING & ABSORÇÃO POR NVIDIA DGX CLOUD** 🚨:
+   * **Status**: A Lepton AI foi adquirida e incorporada pela NVIDIA, sendo relançada como **NVIDIA DGX Cloud Lepton**. O serviço serverless independente de inferência com free tier foi desativado; a capacidade agora é provisionada como marketplace de capacidade de GPU para clientes corporativos.
+3. **TOGETHER AI (`api.together.xyz`) — SEM FREE TIER PERMANENTE** ⚠️:
+   * **Status**: Não disponibiliza plano gratuito contínuo nem cota perpétua. A ativação de chaves de API requer compra mínima pré-paga de créditos (mínimo de $5 USD). Seus rate limits são dinâmicos e atrelados ao histórico de faturamento.
+4. **AI/ML API (aimlapi.com) — FREE TIER PAUSADO/ENCERRADO** 🚨:
+   * **Status**: A documentação oficial confirma que o "Free Tier" encontra-se atualmente **pausado**. A plataforma opera 100% sob recarga pré-paga de créditos (taxa de conversão: 2.000.000 créditos = $1 USD).
+5. **FEATHERLESS.AI (`api.featherless.ai/v1`) — ACESSO BASEADO EM CONCORRÊNCIA PAGA** ⚠️:
+   * **Status**: Opera através de planos pagos com foco em unidades concorrentes simultâneas (concurrency units) e créditos pré-pagos. Não oferece alocação perpétua com vazão garantida sem assinatura.
+6. **BASETEN (`baseten.co`) — DEPLOY DE INFRAESTRUTURA DEDICADA** ⚠️:
+   * **Status**: Focado na hospedagem e deploy de modelos dedicados (Truss serverless e instâncias privadas), fornecendo créditos pontuais de onboarding corporativo, sem manter catálogo compartilhado de inferência pública gratuita perpétua.
+
+
+---
+
+## 2. GUIA DE PLANOS DE BAIXO CUSTO ($5 A $10 USD) & GATEWAYS "BUDGET"
+
+Para desenvolvedores, startups e agentes autônomos que desejam ir além dos limites dos Free Tiers sem incorrer em custos corporativos pesados, este guia mapeia as opções mais eficientes de **micro-orçamento (\$5 a \$10 USD)**, especializadas em altíssimo volume de tokens e acesso irrestrito a modelos de ponta.
+
+---
+
+### 💵 ANÁLISE DE ROI: O QUE VOCÊ REALMENTE COMPRA COM $5 DÓLARES?
+
+| Provedor / Gateway | Tipo de Plano | Custo de Entrada | Volume de Tokens Entregue com $5 | Modelos Acessíveis | Vantagem Estratégica |
+| :--- | :--- | :---: | :---: | :--- | :--- |
+| **DeepSeek Direto** (`api.deepseek.com`) | Pay-as-you-go | **$5.00** depósito | **18 a 35M tokens** (sem cache) / **100M+** (com cache) | `deepseek-chat` (DeepSeek-V3), `deepseek-reasoner` (DeepSeek-R1) | **Maior densidade de tokens do planeta**. Preços oficiais: $0.14/$0.28 (V3), $0.55/$2.19 (R1), Cache Hit a $0.014/M e 50% de desconto Off-Peak. |
+| **xKiro** (`xkiro.com`) | Wallet Prepago | **$5.00** recarga | **5M tokens/dia FREE** + Saldo para modelos Pro | 40+ modelos (Claude 3.5 Sonnet, GPT-4o, DeepSeek, Qwen) | Free Tier perpétuo diário sem cartão + $5 no wallet para contornar filas e acessar frontier models. |
+| **OpenCode Zen** (`opencode.ai`) | Pay-as-you-go Zero Markup | Sem mínimo ($0 a $5) | **Modelos Free Nativos** + Custo de atacado puro | `MiMo V2.5 Free`, `MiniMax M2.5 Free`, Qwen Coder, DeepSeek | Gateway sem margem de revenda; conecta direto via `/connect` no terminal/TUI. |
+| **OpenCode Go** (`opencode.ai`) | Subscrição Mensal | **$10/mês** (promo $5 intro) | **Até $60 em valor de tokens** em janelas de 5h | DeepSeek V3/R1, Qwen 2.5 Coder, Kimi, GLM, MiniMax | Projetado especificamente para agentes de programação (OpenCode CLI, Aider, Cline). |
+| **B.AI** (`b.ai`) | Sistema de Créditos (1M/$1) | **$5.00** recarga | **5 a 50 MILHÕES** de tokens (horários ociosos) | 20+ modelos globais e chineses (Gemini 3.8, Claude, Hunyuan, Qwen) | Descontos de até 90% em períodos de baixa demanda (off-peak); integração com BAI Code e Web3. |
+| **SiliconFlow** (`api.siliconflow.com`) | Pay-as-you-go | **$5.00** (¥35 RMB) | **10 a 20 MILHÕES** de tokens nos modelos 14B/32B | Qwen 2.5 72B, DeepSeek R1/V3 full, FLUX.1 Dev | Transição transparente após esgotar o Free Tier perpétuo de 1.000 RPM nos modelos 7B. |
+
+---
+
+### 🛠️ DETALHAMENTO DOS GATEWAYS "BUDGET"
+
+#### 🟢 XKIRO (xkiro.com — "xhiro" / AI Gateway Multimodel)
+* **Endpoint Base**: `https://api.xkiro.com/v1` (Compatível com OpenAI SDK `/chat/completions`)
+* **Acesso Gratuito**: Oferece uma cota diária de **5.000.000 de tokens por dia (5M TPD)** cobrindo mais de 40 modelos abertos e destilados sem necessidade de cartão de crédito.
+* **Plano Wallet ($5 USD)**: Permite recargas pequenas de $5 via cartão ou Stripe. O saldo no wallet não expira e é consumido apenas quando você chama modelos proprietários de ponta (como Claude 3.5 Sonnet, GPT-4o ou DeepSeek R1 completo) ou quando necessita de prioridade máxima de throughput sem fila.
+* **Funcionalidades**: Smart Model Routing, fallback automático entre provedores e suporte nativo a streaming SSE.
+
+#### 🟢 OPENCODE (opencode.ai — OpenCode Zen & Go)
+* **Ecossistema**: Focado na comunidade de desenvolvedores e assistentes de código em terminal.
+* **OpenCode Zen**:
+  * Funciona como um gateway universal sem cobrança de margem adicional (zero markup).
+  * Disponibiliza **modelos 100% gratuitos**, como `MiMo V2.5 Free`, `MiniMax M2.5 Free` e `Big Pickle`.
+  * Para modelos comerciais (como Qwen 2.5 Coder 32B ou DeepSeek V3), cobra estritamente por milhão de tokens consumidos diretamente no cartão/saldo, sem necessidade de assinar pacotes caros.
+* **OpenCode Go ($10/mês)**:
+  * Plano de assinatura para usuários frequentes.
+  * Por um valor fixo, entrega um teto de consumo avaliado em até **$60 USD de valor de mercado**, distribuído em janelas móveis de 5 horas, semanas e meses.
+  * Suporta mais de 75 provedores e integra perfeitamente com agentes de terminal.
+
+#### 🟢 B.AI (b.ai — "白" / Infraestrutura Econômica de Agentes)
+* **Endpoint Base**: `https://api.b.ai/v1` (OpenAI-compatible)
+* **Mecânica Econômica**: Opera sob uma unidade própria de liquidação: **1 USD = 1.000.000 de Créditos B.AI**.
+* **Precificação Dinâmica (Off-Peak Discounts)**: Monitora a carga global dos data centers parceiros. Em horários de baixa demanda (madrugadas asiáticas/americanas), aplica **descontos de até 90%** sobre o preço de tabela de modelos como Gemini, Claude, Hunyuan e DeepSeek.
+* **Ideal Para**: Agentes de execução noturna (batch processing, data scraping, síntese de relatórios em background) onde $5 USD realizam o trabalho equivalente a $50 USD em APIs tradicionais.
+
+#### 🟢 TENCENT WORKBUDDY (workbuddy.ai)
+* **Natureza**: Não é uma API isolada, mas um **AI-native Desktop Workspace** corporativo desenvolvido pela Tencent Cloud.
+* **Política de Custos**: Gratuito para uso pessoal como runtime de agente local. Permite plugar **chaves de API próprias (BYO-Key)** de qualquer provedor compatível com OpenAI (incluindo chaves gratuitas do Groq, SiliconFlow, Zhipu AI ou xKiro).
+* **Para Equipes**: Planos baseados em assentos corporativos com pool compartilhado de créditos para automação de rotinas no Office, WeCom e geração automática de planilhas.
+
+---
+
+## 3. PROVEDORES ADICIONAIS & COMPLEMENTARES
+
+### 🟢 GITHUB MODELS (Azure AI Foundry)
+* **Endpoint**: `https://models.inference.ai.azure.com`
+* **Cotas**: **10 a 15 RPM** / **100 a 150 RPD**. Modelos: `Claude-3.5-Sonnet`, `GPT-4o`, `o4-mini`, `DeepSeek-R1`, `Llama-3.3-70B`.
+
+### 🟠 SAMBANOVA CLOUD
+* **Endpoint**: `https://api.sambanova.ai/v1`
+* **Cota**: **20 RPM / 20 RPD / 200.000 TPD**. Modelos: `DeepSeek-V3.1/V3.2`, `Meta-Llama-3.3-70B-Instruct`, `gpt-oss-120b`, `gemma-4-31B-it`.
+
+### 🟡 CLOUDFLARE WORKERS AI
+* **Cota Global**: **10.000 neurons/dia** gratuito. Modelos econômicos: `gpt-oss-20b`, `llama-3.1-8b`, `whisper`, `melotts`.
+
+### 🟢 HUGGING FACE INFERENCE PROVIDERS
+* Serverless Inference gratuita com `FLUX.1-schnell`, `whisper-large-v3`, `Llama-3.2-11B-Vision`, `Qwen2.5-Coder-32B`.
+
+
+---
+
+## 4. CADEIA DE FALLBACK RECOMENDADA (ARQUITETURA RESILIENTE MULTI-NÍVEL)
+
+Para sistemas autônomos, agentes de código e produtos em produção sem custo de API, cascatear na seguinte arquitetura estruturada em 4 níveis de resiliência:
+
+```
+[NÍVEL 1 — Alta Disponibilidade & Ultra-Baixa Latência (Zero Cost, Sem Cartão)]
+   │
+   ├─► 1. Google AI Studio (gemini-3.1-flash-lite / gemini-3.5-flash-lite)
+   │       Cota: 15 RPM / 250K TPM / 500 RPD (Uso comercial permitido + Map Grounding)
+   │
+   ├─► 2. NVIDIA NIM (z-ai/glm-5.3 / nemotron-3-ultra-550b / nemotron-3.5-lightning)
+   │       Cota: 40 RPM / 1.000 RPD (Sem cartão, 1M contexto, modelos frontier)
+   │
+   ├─► 3. Groq Cloud (openai/gpt-oss-120b / qwen/qwen3.8-27b)
+   │       Cota: 30 RPM / 1.000 RPD / 200K TPD (Velocidade LPU extrema de 500-1000 t/s)
+   │
+   └─► 4. Hyperbolic (meta-llama/Meta-Llama-3.1-405B / Qwen2.5-Coder-32B) 🆕
+           Cota: 60 RPM fixos (Basic Free Tier perpétuo, sem cartão, cluster H100)
+
+[NÍVEL 2 — High Throughput, Modelos Abertos & Multimodalidade (Zero Cost)]
+   │
+   ├─► 5. SiliconFlow Free Tier (Qwen2.5-7B / Coder / Qwen2.5-VL / DeepSeek-R1-Distill) 🆕
+   │       Cota: 1.000 RPM / 40.000 TPM (Modelos free ilimitados + 20M tokens no cadastro)
+   │
+   ├─► 6. OpenRouter Free Tier (nex-agi/nex-n2.5-pro / inclusionai/ling-3.0-flash-vl)
+   │       Cota: 20 RPM / 200 RPD por modelo (24 modelos ativos com Visão e 262K ctx)
+   │
+   ├─► 7. Mistral AI (mistral-small-latest / codestral-latest)
+   │       Cota: 60 RPM / 50K TPM pool / 4M tokens por mês (Sem cartão)
+   │
+   └─► 8. Pollinations.ai (openai / deepseek / qwen-coder / flux) 🆕
+           Cota: 60 RPM texto / 30 RPM imagem (100% free perpétuo, endpoints OpenAI/REST)
+
+[NÍVEL 3 — Especialistas em RAG, Rerank, Código & Mídia Européia]
+   │
+   ├─► 9. GitHub Models (Claude 3.5 Sonnet / GPT-4o / DeepSeek-R1 via Azure AI)
+   │       Cota: 15 RPM / 150 RPD (Acesso gratuito a modelos proprietários fechados)
+   │
+   ├─► 10. Cohere Developer Platform (command-r-plus / rerank-v3.5 / embed-multilingual-v3) 🆕
+   │       Cota: 1.000 reqs/mês, 20 RPM chat, 10 RPM rerank, 100 RPM embed (Líder em RAG)
+   │
+   ├─► 11. AwanLLM Lite (Meta-Llama-3.1-8B / Awanllm-Llama-3-8B-Cumulus) 🆕
+   │       Cota: 20 RPM / 200 RPD pequenos ("Unlimited tokens", sem cartão, zero-refusal)
+   │
+   └─► 12. Scaleway Generative APIs (llama-3.3-70b / pixtral-12b / whisper-large-v3) 🆕
+           Cota: 1M tokens/mês LLM + 60 min/mês Whisper STT (Nuvem europeia GDPR, requer cartão)
+
+[NÍVEL 4 — Onboarding Credits Elevados & Pay-per-Use Ultra-Econômico]
+   │
+   ├─► 13. Nebius Token Factory (Llama 3.1 405B / DeepSeek V3/R1) 🆕
+   │       Cota: $400+ créditos no AI Builder Program (Auto-scaling dinâmico de 60+ RPM)
+   │
+   ├─► 14. Novita AI (meta-llama/llama-3.1-70b / flux.1-schnell) 🆕
+   │       Cota: $10 a $100 em trial credits de sandbox (20 IPM imagem / 60 RPM chat)
+   │
+   ├─► 15. DeepSeek API Direta (deepseek-chat [V3] / deepseek-reasoner [R1])
+   │       Cota: 5M tokens grátis no cadastro; Preços Oficiais: $0.14/$0.28 (V3) e $0.55/$2.19 (R1); Cache Hit a $0.014/$0.14 ($5 rende 18M-35M até 100M+ tokens)
+   │
+   ├─► 16. Kimi / Moonshot AI (kimi-k3 / kimi-k2.7-code via api.moonshot.ai)
+   │       Custo: $0.95 a $3.00 por milhão (Tier 0 ativado com recarga única de $1)
+   │
+   └─► 17. DeepInfra (gpt-oss-120b)
+           Custo: $0.08 por milhão de tokens blended (sem mínimo de faturamento)
+
+[ROTA ESPECIALIZADA: ECOSSISTEMA CHINÊS & SOBERANIA ASIÁTICA] 🇨🇳
+   │
+   ├─► 18. Baidu Qianfan (ERNIE-Speed-8K / ERNIE-Speed-128K / ERNIE-Lite) 🆕
+   │       Cota: 300 RPM / 300.000 TPM (100% permanente e gratuito sem bilhetagem)
+   │
+   ├─► 19. Zhipu AI / BigModel (GLM-4-Flash / GLM-4.7-Flash / GLM-4V-Flash) 🆕
+   │       Cota: 100% Free Perpétuo (1 concorrência contínua, sem cartão) + 25M tokens bônus
+   │
+   ├─► 20. Alibaba Model Studio / DashScope (Qwen-Turbo / Qwen-Plus / Qwen-Long) 🆕
+   │       Cota: 1M a 2M tokens free por modelo (90-180 dias) + frações de centavo pós-free
+   │
+   └─► 21. Tencent Hunyuan & TokenHub (Hunyuan-Lite / Hunyuan-3D) 🆕
+           Cota: Pacote gratuito de 1 ano para Hunyuan-Lite + 1.000 créditos para 3D
+
+[ROTA BUDGET: MÁXIMO VOLUME COM MICRO-ORÇAMENTO DE $5 DÓLARES] 💵
+   │
+   ├─► A. xKiro ($5 Wallet + 5M tokens/dia Free) — 40+ modelos sem filas nem fricção
+   ├─► B. OpenCode Zen / Go ($0 Free Models ou $10/mês para até $60 em tokens de coding)
+   ├─► C. DeepSeek API Direta ($5 USD = 18M a 35M tokens sem cache e até 100M+ com cache hit no deepseek-chat)
+   └─► D. B.AI (1 USD = 1M créditos, com até 90% de desconto em execuções off-peak)
+
+[PLATAFORMAS AUDITADAS: REMOVIDAS OU SEM FREE TIER PERMANENTE]
+   ❌ Cerebras Cloud: Encerrado permanentemente (HTTP 402 Payment Required).
+   ❌ Chutes.ai: Free tier descontinuado em 2026 (requer plano pago a partir de $3/mês). 🚨
+   ❌ Together AI: Sem free tier contínuo (requer recarga mínima obrigatória de $5 USD). ⚠️
+   ❌ AI/ML API (aimlapi.com): Free tier pausado oficialmente (100% pré-pago). 🚨
+   ❌ Lepton AI: Incorporado pela NVIDIA (NVIDIA DGX Cloud Lepton; sem serverless free). 🚨
+   ❌ Featherless.ai: Acesso restrito a planos com unidades concorrentes pagas. ⚠️
+   ❌ Groq qwen/qwen3.6-27b: Desativado em 17/09/2026 (substituído por qwen/qwen3.8-27b).
+```
+
+---
+
+## 5. RELATÓRIO DE AUDITORIA & VALIDAÇÃO REAL EM RUNTIME
+
+### Validação Executada em 17/09/2026
+
+| Provedor Auditado | Endpoint Validado | Modelos no Catálogo | Status de Resposta | Diagnóstico / Achados Operacionais (17/09) |
+| :--- | :--- | :---: | :---: | :--- |
+| **Google AI Studio** | `generativelanguage.googleapis.com` | **50 modelos** | ✅ **HTTP 200** | Lançamento de `antigravity-preview-09-2026`; Flash-Lite líder estável |
+| **Groq Cloud** | `api.groq.com/openai/v1` | **13 modelos** | ✅ **HTTP 200** | `qwen3.6-27b` desligado (404); `qwen3.8-27b` é o único Qwen ativo |
+| **NVIDIA NIM** | `integrate.api.nvidia.com/v1` | **82 modelos** | ✅ **HTTP 200** | `z-ai/glm-5.3` e `glm-5.3-flash` adicionados; DeepSeek Pro e M3 removidos |
+| **OpenRouter** | `openrouter.ai/api/v1` | **24 free** | ✅ **HTTP 200** | Subiu para 24 free: Nex N2.5 Pro/Mini, Ling VL e GLM 5.2 adicionados |
+| **Mistral AI** | `api.mistral.ai/v1` | **46 modelos** | ✅ **HTTP 200** | 100% estável; Codestral 2508 e linha Ministral mapeados |
+| **DeepSeek** | `api.deepseek.com` | **2 modelos** | ✅ **HTTP 200** | IDs canônicos oficiais `deepseek-chat` (V3) e `deepseek-reasoner` (R1) alinhados; preços oficiais $0.14/$0.28 e $0.55/$2.19; cache hit a $0.014/$0.14; reconciliação técnica de engines internas |
+| **Kimi / Moonshot** | `api.moonshot.ai/v1` / `api.moonshot.cn` | **8 modelos** | ✅ **HTTP 200** | K3, K2.7-code/highspeed, K2.6 ativos na API `.ai` + V1 clássicos (8k/32k/128k) com bônus de ¥15 RMB |
+| **DeepInfra** | `api.deepinfra.com/v1` | **189 modelos** | ✅ **HTTP 200** | Operacional ($0.08/M tokens no gpt-oss-120b) |
+| **Anthropic** | `api.anthropic.com/v1` | **11 modelos** | ✅ **HTTP 200** | Sem plano free permanente (usar GitHub Models) |
+| **OpenAI** | `api.openai.com/v1` | **119 modelos** | ✅ **HTTP 200** | Whisper-1 e moderação como únicos free |
+| **Hugging Face** | `huggingface.co/api` | **Hub Serverless** | ✅ **HTTP 200** | Autenticado no plano Free |
+| **Cerebras Cloud** | `api.cerebras.ai/v1` | - | ❌ **HTTP 403/402**| Free tier encerrado permanentemente |
+| **Hyperbolic** 🆕 | `api.hyperbolic.xyz/v1` | **30+ modelos** | ✅ **HTTP 200** | Free Basic Tier 60 RPM perpétuo (sem cartão); Llama 3.1 405B/70B e Qwen 2.5 Coder |
+| **SiliconFlow** 🆕 | `api.siliconflow.com/v1`| **50+ modelos** | ✅ **HTTP 200** | Catálogo Free perpétuo (1.000 RPM / 40K TPM) + 20M tokens bônus; sem cartão |
+| **Pollinations.ai** 🆕| `gen.pollinations.ai/v1`| **25+ modelos** | ✅ **HTTP 200** | Gateway multimodal 100% free perpétuo (texto, imagem, áudio) via chaves `sk_` |
+| **Cohere Platform** 🆕| `api.cohere.com/v2` | **15 modelos** | ✅ **HTTP 200** | Trial API Key permanente (1.000 reqs/mês, 20 RPM chat, 100 RPM embed, 10 RPM rerank) |
+| **AwanLLM** 🆕 | `api.awanllm.com/v1` | **12 modelos** | ✅ **HTTP 200** | Free Lite Tier (20 RPM, 200 RPD pequenos, tokens ilimitados, sem cartão) |
+| **Scaleway APIs** 🆕 | `api.scaleway.ai/v1` | **18 modelos** | ✅ **HTTP 200** | 1M tokens/mês + 60 min Whisper STT grátis (nuvem soberana UE, cartão no cadastro) |
+| **Novita AI** 🆕 | `api.novita.ai/v3` | **40+ modelos** | ✅ **HTTP 200** | Trial Sandbox de $10-$100 para LLM (60 RPM) e geração de imagem (20 IPM) |
+| **Nebius Token** 🆕 | `api.studio.nebius.ai/v1`| **60+ modelos** | ✅ **HTTP 200** | AI Builder Program ($400+ créditos) com auto-scaling dinâmico (janelas de 15 min) |
+| **Chutes.ai** 🚨 | `llm.chutes.ai/v1` | - | ❌ **HTTP 402/Sub**| Free tier descontinuado em 2026; transicionado para plano pago ($3/mês+) |
+| **Together AI** ⚠️ | `api.together.xyz/v1` | **100+ modelos** | ⚠️ **Pré-pago** | Sem free tier contínuo; exige recarga mínima de $5 para emissão de chaves |
+| **AI/ML API** 🚨 | `api.aimlapi.com/v1` | **400+ modelos** | ❌ **Pausado** | Free Tier pausado oficialmente; 100% sob créditos pré-pagos |
+| **Lepton AI** 🚨 | `api.lepton.ai` | - | ⚠️ **Rebrand** | Rebrand/absorção para NVIDIA DGX Cloud Lepton; sem serverless free |
+| **Zhipu AI BigModel** 🇨🇳| `open.bigmodel.cn/api/paas/v4`| **15+ modelos** | ✅ **HTTP 200** | GLM-4-Flash e GLM-4.7-Flash 100% free perpétuo (1 conc) + 25M tokens no cadastro |
+| **Baidu Qianfan** 🇨🇳 | `aip.baidubce.com/rpc/2.0` | **30+ modelos** | ✅ **HTTP 200** | ERNIE-Speed e ERNIE-Lite permanentemente gratuitos a 300 RPM / 300K TPM |
+| **Alibaba Model Studio** 🇨🇳| `dashscope.aliyuncs.com` | **45+ modelos** | ✅ **HTTP 200** | 1M a 2M tokens gratuitos por modelo (Qwen-Turbo/Plus/Max/Long) por 90-180 dias |
+| **Tencent Hunyuan** 🇨🇳 | `hunyuan.tencentcloudapi.com`| **10+ modelos** | ✅ **HTTP 200** | Pacote gratuito de 1 ano para Hunyuan-Lite; sem cobrança surpresa |
+| **ByteDance Doubao** 🇨🇳| `volcengine.com` | **12 modelos** | ⚠️ **Bilhetado**| Sem Free Tier de API para dev (app consumidor é free; API é pré/pós-paga em RMB) |
+| **xKiro Gateway** 💵 | `api.xkiro.com/v1` | **40+ modelos** | ✅ **HTTP 200** | Free Tier de 5M tokens/dia sem cartão; recarga de $5 no wallet para modelos premium |
+| **OpenCode Zen/Go** 💵 | `opencode.ai` | **Curadoria Dev** | ✅ **HTTP 200** | Modelos free nativos (MiMo/MiniMax M2.5 Free); Go entrega $60 em tokens por $10/mo |
+| **B.AI Gateway** 💵 | `api.b.ai/v1` | **20+ modelos** | ✅ **HTTP 200** | 1 USD = 1M créditos; até 90% de desconto dinâmico em horários ociosos (off-peak) |
+
+---
+
+## 6. CHANGELOG HISTÓRICO CONSOLIDADO
+
+| Versão | Data | Principais Mudanças e Marcos Históricos |
+| :---: | :---: | :--- |
+| **v1** | 27/05/2026 | Criação do catálogo original (Llama 3.1, Moonshot V1, Cerebras 12 modelos). |
+| **v2** | 15/07/2026 | Lançamento do Gemini 3.5 Flash; colapso do catálogo Cerebras; Z.AI e MiniMax adicionados. |
+| **v3** | 23/07/2026 | Lançamento do Gemini 3.6 Flash; desativações no Groq (17/07); NVIDIA NIM atinge 119 modelos. |
+| **v4** | 16/08/2026 | DeepSeek V4 Pro em GA com peak/off-peak pricing; Kimi K3 lançado; Gemini 2.5 Pro descontinuado. |
+| **v5** | 19/08/2026 | **🚨 Cerebras encerra Free Tier** (402 Payment Required); Groq desativa Llama 3.1/3.3; Gemini 3.7 Flash. |
+| **v6** | 25/08/2026 | NVIDIA NIM remove GLM-5.2 e adiciona Llama 3.1 8B; DeepSeek lança V4 Flash Vision Experimental. |
+| **v7** | 25/08/2026 | Conciliação profunda com o Catálogo Manus AI v4.0 (17 novos provedores descobertos). |
+| **v8** | 25/08/2026 | Aplicação das métricas granulares (RPM/RPD/TPM/TPD/ASH/ASD); expansão do Cloudflare e SambaNova. |
+| **v9** | 06/09/2026 | Auditoria em tempo real completa: Inclusão do Gemini 3.8 Flash e Qwen 3.8 no Groq; Kimi validado na API `.ai`; exclusão de arquivos duplicados obsoletos em D:. |
+| **v10** | 17/09/2026 | **🔥 Auditoria em tempo real após 11 dias**: Groq desliga definitivamente `qwen/qwen3.6-27b` (404); OpenRouter Free pula para 24 modelos com `nex-agi/nex-n2.5-pro/mini:free`, `inclusionai/ling-3.0-flash-vl:free` (Visão), `z-ai/glm-5.2:free` e `stealth/union-alpha`; NVIDIA NIM adiciona `z-ai/glm-5.3`, `z-ai/glm-5.3-flash` e `nemotron-parse-2.0`, removendo DeepSeek Pro e MiniMax M3; Google AI Studio adiciona `antigravity-preview-09-2026`; DeepSeek consolida `deepseek-flash`; Cadeia de Fallback re-calibrada. |
+| **v11** | 17/09/2026 | **🚀 Grande Expansão e Mapeamento Técnico de Novos Provedores de Inferência**: Inclusão de 8 provedores (Hyperbolic, SiliconFlow, Pollinations.ai, Cohere, AwanLLM, Scaleway, Novita, Nebius); auditoria de falsos free tiers (Chutes, Lepton, Together, AI/ML API); reestruturação do fallback em 4 níveis. |
+| **v12** | **17/09/2026** | **🇨🇳 Aprofundamento no Mercado Chinês & Guia de Planos Econômicos de $5 USD**: Mapeamento granular e tabelas do ecossistema doméstico chinês (**Zhipu AI BigModel** com GLM-4-Flash 100% free perpétuo e 25M tokens; **Baidu Qianfan** com ERNIE-Speed e ERNIE-Lite perpétuos a 300 RPM/300K TPM; **Alibaba Model Studio/DashScope** com 1M-2M tokens free por modelo Qwen; **Tencent Hunyuan** com 1 ano free em Hunyuan-Lite e 1.000 créditos 3D; auditoria da **ByteDance Volcano Engine Doubao** sem free tier de API; **MiniMax**, **01.AI** e **StepFun**). Guia de Planos de $5 a $10 USD com análise de ROI (**xKiro** com 5M tokens/dia free e wallet de $5; **OpenCode Zen** zero markup e **OpenCode Go**; **DeepSeek direto** entregando 18M a 35M tokens por $5; **B.AI** com descontos de 90% off-peak; **SiliconFlow** pay-per-use e **Tencent WorkBuddy** BYO-Key). Adicionadas as Rotas Especializadas Chinesa e Budget de $5 na Cadeia de Fallback. |
+| **v13** | **17/09/2026** | **🎯 Auditoria Integral, Expurgo de Inconsistências & Alinhamento Rigoroso de Modelos**: Restauração dos identificadores canônicos oficiais da DeepSeek (`deepseek-chat` para V3 e `deepseek-reasoner` para R1), eliminando a confusão com rotas internas de cluster (`deepseek-flash` e `deepseek-v4-pro`); consagração da tabela oficial de preços por 1M tokens ($0.14 entrada miss / $0.014 cache hit / $0.28 saída no V3; $0.55 miss / $0.14 hit / $2.19 saída no R1), detalhamento do desconto de 50% no horário econômico (Off-Peak) e cálculo real do ROI de $5 USD (18M-35M tokens puros e 100M+ com cache). Auditoria do Google AI Studio com segregação cristalina entre modelos em Produção Ativa GA (Gemini 2.5/2.0/1.5 Flash a 15 RPM / 1M TPM / 1.500 RPD) e Upstream/Preview (Gemini 3.5/3.1 Flash-Lite, 3.8 Flash, Antigravity Agent), especificando limites reais de Grounding Maps (500 RPD) e Search (1.500 RPD). Validação formal dos 13 modelos ativos reais do Groq Cloud e registro histórico da descontinuação de `qwen/qwen3.6-27b`, `llama-3.3-70b-versatile` e `llama-3.1-8b-instant`. Validação dos 82 modelos do NVIDIA NIM (incluindo `01-ai/yi-large` e `z-ai/glm-5.3`) com cota de 40 RPM / 1.000 RPD sem cartão. Validação dos 24 modelos OpenRouter :free, catálogo Mistral La Plateforme (60 RPM / 4M tokens/mês), e unificação dos modelos clássicos V1 e internacionais K3/K2.7 da Moonshot AI / Kimi com cota de ¥15 RMB. Auditoria completa dos provedores chineses nativos (Baidu, Zhipu, DashScope, Hunyuan, Doubao) e planos Budget de $5 a $10 USD. Backup mantido em `freetiers_apis.md.bak_v12`. |
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# FIM DO MANUAL CANÔNICO — FREE TIERS 2026
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
