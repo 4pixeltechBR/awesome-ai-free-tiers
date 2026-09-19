@@ -139,11 +139,58 @@ Are you an inference provider offering a permanent free tier or micro-budget pla
 
 ---
 
+### 🦜 Maritaca AI (MariTalk) — The Brazilian National LLM Champion
+* **Status:** 100% Free Tier (Tier 0) • Zero Credit Card Required • [Full Step-by-Step Guide](docs/how-to-get-api-keys/maritaca-ai.md)
+
+| Canonical Model ID | Description | RPM | TPM | Base URL | Highlights |
+| :--- | :--- | :---: | :---: | :---: | :--- |
+| **`sabia-4`** | Sabiá-4 Frontier | **50** | **500,000** | `https://chat.maritaca.ai/api` | #1 LLM for Portuguese, Brazilian legal & cultural context |
+| **`sabia-4-thinking`** | Sabiá-4 Reasoning | **50** | **500,000** | `https://chat.maritaca.ai/api` | Extended Chain-of-Thought & tool calling |
+| **`sabiazinho-4`** | Sabiazinho-4 Fast | **50** | **500,000** | `https://chat.maritaca.ai/api` | Ultra-low latency, optimized for lightweight tasks |
+
+---
+
+### ☁️ Cloudflare Workers AI & Serverless Hosts
+* **[Cloudflare Workers AI](docs/how-to-get-api-keys/cloudflare-workers-ai.md):** **10,000 Neurons/day free permanently** (~100k-500k tokens/day, resets 00:00 UTC). Models: Llama 3.3 70B, DeepSeek R1 Distill Qwen 32B, Qwen 2.5 Coder 32B, Flux-1 Schnell.
+* **[SambaNova Cloud](docs/how-to-get-api-keys/sambanova-cloud.md):** Free Developer Tier running on custom SN40L RDUs (30 RPM, 6,000 TPM) for Llama 3.3 70B and DeepSeek-R1.
+* **[Hugging Face Serverless](docs/how-to-get-api-keys/huggingface-inference.md):** Free serverless inference across thousands of open-source models with a free HF User Token.
+
+---
+
+### 🎯 Free Embeddings, Reranking & Anonymous Gateways
+* **[Nomic AI & Mixedbread](docs/how-to-get-api-keys/specialized-embeddings-rerank.md):** Free vector embeddings (`nomic-embed-text-v1.5`) and reranking (`mxbai-rerank-large-v1`).
+* **[Anonymous & Keyless Access](docs/how-to-get-api-keys/anonymous-and-keyless.md):** **AI Horde** (distributed GPU cluster with anonymous key `0000000000`), **DuckDuckGo AI Chat** (anonymous web chat), and **UncloseAI** (dummy key OpenAI endpoint).
+
+---
+
 ### 🪙 The $5 Micro-Budget Champions
 * **[DeepSeek Direct](docs/how-to-get-api-keys/deepseek.md):** \$5 yields 18M–35M+ tokens.
 * **[xKiro](docs/how-to-get-api-keys/budget-gateways.md):** 5M tokens/day free + \$5 prepaid wallet for queue bypass.
 * **[OpenCode](docs/how-to-get-api-keys/budget-gateways.md):** OpenCode Zen zero-markup + OpenCode Go (\$10/mo for \$60 value).
 * **[B.AI](docs/how-to-get-api-keys/budget-gateways.md):** 1 USD = 1M credits with up to 90% off-peak agent discounts.
+
+---
+
+## 🔄 60-Second Setup Guides (Get Your Keys)
+Learn how to get your free API key in under 3 minutes for any provider:
+* 🟢 [Google AI Studio](docs/how-to-get-api-keys/google-ai-studio.md)
+* 🟠 [Groq Cloud](docs/how-to-get-api-keys/groq-cloud.md)
+* 🟢 [NVIDIA NIM (82 Models)](docs/how-to-get-api-keys/nvidia-nim.md)
+* 🐋 [DeepSeek API](docs/how-to-get-api-keys/deepseek.md)
+* 🦜 [Maritaca AI (MariTalk)](docs/how-to-get-api-keys/maritaca-ai.md)
+* ☁️ [Cloudflare Workers AI (10k Neurons)](docs/how-to-get-api-keys/cloudflare-workers-ai.md)
+* ⚡ [SambaNova Cloud (RDUs)](docs/how-to-get-api-keys/sambanova-cloud.md)
+* 🤗 [Hugging Face Serverless](docs/how-to-get-api-keys/huggingface-inference.md)
+* 🌐 [OpenRouter (:free)](docs/how-to-get-api-keys/openrouter.md)
+* 🇪🇺 [Mistral AI](docs/how-to-get-api-keys/mistral-ai.md)
+* ⚡ [Hyperbolic](docs/how-to-get-api-keys/hyperbolic.md)
+* 🚀 [SiliconFlow](docs/how-to-get-api-keys/siliconflow.md)
+* 🎯 [Nomic AI & Mixedbread (Embeddings/Rerank)](docs/how-to-get-api-keys/specialized-embeddings-rerank.md)
+* 🕵️ [Anonymous Gateways (AI Horde, DDG, Unclose)](docs/how-to-get-api-keys/anonymous-and-keyless.md)
+* 🌸 [Pollinations.ai (Anonymous)](docs/how-to-get-api-keys/pollinations.md)
+* 🧬 [Cohere (Embeddings & Rerank)](docs/how-to-get-api-keys/cohere.md)
+* 🇨🇳 [Chinese Giants (Baidu, Zhipu, Alibaba, Tencent)](docs/how-to-get-api-keys/chinese-providers.md)
+* 🪙 [Budget Gateways (xKiro, OpenCode, B.AI, WorkBuddy)](docs/how-to-get-api-keys/budget-gateways.md)
 
 ---
 
@@ -226,16 +273,46 @@ Sua empresa oferece Free Tier perpétuo ou planos econômicos para desenvolvedor
 
 ---
 
-## 🔄 60-Second Setup Guides
+### 🦜 Maritaca AI (MariTalk) — A Campeã Nacional Brasileira de IA
+* **Status:** 100% Free Tier (Tier 0) • Sem Cartão de Crédito • [Guia Passo a Passo](docs/how-to-get-api-keys/maritaca-ai.md)
+
+| Identificador Canônico | Descrição | RPM | TPM | Base URL | Destaques |
+| :--- | :--- | :---: | :---: | :---: | :--- |
+| **`sabia-4`** | Sabiá-4 Fronteira | **50** | **500.000** | `https://chat.maritaca.ai/api` | #1 em português brasileiro, concursos, jurisprudência e cultura |
+| **`sabia-4-thinking`** | Sabiá-4 Raciocínio | **50** | **500.000** | `https://chat.maritaca.ai/api` | Chain-of-Thought e chamada de ferramentas |
+| **`sabiazinho-4`** | Sabiazinho-4 Rápido | **50** | **500.000** | `https://chat.maritaca.ai/api` | Ultrarrápido, otimizado para tarefas leves e baixo custo |
+
+---
+
+### ☁️ Cloudflare Workers AI & Servidores Serverless
+* **[Cloudflare Workers AI](docs/how-to-get-api-keys/cloudflare-workers-ai.md):** **10.000 Neurons/dia gratuitos perpétuos** (~100k-500k tokens/dia, renovados às 00:00 UTC). Llama 3.3 70B, DeepSeek R1 Distill Qwen 32B, Qwen 2.5 Coder 32B e Flux-1 Schnell.
+* **[SambaNova Cloud](docs/how-to-get-api-keys/sambanova-cloud.md):** Plano Developer Gratuito rodando em processadores RDU SN40L de ultra-velocidade (30 RPM, 6.000 TPM) para Llama 3.3 e DeepSeek-R1.
+* **[Hugging Face Serverless](docs/how-to-get-api-keys/huggingface-inference.md):** Acesso gratuito serverless para milhares de modelos abertos com token de usuário comum.
+
+---
+
+### 🎯 Embeddings, Reranking & Gateways Anônimos
+* **[Nomic AI & Mixedbread](docs/how-to-get-api-keys/specialized-embeddings-rerank.md):** Vetores de texto gratuitos (`nomic-embed-text-v1.5`) e modelos de rerank para RAG (`mxbai-rerank-large-v1`).
+* **[Gateways Anônimos (Sem Cadastro)](docs/how-to-get-api-keys/anonymous-and-keyless.md):** **AI Horde** (GPUs distribuídas com chave `0000000000`), **DuckDuckGo AI Chat** (anônimo na web) e **UncloseAI** (chave arbitrária).
+
+---
+
+## 🔄 60-Second Setup Guides / Guias Rápidos de Chaves
 Aprenda a pegar sua chave em menos de 3 minutos para qualquer provedor:
 * 🟢 [Google AI Studio](docs/how-to-get-api-keys/google-ai-studio.md)
 * 🟠 [Groq Cloud](docs/how-to-get-api-keys/groq-cloud.md)
 * 🟢 [NVIDIA NIM (82 Modelos)](docs/how-to-get-api-keys/nvidia-nim.md)
 * 🐋 [DeepSeek API](docs/how-to-get-api-keys/deepseek.md)
+* 🦜 [Maritaca AI (MariTalk)](docs/how-to-get-api-keys/maritaca-ai.md) 🇧🇷
+* ☁️ [Cloudflare Workers AI (10k Neurons)](docs/how-to-get-api-keys/cloudflare-workers-ai.md)
+* ⚡ [SambaNova Cloud (RDUs)](docs/how-to-get-api-keys/sambanova-cloud.md)
+* 🤗 [Hugging Face Serverless](docs/how-to-get-api-keys/huggingface-inference.md)
 * 🌐 [OpenRouter (:free)](docs/how-to-get-api-keys/openrouter.md)
 * 🇪🇺 [Mistral AI](docs/how-to-get-api-keys/mistral-ai.md)
 * ⚡ [Hyperbolic](docs/how-to-get-api-keys/hyperbolic.md)
 * 🚀 [SiliconFlow](docs/how-to-get-api-keys/siliconflow.md)
+* 🎯 [Nomic AI & Mixedbread (Embeddings/Rerank)](docs/how-to-get-api-keys/specialized-embeddings-rerank.md)
+* 🕵️ [Gateways Anônimos (AI Horde, DDG, Unclose)](docs/how-to-get-api-keys/anonymous-and-keyless.md)
 * 🌸 [Pollinations.ai (Anônimo, sem chave)](docs/how-to-get-api-keys/pollinations.md)
 * 🧬 [Cohere (Embeddings & Rerank)](docs/how-to-get-api-keys/cohere.md)
 * 🇨🇳 [Gigantes Chineses (Baidu, Zhipu, Alibaba, Tencent)](docs/how-to-get-api-keys/chinese-providers.md)
