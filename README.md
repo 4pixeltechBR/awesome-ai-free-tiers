@@ -4,14 +4,14 @@
 
 [![Awesome](https://awesome.re/badge.svg)](https://github.com/sindresorhus/awesome)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Verified Models](https://img.shields.io/badge/Verified%20Free%20Models-150%2B-brightgreen.svg)](#)
+[![Verified Free Models](https://img.shields.io/badge/Verified%20Free%20Models-200%2B-brightgreen.svg)](#)
 [![Zero Affiliate Links](https://img.shields.io/badge/Affiliate%20Spam-0%25%20Guaranteed-blue.svg)](#)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTING.md)
 
 **The definitive, 100% community-verified, battle-tested directory of AI Free Tiers, developer quotas, and micro-budget APIs ($5 USD).**  
 Zero hallucinated limits • Zero affiliate spam • Real runtime verified endpoints • 60-second setup tutorials for anyone.
 
-[🇺🇸 English Version](#-english-version) • [🇧🇷 Versão em Português](#-versão-em-português) • [📖 How to Get API Keys](docs/how-to-get-api-keys/) • [📚 Full Reference Catalog](docs/freetiers_apis_v13_reference.md) • [🛡️ Auditing Rules](docs/auditing_rules.md) • [🤝 Contributing](CONTRIBUTING.md)
+[🇺🇸 English Version](#-english-version) • [🇧🇷 Versão em Português](#-versão-em-português) • [📖 How to Get API Keys](docs/how-to-get-api-keys/) • [📚 Full Reference Catalog](docs/freetiers_apis_v15_reference.md) • [🛡️ Auditing Rules](docs/auditing_rules.md) • [🤝 Contributing](CONTRIBUTING.md)
 
 ---
 
@@ -30,13 +30,17 @@ If this directory helps you build and save money, please **give it a Star ⭐** 
 2. [🏢 AI Providers: Get Listed & Verified](#-ai-providers-get-listed--verified)
 3. [⚡ Quick Navigation Matrix](#-quick-navigation-matrix)
 4. [📊 Master Comparison Table (Audited Live)](#-master-comparison-table-audited-live)
+   - [Inception Labs (100M Free Tokens, Mercury API)](#-inception-labs-mercury-api) 💎
+   - [Reka AI ($10/Month Recurring & Video)](#-reka-ai) 💎
    - [Google AI Studio (Gemini)](#-google-ai-studio-gemini-api)
    - [Groq Cloud (Ultra-Fast LPUs)](#-groq-cloud)
    - [NVIDIA NIM (82 Enterprise Models)](#-nvidia-nim)
    - [DeepSeek API (Official Pricing & $5 Super-ROI)](#-deepseek-api)
-   - [OpenRouter (24 Free Models)](#-openrouter-free-models)
-   - [High-Throughput Open Weights (Hyperbolic, SiliconFlow, Pollinations)](#-high-throughput-open-weights)
-   - [Chinese Sovereign Giants (Baidu, Zhipu, Alibaba, Tencent)](#-chinese-sovereign-ai-giants)
+   - [Maritaca AI (Brazilian LLM Champion)](#-maritaca-ai-maritalk) 🇧🇷
+   - [Cloudflare Workers AI & Serverless](#-cloudflare-workers-ai--serverless-hosts)
+   - [Bytez, Morph Labs & Modal Compute](#-bytez-morph-labs--modal-labs) 📦
+   - [Regional Sovereign Gems (InternLM, Sarvam, SEA-LION, LLM7)](#-regional-sovereign-gems--gateways) 🌏
+   - [⚠️ Audited Warnings & Debunked False Free Tiers](#-security-alerts--debunked-false-free-tiers) 🚨
    - [The $5 Micro-Budget Champions](#-the-5-micro-budget-champions)
 5. [🔄 60-Second Setup Guides](#-60-second-setup-guides)
 6. [🛡️ Resilient Multi-Provider Fallback Code](#-resilient-multi-provider-fallback-code)
@@ -64,14 +68,39 @@ Are you an inference provider offering a permanent free tier or micro-budget pla
 
 | Tier Category | What You Get | Payment Method? | Top Providers |
 | :--- | :--- | :---: | :--- |
-| **🟢 Tier 0: 100% Free Forever** | Permanent daily quotas, zero billing account needed | ❌ **No CC** | [Google AI Studio](docs/how-to-get-api-keys/google-ai-studio.md), [Groq](docs/how-to-get-api-keys/groq-cloud.md), [NVIDIA NIM](docs/how-to-get-api-keys/nvidia-nim.md), [Hyperbolic](docs/how-to-get-api-keys/hyperbolic.md), [Pollinations](docs/how-to-get-api-keys/pollinations.md) |
-| **🟡 Tier 1: Welcome Trial Credits** | Massive free token pools expiring in 30–180 days | ❌ **No CC** | [DeepSeek (5M tokens)](docs/how-to-get-api-keys/deepseek.md), [SiliconFlow (20M tokens)](docs/how-to-get-api-keys/siliconflow.md), [Zhipu (25M tokens)](docs/how-to-get-api-keys/chinese-providers.md), [Mistral (4M tokens/mo)](docs/how-to-get-api-keys/mistral-ai.md) |
-| **🪙 Tier 2: The $5 Budget Champions** | Paid, but \$5 USD buys tens of millions of tokens | Minimal Top-up | [DeepSeek Direct](docs/how-to-get-api-keys/deepseek.md), [xKiro](docs/how-to-get-api-keys/budget-gateways.md), [OpenCode](docs/how-to-get-api-keys/budget-gateways.md), [B.AI](docs/how-to-get-api-keys/budget-gateways.md) |
-| **🇨🇳 Tier 3: Asian Sovereign Giants** | Permanent 100% free models for developers | ❌ **No CC** | [Baidu Qianfan (ERNIE-Speed)](docs/how-to-get-api-keys/chinese-providers.md), [Zhipu (GLM-4-Flash)](docs/how-to-get-api-keys/chinese-providers.md), [Alibaba Qwen](docs/how-to-get-api-keys/chinese-providers.md) |
+| **🟢 Tier 0: 100% Free Forever** | Permanent daily quotas, zero billing account needed | ❌ **No CC** | [Google AI Studio](docs/how-to-get-api-keys/google-ai-studio.md), [Groq](docs/how-to-get-api-keys/groq-cloud.md), [NVIDIA NIM](docs/how-to-get-api-keys/nvidia-nim.md), [Maritaca AI](docs/how-to-get-api-keys/maritaca-ai.md), [Hyperbolic](docs/how-to-get-api-keys/hyperbolic.md), [Pollinations](docs/how-to-get-api-keys/pollinations.md), [SEA-LION](docs/how-to-get-api-keys/regional-sovereign-gems.md) |
+| **💎 Tier 1: Recurring Monthly Credits** | Fresh credits deposited every month or 4 weeks | ❌ **No CC** | [Reka AI ($10/mo + 3h video)](docs/how-to-get-api-keys/reka-ai.md), [Bytez ($1/4w)](docs/how-to-get-api-keys/bytez.md), [Morph Labs (250k credits/mo)](docs/how-to-get-api-keys/morph-labs.md), [InternLM (1M in / 3M out/mo)](docs/how-to-get-api-keys/regional-sovereign-gems.md), [Cloudflare (10k Neurons/day)](docs/how-to-get-api-keys/cloudflare-workers-ai.md) |
+| **🟡 Tier 2: Welcome Trial Tokens** | Massive free token pools on signup | ❌ **No CC** | [Inception Labs (100M tokens)](docs/how-to-get-api-keys/inception-labs.md), [DeepSeek (5M tokens)](docs/how-to-get-api-keys/deepseek.md), [SiliconFlow (20M tokens)](docs/how-to-get-api-keys/siliconflow.md), [Zhipu (25M tokens)](docs/how-to-get-api-keys/chinese-providers.md), [Sarvam AI (₹1,000)](docs/how-to-get-api-keys/regional-sovereign-gems.md) |
+| **🕵️ Tier 3: Anonymous & Keyless** | Zero sign-up, zero API key, zero logging | ❌ **No Account** | [LLM7.io (2 req/s)](docs/how-to-get-api-keys/regional-sovereign-gems.md), [AI Horde (Key: 0000000000)](docs/how-to-get-api-keys/anonymous-and-keyless.md), [DuckDuckGo AI](docs/how-to-get-api-keys/anonymous-and-keyless.md) |
+| **🪙 Tier 4: The $5 Budget Champions** | Paid, but \$5 USD buys tens of millions of tokens | Minimal Top-up | [DeepSeek Direct](docs/how-to-get-api-keys/deepseek.md), [xKiro](docs/how-to-get-api-keys/budget-gateways.md), [OpenCode](docs/how-to-get-api-keys/budget-gateways.md), [B.AI](docs/how-to-get-api-keys/budget-gateways.md) |
 
 ---
 
 ## 📊 Master Comparison Table (Audited Live)
+
+### 💎 Inception Labs (Mercury API)
+* **Status:** 100,000,000 Free Tokens on Signup • Zero Credit Card • [Full Step-by-Step Guide](docs/how-to-get-api-keys/inception-labs.md)
+* **Speed:** 150+ tokens/sec, sub-300ms time-to-first-token.
+* **Universal Limits:** **60 RPM / 5 Concurrency** • Base URL: `https://api.inceptionlabs.ai/v1`.
+
+| Canonical Model ID | Modality | Context (In / Out) | RPM | Concurrency | Best For |
+| :--- | :---: | :---: | :---: | :---: | :--- |
+| **`mercury-chat`** | Text | 128,000 / 8,192 | **60** | **5** | High-throughput dialogue, extraction & real-time assistants |
+| **`mercury-coder`**| Code | 128,000 / 16,384 | **60** | **5** | Code refactoring, test generation & full-stack development |
+
+---
+
+### 💎 Reka AI
+* **Status:** $10/Month Recurring Free Credits • 3 Hours Video Free • [Full Step-by-Step Guide](docs/how-to-get-api-keys/reka-ai.md)
+* **Universal Limits:** Multimodal frontier API • Base URL: `https://api.reka.ai/v1`.
+
+| Canonical Model ID | Modality | Context (In / Out) | RPM | TPM | Best For |
+| :--- | :---: | :---: | :---: | :---: | :--- |
+| **`reka-flash`** | Text / Vision / Audio | 128,000 / 8,192 | **30** | **150,000** | Ultra-fast multimodal reasoning & complex document QA |
+| **`reka-core`** | Multimodal Frontier | 128,000 / 8,192 | **10** | **50,000** | Deep logical analysis & multi-step problem solving |
+| **`reka-edge`** | Text | 32,000 / 4,096 | **60** | **300,000** | High-volume batch processing and classification |
+
+---
 
 ### 🟢 Google AI Studio (Gemini API)
 * **Status:** 100% Free • No Credit Card Required • [Full Step-by-Step Guide](docs/how-to-get-api-keys/google-ai-studio.md)
@@ -163,6 +192,28 @@ Are you an inference provider offering a permanent free tier or micro-budget pla
 
 ---
 
+### 📦 Bytez, Morph Labs & Modal Labs
+* **[Bytez](docs/how-to-get-api-keys/bytez.md):** **$1.00 USD free credit renewed every 4 weeks** (runs 2M–5M open-source tokens for Llama 3.3 70B & Qwen 2.5 72B).
+* **[Morph Labs](docs/how-to-get-api-keys/morph-labs.md):** **250,000 free credits/month ($0)** for Fast Apply, applying huge code diffs in < 1 second for AI coding agents.
+* **[Modal Labs](docs/how-to-get-api-keys/modal-labs.md):** **$30/month in free serverless compute credits** for custom GPU containers and vLLM deployments (Card required).
+
+---
+
+### 🌏 Regional Sovereign Gems & Gateways
+* **[InternLM / Shanghai AI Lab](docs/how-to-get-api-keys/regional-sovereign-gems.md):** 1,000,000 in / 3,000,000 out free tokens every month for developers (`internlm2.5-20b-chat`).
+* **[Sarvam AI](docs/how-to-get-api-keys/regional-sovereign-gems.md):** ₹1,000 INR non-expiring welcome credit across 10 Indic languages (`sarvam-2b`).
+* **[SEA-LION (AI Singapore)](docs/how-to-get-api-keys/regional-sovereign-gems.md):** 10 RPM / 100k TPM permanent free tier for Southeast Asian languages.
+* **[LLM7.io](docs/how-to-get-api-keys/regional-sovereign-gems.md):** Zero-signup, zero-key anonymous gateway (2 req/s, 20 RPM, 100 req/hr).
+
+---
+
+### ⚠️ Security Alerts & Debunked False Free Tiers
+* 🚨 **FriendliAI (`friendli.ai`):** Debunked. Pure usage-based commercial billing; no continuous free tier exists.
+* ⚠️ **Liquid AI (`liquid.ai`):** Architecture notice. Has no standalone self-serve direct API; models are legitimately served for free via OpenRouter (`liquid/lfm-2.5-2.6b:free`) or Hugging Face. Avoid fraudulent copycats.
+* 🚨 **CrofAI (`crof.ai`):** Fraudulent wrapper service shut down in September 2026 (domain returns HTTP 404). Permanently blacklisted.
+
+---
+
 ### 🪙 The $5 Micro-Budget Champions
 * **[DeepSeek Direct](docs/how-to-get-api-keys/deepseek.md):** \$5 yields 18M–35M+ tokens.
 * **[xKiro](docs/how-to-get-api-keys/budget-gateways.md):** 5M tokens/day free + \$5 prepaid wallet for queue bypass.
@@ -173,18 +224,24 @@ Are you an inference provider offering a permanent free tier or micro-budget pla
 
 ## 🔄 60-Second Setup Guides (Get Your Keys)
 Learn how to get your free API key in under 3 minutes for any provider:
+* 💎 [Inception Labs (100M Tokens)](docs/how-to-get-api-keys/inception-labs.md)
+* 💎 [Reka AI ($10/mo Recurring)](docs/how-to-get-api-keys/reka-ai.md)
 * 🟢 [Google AI Studio](docs/how-to-get-api-keys/google-ai-studio.md)
 * 🟠 [Groq Cloud](docs/how-to-get-api-keys/groq-cloud.md)
 * 🟢 [NVIDIA NIM (82 Models)](docs/how-to-get-api-keys/nvidia-nim.md)
 * 🐋 [DeepSeek API](docs/how-to-get-api-keys/deepseek.md)
 * 🦜 [Maritaca AI (MariTalk)](docs/how-to-get-api-keys/maritaca-ai.md)
 * ☁️ [Cloudflare Workers AI (10k Neurons)](docs/how-to-get-api-keys/cloudflare-workers-ai.md)
+* 📦 [Bytez ($1/4w Recurring)](docs/how-to-get-api-keys/bytez.md)
+* ⚡ [Morph Labs (Fast Apply)](docs/how-to-get-api-keys/morph-labs.md)
+* 🖥️ [Modal Labs ($30/mo Compute)](docs/how-to-get-api-keys/modal-labs.md)
 * ⚡ [SambaNova Cloud (RDUs)](docs/how-to-get-api-keys/sambanova-cloud.md)
 * 🤗 [Hugging Face Serverless](docs/how-to-get-api-keys/huggingface-inference.md)
 * 🌐 [OpenRouter (:free)](docs/how-to-get-api-keys/openrouter.md)
 * 🇪🇺 [Mistral AI](docs/how-to-get-api-keys/mistral-ai.md)
 * ⚡ [Hyperbolic](docs/how-to-get-api-keys/hyperbolic.md)
 * 🚀 [SiliconFlow](docs/how-to-get-api-keys/siliconflow.md)
+* 🌏 [Regional Gems (InternLM, Sarvam, SEA-LION, LLM7)](docs/how-to-get-api-keys/regional-sovereign-gems.md)
 * 🎯 [Nomic AI & Mixedbread (Embeddings/Rerank)](docs/how-to-get-api-keys/specialized-embeddings-rerank.md)
 * 🕵️ [Anonymous Gateways (AI Horde, DDG, Unclose)](docs/how-to-get-api-keys/anonymous-and-keyless.md)
 * 🌸 [Pollinations.ai (Anonymous)](docs/how-to-get-api-keys/pollinations.md)
@@ -228,14 +285,39 @@ Sua empresa oferece Free Tier perpétuo ou planos econômicos para desenvolvedor
 
 | Categoria | O que você recebe | Exige Cartão? | Principais Provedores |
 | :--- | :--- | :---: | :--- |
-| **🟢 Nível 0: 100% Free Perpétuo** | Cotas diárias contínuas sem conta de cobrança | ❌ **Sem Cartão** | [Google AI Studio](docs/how-to-get-api-keys/google-ai-studio.md), [Groq](docs/how-to-get-api-keys/groq-cloud.md), [NVIDIA NIM](docs/how-to-get-api-keys/nvidia-nim.md), [Hyperbolic](docs/how-to-get-api-keys/hyperbolic.md), [Pollinations](docs/how-to-get-api-keys/pollinations.md) |
-| **🟡 Nível 1: Créditos Iniciais de Boas-Vindas** | Milhões de tokens grátis válidos por 30 a 180 dias | ❌ **Sem Cartão** | [DeepSeek (5M tokens)](docs/how-to-get-api-keys/deepseek.md), [SiliconFlow (20M tokens)](docs/how-to-get-api-keys/siliconflow.md), [Zhipu (25M tokens)](docs/how-to-get-api-keys/chinese-providers.md), [Mistral (4M tokens/mês)](docs/how-to-get-api-keys/mistral-ai.md) |
-| **🪙 Nível 2: Campeões do Micro-Orçamento ($5)** | Pago, mas \$5 USD rende dezenas de milhões de tokens | Depósito Mínimo | [DeepSeek Direto](docs/how-to-get-api-keys/deepseek.md), [xKiro](docs/how-to-get-api-keys/budget-gateways.md), [OpenCode](docs/how-to-get-api-keys/budget-gateways.md), [B.AI](docs/how-to-get-api-keys/budget-gateways.md) |
-| **🇨🇳 Nível 3: Gigantes Asiáticos Soberanos** | Modelos líderes gratuitos de forma permanente | ❌ **Sem Cartão** | [Baidu Qianfan (ERNIE-Speed)](docs/how-to-get-api-keys/chinese-providers.md), [Zhipu (GLM-4-Flash)](docs/how-to-get-api-keys/chinese-providers.md), [Alibaba Qwen](docs/how-to-get-api-keys/chinese-providers.md) |
+| **🟢 Nível 0: 100% Free Perpétuo** | Cotas diárias contínuas sem conta de cobrança | ❌ **Sem Cartão** | [Google AI Studio](docs/how-to-get-api-keys/google-ai-studio.md), [Groq](docs/how-to-get-api-keys/groq-cloud.md), [NVIDIA NIM](docs/how-to-get-api-keys/nvidia-nim.md), [Maritaca AI](docs/how-to-get-api-keys/maritaca-ai.md), [Hyperbolic](docs/how-to-get-api-keys/hyperbolic.md), [Pollinations](docs/how-to-get-api-keys/pollinations.md), [SEA-LION](docs/how-to-get-api-keys/regional-sovereign-gems.md) |
+| **💎 Nível 1: Créditos Recorrentes Mensais** | Créditos renovados todo mês ou a cada 4 semanas | ❌ **Sem Cartão** | [Reka AI ($10/mês + 3h vídeo)](docs/how-to-get-api-keys/reka-ai.md), [Bytez ($1/4 semanas)](docs/how-to-get-api-keys/bytez.md), [Morph Labs (250k créditos/mês)](docs/how-to-get-api-keys/morph-labs.md), [InternLM (1M in / 3M out/mês)](docs/how-to-get-api-keys/regional-sovereign-gems.md), [Cloudflare (10k Neurons/dia)](docs/how-to-get-api-keys/cloudflare-workers-ai.md) |
+| **🟡 Nível 2: Bônus de Boas-Vindas** | Grandes pacotes de tokens gratuitos no cadastro | ❌ **Sem Cartão** | [Inception Labs (100M tokens)](docs/how-to-get-api-keys/inception-labs.md), [DeepSeek (5M tokens)](docs/how-to-get-api-keys/deepseek.md), [SiliconFlow (20M tokens)](docs/how-to-get-api-keys/siliconflow.md), [Zhipu (25M tokens)](docs/how-to-get-api-keys/chinese-providers.md), [Sarvam AI (₹1.000)](docs/how-to-get-api-keys/regional-sovereign-gems.md) |
+| **🕵️ Nível 3: Gateways Anônimos & Sem Chave** | Zero cadastro, zero chave de API, zero retenção | ❌ **Sem Conta** | [LLM7.io (2 req/s)](docs/how-to-get-api-keys/regional-sovereign-gems.md), [AI Horde (Chave: 0000000000)](docs/how-to-get-api-keys/anonymous-and-keyless.md), [DuckDuckGo AI](docs/how-to-get-api-keys/anonymous-and-keyless.md) |
+| **🪙 Nível 4: Campeões do Micro-Orçamento ($5)** | Pago, mas \$5 USD rende dezenas de milhões de tokens | Depósito Mínimo | [DeepSeek Direto](docs/how-to-get-api-keys/deepseek.md), [xKiro](docs/how-to-get-api-keys/budget-gateways.md), [OpenCode](docs/how-to-get-api-keys/budget-gateways.md), [B.AI](docs/how-to-get-api-keys/budget-gateways.md) |
 
 ---
 
 ## 📊 Tabelas Comparativas Auditadas
+
+### 💎 Inception Labs (Mercury API)
+* **Status:** 100.000.000 de Tokens Grátis no Cadastro • Zero Cartão de Crédito • [Guia Passo a Passo](docs/how-to-get-api-keys/inception-labs.md)
+* **Velocidade:** Mais de 150 tokens/segundo, primeiro token abaixo de 300ms.
+* **Limites Globais:** **60 RPM / 5 Conexões Concorrentes** • Base URL: `https://api.inceptionlabs.ai/v1`.
+
+| Identificador Canônico | Modalidade | Contexto (In / Out) | RPM | Concorrência | Destaques |
+| :--- | :---: | :---: | :---: | :---: | :--- |
+| **`mercury-chat`** | Texto | 128.000 / 8.192 | **60** | **5** | Diálogo de alta vazão, extração rápida e chatbots em tempo real |
+| **`mercury-coder`**| Código | 128.000 / 16.384 | **60** | **5** | Refatoração de código, testes unitários e pipelines full-stack |
+
+---
+
+### 💎 Reka AI
+* **Status:** $10 USD / Mês em Créditos Recorrentes Perpétuos • 3 Horas de Vídeo • [Guia Passo a Passo](docs/how-to-get-api-keys/reka-ai.md)
+* **Limites Globais:** API multimodal de fronteira • Base URL: `https://api.reka.ai/v1`.
+
+| Identificador Canônico | Modalidade | Contexto (In / Out) | RPM | TPM | Destaques |
+| :--- | :---: | :---: | :---: | :---: | :--- |
+| **`reka-flash`** | Texto / Visão / Áudio | 128.000 / 8.192 | **30** | **150.000** | Raciocínio multimodal ultrarrápido e leitura de documentos complexos |
+| **`reka-core`** | Multimodal Fronteira | 128.000 / 8.192 | **10** | **50.000** | Máxima inteligência para raciocínio lógico e resolução de problemas |
+| **`reka-edge`** | Texto | 32.000 / 4.096 | **60** | **300.000** | Processamento em lote e triagem de alto volume |
+
+---
 
 ### 🟢 Google AI Studio (API Gemini)
 * **Status:** 100% Gratuito • Sem Cartão de Crédito • [Passo a Passo em Detalhes](docs/how-to-get-api-keys/google-ai-studio.md)
@@ -291,6 +373,28 @@ Sua empresa oferece Free Tier perpétuo ou planos econômicos para desenvolvedor
 
 ---
 
+### 📦 Bytez, Morph Labs & Modal Labs
+* **[Bytez](docs/how-to-get-api-keys/bytez.md):** **$1.00 USD de crédito gratuito renovado a cada 4 semanas** (rende de 2M a 5M de tokens para Llama 3.3 70B e Qwen 2.5 72B).
+* **[Morph Labs](docs/how-to-get-api-keys/morph-labs.md):** **250.000 créditos gratuitos/mês ($0)** para Fast Apply, aplicando diffs em menos de 1 segundo para agentes de código.
+* **[Modal Labs](docs/how-to-get-api-keys/modal-labs.md):** **$30/mês em créditos de computação serverless** para contêineres e deploy de vLLM/Ollama em GPUs (requer cartão).
+
+---
+
+### 🌏 Soberania Regional & Gateways Ultrarrápidos
+* **[InternLM / Shanghai AI Lab](docs/how-to-get-api-keys/regional-sovereign-gems.md):** 1.000.000 in / 3.000.000 out tokens/mês gratuitos para desenvolvedores (`internlm2.5-20b-chat`).
+* **[Sarvam AI](docs/how-to-get-api-keys/regional-sovereign-gems.md):** ₹1.000 INR em créditos de boas-vindas perpétuos cobrindo 10 línguas da Índia (`sarvam-2b`).
+* **[SEA-LION (AI Singapore)](docs/how-to-get-api-keys/regional-sovereign-gems.md):** Cota permanente de 10 RPM / 100k TPM para idiomas do Sudeste Asiático.
+* **[LLM7.io](docs/how-to-get-api-keys/regional-sovereign-gems.md):** Gateway anônimo sem chave e sem login (2 req/s, 20 RPM, 100 req/hora).
+
+---
+
+### ⚠️ Alertas de Auditoria & Falsos Free Tiers Expostos
+* 🚨 **FriendliAI (`friendli.ai`):** Desmentido. Opera puramente sob faturamento pay-per-token comercial; não possui free tier contínuo.
+* ⚠️ **Liquid AI (`liquid.ai`):** Aviso de arquitetura. Não possui endpoint direto self-serve público; acesse gratuitamente via OpenRouter (`liquid/lfm-2.5-2.6b:free`) ou Hugging Face.
+* 🚨 **CrofAI (`crof.ai`):** Wrapper fraudulento que foi descontinuado e retirado do ar com erro 404 em setembro de 2026. Banido em definitivo.
+
+---
+
 ### 🎯 Embeddings, Reranking & Gateways Anônimos
 * **[Nomic AI & Mixedbread](docs/how-to-get-api-keys/specialized-embeddings-rerank.md):** Vetores de texto gratuitos (`nomic-embed-text-v1.5`) e modelos de rerank para RAG (`mxbai-rerank-large-v1`).
 * **[Gateways Anônimos (Sem Cadastro)](docs/how-to-get-api-keys/anonymous-and-keyless.md):** **AI Horde** (GPUs distribuídas com chave `0000000000`), **DuckDuckGo AI Chat** (anônimo na web) e **UncloseAI** (chave arbitrária).
@@ -299,18 +403,24 @@ Sua empresa oferece Free Tier perpétuo ou planos econômicos para desenvolvedor
 
 ## 🔄 60-Second Setup Guides / Guias Rápidos de Chaves
 Aprenda a pegar sua chave em menos de 3 minutos para qualquer provedor:
+* 💎 [Inception Labs (100M Tokens)](docs/how-to-get-api-keys/inception-labs.md)
+* 💎 [Reka AI ($10/mês Recorrente)](docs/how-to-get-api-keys/reka-ai.md)
 * 🟢 [Google AI Studio](docs/how-to-get-api-keys/google-ai-studio.md)
 * 🟠 [Groq Cloud](docs/how-to-get-api-keys/groq-cloud.md)
 * 🟢 [NVIDIA NIM (82 Modelos)](docs/how-to-get-api-keys/nvidia-nim.md)
 * 🐋 [DeepSeek API](docs/how-to-get-api-keys/deepseek.md)
 * 🦜 [Maritaca AI (MariTalk)](docs/how-to-get-api-keys/maritaca-ai.md) 🇧🇷
 * ☁️ [Cloudflare Workers AI (10k Neurons)](docs/how-to-get-api-keys/cloudflare-workers-ai.md)
+* 📦 [Bytez ($1/4 semanas)](docs/how-to-get-api-keys/bytez.md)
+* ⚡ [Morph Labs (Fast Apply)](docs/how-to-get-api-keys/morph-labs.md)
+* 🖥️ [Modal Labs ($30/mês Compute)](docs/how-to-get-api-keys/modal-labs.md)
 * ⚡ [SambaNova Cloud (RDUs)](docs/how-to-get-api-keys/sambanova-cloud.md)
 * 🤗 [Hugging Face Serverless](docs/how-to-get-api-keys/huggingface-inference.md)
 * 🌐 [OpenRouter (:free)](docs/how-to-get-api-keys/openrouter.md)
 * 🇪🇺 [Mistral AI](docs/how-to-get-api-keys/mistral-ai.md)
 * ⚡ [Hyperbolic](docs/how-to-get-api-keys/hyperbolic.md)
 * 🚀 [SiliconFlow](docs/how-to-get-api-keys/siliconflow.md)
+* 🌏 [Joias Regionais (InternLM, Sarvam, SEA-LION, LLM7)](docs/how-to-get-api-keys/regional-sovereign-gems.md)
 * 🎯 [Nomic AI & Mixedbread (Embeddings/Rerank)](docs/how-to-get-api-keys/specialized-embeddings-rerank.md)
 * 🕵️ [Gateways Anônimos (AI Horde, DDG, Unclose)](docs/how-to-get-api-keys/anonymous-and-keyless.md)
 * 🌸 [Pollinations.ai (Anônimo, sem chave)](docs/how-to-get-api-keys/pollinations.md)

@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "name": "Awesome AI Free Tiers Dataset",
-  "version": "1.0.0",
-  "last_audit_date": "2026-09-18",
+  "version": "1.1.0",
+  "last_audit_date": "2026-09-19",
   "maintainer": "4Pixel Tech",
   "providers": [
     {
@@ -208,6 +208,114 @@
       "phone_required": false,
       "billing_tier": "permanent_free",
       "anonymous_key": "0000000000"
+    },
+    {
+      "id": "inception-labs",
+      "name": "Inception Labs (Mercury API)",
+      "console_url": "https://platform.inceptionlabs.ai/",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "welcome_credits",
+      "grant": "100,000,000 free tokens",
+      "models": [
+        { "canonical_id": "mercury-chat", "display_name": "Mercury Chat", "modality": "text", "context_window": { "input": 128000, "output": 8192 }, "rate_limits": { "rpm": 60 } },
+        { "canonical_id": "mercury-coder", "display_name": "Mercury Coder", "modality": "code", "context_window": { "input": 128000, "output": 16384 }, "rate_limits": { "rpm": 60 } }
+      ]
+    },
+    {
+      "id": "reka-ai",
+      "name": "Reka AI",
+      "console_url": "https://platform.reka.ai/",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "monthly_recurring",
+      "grant": "$10/month + 3h video analysis",
+      "models": [
+        { "canonical_id": "reka-flash", "display_name": "Reka Flash", "modality": "multimodal", "context_window": { "input": 128000, "output": 8192 }, "rate_limits": { "rpm": 30, "tpm": 150000 } },
+        { "canonical_id": "reka-core", "display_name": "Reka Core", "modality": "multimodal", "context_window": { "input": 128000, "output": 8192 }, "rate_limits": { "rpm": 10, "tpm": 50000 } },
+        { "canonical_id": "reka-edge", "display_name": "Reka Edge", "modality": "text", "context_window": { "input": 32000, "output": 4096 }, "rate_limits": { "rpm": 60, "tpm": 300000 } }
+      ]
+    },
+    {
+      "id": "bytez",
+      "name": "Bytez",
+      "console_url": "https://bytez.com/",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "periodic_recurring",
+      "grant": "$1.00 every 4 weeks",
+      "models": [
+        { "canonical_id": "meta-llama/llama-3.3-70b-instruct", "modality": "text" },
+        { "canonical_id": "qwen/qwen-2.5-72b-instruct", "modality": "text" }
+      ]
+    },
+    {
+      "id": "morph-labs",
+      "name": "Morph Labs",
+      "console_url": "https://morphllm.com/",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "monthly_recurring",
+      "grant": "250,000 credits/month",
+      "models": [
+        { "canonical_id": "morph-fast-apply", "display_name": "Fast Apply", "modality": "code" }
+      ]
+    },
+    {
+      "id": "modal-labs",
+      "name": "Modal Labs",
+      "console_url": "https://modal.com/",
+      "credit_card_required": true,
+      "phone_required": false,
+      "billing_tier": "monthly_recurring",
+      "grant": "$30/month serverless compute"
+    },
+    {
+      "id": "internlm",
+      "name": "InternLM (Shanghai AI Lab)",
+      "console_url": "https://internlm.intern-ai.org.cn/",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "monthly_recurring",
+      "grant": "1M in / 3M out tokens/month",
+      "models": [
+        { "canonical_id": "internlm2.5-20b-chat", "modality": "text" },
+        { "canonical_id": "internlm-xcomposer2.5", "modality": "multimodal" }
+      ]
+    },
+    {
+      "id": "sarvam-ai",
+      "name": "Sarvam AI (India)",
+      "console_url": "https://docs.sarvam.ai/",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "welcome_credits",
+      "grant": "₹1,000 INR non-expiring",
+      "models": [
+        { "canonical_id": "sarvam-2b", "modality": "text" },
+        { "canonical_id": "sarvam-translate", "modality": "translation" }
+      ]
+    },
+    {
+      "id": "sea-lion",
+      "name": "SEA-LION (AI Singapore)",
+      "console_url": "https://sea-lion.ai/",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "permanent_free",
+      "rate_limits": { "rpm": 10, "tpm": 100000 },
+      "models": [
+        { "canonical_id": "sea-lion-v3-7b-instruct", "modality": "text" }
+      ]
+    },
+    {
+      "id": "llm7-io",
+      "name": "LLM7.io",
+      "console_url": "https://llm7.io/",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "anonymous_keyless",
+      "rate_limits": { "rps": 2, "rpm": 20, "rph": 100 }
     }
   ]
 }
