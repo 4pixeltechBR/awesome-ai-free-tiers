@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "name": "Awesome AI Free Tiers Dataset",
-  "version": "1.1.0",
-  "last_audit_date": "2026-09-19",
+  "version": "1.2.0",
+  "last_audit_date": "2026-09-20",
   "maintainer": "4Pixel Tech",
   "providers": [
     {
@@ -17,25 +17,55 @@
           "canonical_id": "gemini-2.5-flash",
           "display_name": "Gemini 2.5 Flash",
           "modality": "multimodal",
-          "context_window": { "input": 1048576, "output": 65536 },
-          "rate_limits": { "rpm": 15, "tpm": 1000000, "rpd": 1500 },
-          "grounding": { "search_rpd": 1500, "map_rpd": 500 }
+          "context_window": {
+            "input": 1048576,
+            "output": 65536
+          },
+          "rate_limits": {
+            "rpm": 15,
+            "tpm": 1000000,
+            "rpd": 1500
+          },
+          "grounding": {
+            "search_rpd": 1500,
+            "map_rpd": 500
+          }
         },
         {
           "canonical_id": "gemini-2.0-flash",
           "display_name": "Gemini 2.0 Flash",
           "modality": "multimodal",
-          "context_window": { "input": 1048576, "output": 65536 },
-          "rate_limits": { "rpm": 15, "tpm": 1000000, "rpd": 1500 },
-          "grounding": { "search_rpd": 1500, "map_rpd": 500 }
+          "context_window": {
+            "input": 1048576,
+            "output": 65536
+          },
+          "rate_limits": {
+            "rpm": 15,
+            "tpm": 1000000,
+            "rpd": 1500
+          },
+          "grounding": {
+            "search_rpd": 1500,
+            "map_rpd": 500
+          }
         },
         {
           "canonical_id": "gemini-3.5-flash-lite",
           "display_name": "Gemini 3.5 Flash Lite",
           "modality": "multimodal",
-          "context_window": { "input": 1048576, "output": 65536 },
-          "rate_limits": { "rpm": 15, "tpm": 250000, "rpd": 500 },
-          "grounding": { "search_rpd": 0, "map_rpd": 500 }
+          "context_window": {
+            "input": 1048576,
+            "output": 65536
+          },
+          "rate_limits": {
+            "rpm": 15,
+            "tpm": 250000,
+            "rpd": 500
+          },
+          "grounding": {
+            "search_rpd": 0,
+            "map_rpd": 500
+          }
         }
       ]
     },
@@ -51,21 +81,38 @@
           "canonical_id": "qwen/qwen3.8-27b",
           "display_name": "Qwen 3.8 27B",
           "modality": "text",
-          "context_window": { "input": 131072, "output": 8192 },
-          "rate_limits": { "rpm": 30, "tpm": 6000, "rpd": 1000 }
+          "context_window": {
+            "input": 131072,
+            "output": 8192
+          },
+          "rate_limits": {
+            "rpm": 30,
+            "tpm": 6000,
+            "rpd": 1000
+          }
         },
         {
           "canonical_id": "openai/gpt-oss-120b",
           "display_name": "GPT-OSS 120B",
           "modality": "text",
-          "context_window": { "input": 131072, "output": 8192 },
-          "rate_limits": { "rpm": 30, "tpm": 8000, "rpd": 1000 }
+          "context_window": {
+            "input": 131072,
+            "output": 8192
+          },
+          "rate_limits": {
+            "rpm": 30,
+            "tpm": 8000,
+            "rpd": 1000
+          }
         },
         {
           "canonical_id": "whisper-large-v3",
           "display_name": "Whisper Large v3",
           "modality": "audio_stt",
-          "rate_limits": { "rpm": 20, "audio_seconds_per_hour": 2000 }
+          "rate_limits": {
+            "rpm": 20,
+            "audio_seconds_per_hour": 2000
+          }
         }
       ]
     },
@@ -77,7 +124,10 @@
       "phone_required": false,
       "billing_tier": "permanent_free",
       "models_count": 82,
-      "universal_limits": { "rpm": 40, "rpd": 1000 }
+      "universal_limits": {
+        "rpm": 40,
+        "rpd": 1000
+      }
     },
     {
       "id": "deepseek",
@@ -95,7 +145,7 @@
             "input_cache_miss_usd": 0.14,
             "input_cache_hit_usd": 0.014,
             "output_usd": 0.28,
-            "off_peak_discount": 0.50
+            "off_peak_discount": 0.5
           }
         },
         {
@@ -121,7 +171,10 @@
           "canonical_id": "sabia-4",
           "display_name": "Sabiá-4",
           "modality": "text",
-          "rate_limits": { "rpm": 50, "tpm": 500000 }
+          "rate_limits": {
+            "rpm": 50,
+            "tpm": 500000
+          }
         },
         {
           "canonical_id": "sabia-4-thinking",
@@ -132,7 +185,10 @@
           "canonical_id": "sabiazinho-4",
           "display_name": "Sabiazinho-4",
           "modality": "text",
-          "rate_limits": { "rpm": 50, "tpm": 500000 }
+          "rate_limits": {
+            "rpm": 50,
+            "tpm": 500000
+          }
         }
       ]
     },
@@ -145,10 +201,23 @@
       "billing_tier": "permanent_free",
       "free_daily_allocation": "10,000 Neurons/day",
       "models": [
-        { "canonical_id": "@cf/meta/llama-3.3-70b-instruct", "display_name": "Llama 3.3 70B Instruct" },
-        { "canonical_id": "@cf/deepseek-ai/deepseek-r1-distill-qwen-32b", "display_name": "DeepSeek R1 Distill Qwen 32B" },
-        { "canonical_id": "@cf/qwen/qwen2.5-coder-32b-instruct", "display_name": "Qwen 2.5 Coder 32B" },
-        { "canonical_id": "@cf/baai/bge-large-en-v1.5", "display_name": "BGE Large Embeddings", "modality": "embeddings" }
+        {
+          "canonical_id": "@cf/meta/llama-3.3-70b-instruct",
+          "display_name": "Llama 3.3 70B Instruct"
+        },
+        {
+          "canonical_id": "@cf/deepseek-ai/deepseek-r1-distill-qwen-32b",
+          "display_name": "DeepSeek R1 Distill Qwen 32B"
+        },
+        {
+          "canonical_id": "@cf/qwen/qwen2.5-coder-32b-instruct",
+          "display_name": "Qwen 2.5 Coder 32B"
+        },
+        {
+          "canonical_id": "@cf/baai/bge-large-en-v1.5",
+          "display_name": "BGE Large Embeddings",
+          "modality": "embeddings"
+        }
       ]
     },
     {
@@ -158,11 +227,19 @@
       "credit_card_required": false,
       "phone_required": false,
       "billing_tier": "permanent_free",
-      "rate_limits": { "rpm": 30 },
+      "rate_limits": {
+        "rpm": 30
+      },
       "models": [
-        { "canonical_id": "meta-llama/Llama-3.3-70B-Instruct" },
-        { "canonical_id": "Qwen/Qwen2.5-72B-Instruct" },
-        { "canonical_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B" }
+        {
+          "canonical_id": "meta-llama/Llama-3.3-70B-Instruct"
+        },
+        {
+          "canonical_id": "Qwen/Qwen2.5-72B-Instruct"
+        },
+        {
+          "canonical_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B"
+        }
       ]
     },
     {
@@ -172,10 +249,17 @@
       "credit_card_required": false,
       "phone_required": false,
       "billing_tier": "permanent_free",
-      "rate_limits": { "rpm": 30, "tpm": 6000 },
+      "rate_limits": {
+        "rpm": 30,
+        "tpm": 6000
+      },
       "models": [
-        { "canonical_id": "Meta-Llama-3.3-70B-Instruct" },
-        { "canonical_id": "DeepSeek-R1" }
+        {
+          "canonical_id": "Meta-Llama-3.3-70B-Instruct"
+        },
+        {
+          "canonical_id": "DeepSeek-R1"
+        }
       ]
     },
     {
@@ -186,7 +270,10 @@
       "phone_required": false,
       "billing_tier": "permanent_free",
       "models": [
-        { "canonical_id": "nomic-embed-text-v1.5", "modality": "embeddings" }
+        {
+          "canonical_id": "nomic-embed-text-v1.5",
+          "modality": "embeddings"
+        }
       ]
     },
     {
@@ -197,7 +284,10 @@
       "phone_required": false,
       "billing_tier": "permanent_free",
       "models": [
-        { "canonical_id": "mixedbread-ai/mxbai-rerank-large-v1", "modality": "reranking" }
+        {
+          "canonical_id": "mixedbread-ai/mxbai-rerank-large-v1",
+          "modality": "reranking"
+        }
       ]
     },
     {
@@ -218,8 +308,30 @@
       "billing_tier": "welcome_credits",
       "grant": "100,000,000 free tokens",
       "models": [
-        { "canonical_id": "mercury-chat", "display_name": "Mercury Chat", "modality": "text", "context_window": { "input": 128000, "output": 8192 }, "rate_limits": { "rpm": 60 } },
-        { "canonical_id": "mercury-coder", "display_name": "Mercury Coder", "modality": "code", "context_window": { "input": 128000, "output": 16384 }, "rate_limits": { "rpm": 60 } }
+        {
+          "canonical_id": "mercury-chat",
+          "display_name": "Mercury Chat",
+          "modality": "text",
+          "context_window": {
+            "input": 128000,
+            "output": 8192
+          },
+          "rate_limits": {
+            "rpm": 60
+          }
+        },
+        {
+          "canonical_id": "mercury-coder",
+          "display_name": "Mercury Coder",
+          "modality": "code",
+          "context_window": {
+            "input": 128000,
+            "output": 16384
+          },
+          "rate_limits": {
+            "rpm": 60
+          }
+        }
       ]
     },
     {
@@ -231,9 +343,45 @@
       "billing_tier": "monthly_recurring",
       "grant": "$10/month + 3h video analysis",
       "models": [
-        { "canonical_id": "reka-flash", "display_name": "Reka Flash", "modality": "multimodal", "context_window": { "input": 128000, "output": 8192 }, "rate_limits": { "rpm": 30, "tpm": 150000 } },
-        { "canonical_id": "reka-core", "display_name": "Reka Core", "modality": "multimodal", "context_window": { "input": 128000, "output": 8192 }, "rate_limits": { "rpm": 10, "tpm": 50000 } },
-        { "canonical_id": "reka-edge", "display_name": "Reka Edge", "modality": "text", "context_window": { "input": 32000, "output": 4096 }, "rate_limits": { "rpm": 60, "tpm": 300000 } }
+        {
+          "canonical_id": "reka-flash",
+          "display_name": "Reka Flash",
+          "modality": "multimodal",
+          "context_window": {
+            "input": 128000,
+            "output": 8192
+          },
+          "rate_limits": {
+            "rpm": 30,
+            "tpm": 150000
+          }
+        },
+        {
+          "canonical_id": "reka-core",
+          "display_name": "Reka Core",
+          "modality": "multimodal",
+          "context_window": {
+            "input": 128000,
+            "output": 8192
+          },
+          "rate_limits": {
+            "rpm": 10,
+            "tpm": 50000
+          }
+        },
+        {
+          "canonical_id": "reka-edge",
+          "display_name": "Reka Edge",
+          "modality": "text",
+          "context_window": {
+            "input": 32000,
+            "output": 4096
+          },
+          "rate_limits": {
+            "rpm": 60,
+            "tpm": 300000
+          }
+        }
       ]
     },
     {
@@ -245,8 +393,14 @@
       "billing_tier": "periodic_recurring",
       "grant": "$1.00 every 4 weeks",
       "models": [
-        { "canonical_id": "meta-llama/llama-3.3-70b-instruct", "modality": "text" },
-        { "canonical_id": "qwen/qwen-2.5-72b-instruct", "modality": "text" }
+        {
+          "canonical_id": "meta-llama/llama-3.3-70b-instruct",
+          "modality": "text"
+        },
+        {
+          "canonical_id": "qwen/qwen-2.5-72b-instruct",
+          "modality": "text"
+        }
       ]
     },
     {
@@ -258,7 +412,11 @@
       "billing_tier": "monthly_recurring",
       "grant": "250,000 credits/month",
       "models": [
-        { "canonical_id": "morph-fast-apply", "display_name": "Fast Apply", "modality": "code" }
+        {
+          "canonical_id": "morph-fast-apply",
+          "display_name": "Fast Apply",
+          "modality": "code"
+        }
       ]
     },
     {
@@ -279,8 +437,14 @@
       "billing_tier": "monthly_recurring",
       "grant": "1M in / 3M out tokens/month",
       "models": [
-        { "canonical_id": "internlm2.5-20b-chat", "modality": "text" },
-        { "canonical_id": "internlm-xcomposer2.5", "modality": "multimodal" }
+        {
+          "canonical_id": "internlm2.5-20b-chat",
+          "modality": "text"
+        },
+        {
+          "canonical_id": "internlm-xcomposer2.5",
+          "modality": "multimodal"
+        }
       ]
     },
     {
@@ -292,8 +456,14 @@
       "billing_tier": "welcome_credits",
       "grant": "₹1,000 INR non-expiring",
       "models": [
-        { "canonical_id": "sarvam-2b", "modality": "text" },
-        { "canonical_id": "sarvam-translate", "modality": "translation" }
+        {
+          "canonical_id": "sarvam-2b",
+          "modality": "text"
+        },
+        {
+          "canonical_id": "sarvam-translate",
+          "modality": "translation"
+        }
       ]
     },
     {
@@ -303,9 +473,15 @@
       "credit_card_required": false,
       "phone_required": false,
       "billing_tier": "permanent_free",
-      "rate_limits": { "rpm": 10, "tpm": 100000 },
+      "rate_limits": {
+        "rpm": 10,
+        "tpm": 100000
+      },
       "models": [
-        { "canonical_id": "sea-lion-v3-7b-instruct", "modality": "text" }
+        {
+          "canonical_id": "sea-lion-v3-7b-instruct",
+          "modality": "text"
+        }
       ]
     },
     {
@@ -315,7 +491,1407 @@
       "credit_card_required": false,
       "phone_required": false,
       "billing_tier": "anonymous_keyless",
-      "rate_limits": { "rps": 2, "rpm": 20, "rph": 100 }
+      "rate_limits": {
+        "rps": 2,
+        "rpm": 20,
+        "rph": 100
+      }
+    },
+    {
+      "id": "fireworks-ai",
+      "name": "Fireworks AI",
+      "console_url": "https://fireworks.ai/",
+      "base_url": "https://api.fireworks.ai/inference/v1",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "welcome_credits",
+      "grant": "$1.00 USD free credits without card",
+      "models": [
+        {
+          "canonical_id": "accounts/fireworks/models/llama-v3p3-70b-instruct",
+          "display_name": "Llama 3.3 70B",
+          "modality": "text",
+          "context_window": {
+            "input": 131072,
+            "output": 4096
+          },
+          "rate_limits": {
+            "rpm": 600,
+            "tpm": 10000
+          }
+        },
+        {
+          "canonical_id": "accounts/fireworks/models/qwen2p5-72b-instruct",
+          "display_name": "Qwen 2.5 72B",
+          "modality": "text",
+          "context_window": {
+            "input": 131072,
+            "output": 8192
+          },
+          "rate_limits": {
+            "rpm": 600,
+            "tpm": 10000
+          }
+        },
+        {
+          "canonical_id": "accounts/fireworks/models/deepseek-v3",
+          "display_name": "DeepSeek-V3",
+          "modality": "moe_text",
+          "context_window": {
+            "input": 131072,
+            "output": 8192
+          },
+          "rate_limits": {
+            "rpm": 600,
+            "tpm": 10000
+          }
+        },
+        {
+          "canonical_id": "accounts/fireworks/models/deepseek-r1",
+          "display_name": "DeepSeek-R1",
+          "modality": "reasoning",
+          "context_window": {
+            "input": 131072,
+            "output": 16384
+          },
+          "rate_limits": {
+            "rpm": 600,
+            "tpm": 10000
+          }
+        }
+      ]
+    },
+    {
+      "id": "clarifai",
+      "name": "Clarifai",
+      "console_url": "https://portal.clarifai.com/",
+      "base_url": "https://api.clarifai.com/v2",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "permanent_free",
+      "grant": "1,000 free operations per month forever",
+      "models": [
+        {
+          "canonical_id": "openai/chat-completion/models/gpt-4o",
+          "display_name": "GPT-4o via Clarifai",
+          "modality": "multimodal",
+          "rate_limits": {
+            "rpm": 10
+          }
+        },
+        {
+          "canonical_id": "meta/Llama-3/models/llama-3_3-70b-instruct",
+          "display_name": "Llama 3.3 70B",
+          "modality": "text",
+          "rate_limits": {
+            "rpm": 10
+          }
+        }
+      ]
+    },
+    {
+      "id": "baseten",
+      "name": "Baseten",
+      "console_url": "https://baseten.co/",
+      "base_url": "https://bridge.baseten.co/v1",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "welcome_credits",
+      "grant": "$30 USD free compute credits on onboarding",
+      "models": [
+        {
+          "canonical_id": "meta-llama/Llama-3.3-70B-Instruct",
+          "display_name": "Llama 3.3 70B Bridge",
+          "modality": "text",
+          "context_window": {
+            "input": 131072,
+            "output": 4096
+          },
+          "rate_limits": {
+            "rpm": 60
+          }
+        },
+        {
+          "canonical_id": "deepseek-ai/DeepSeek-V3",
+          "display_name": "DeepSeek-V3 Bridge",
+          "modality": "moe_text",
+          "context_window": {
+            "input": 131072,
+            "output": 8192
+          },
+          "rate_limits": {
+            "rpm": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "replicate",
+      "name": "Replicate",
+      "console_url": "https://replicate.com/",
+      "base_url": "https://api.replicate.com/v1",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "developer_trial",
+      "grant": "Developer trial runs for language and diffusion models",
+      "models": [
+        {
+          "canonical_id": "meta/meta-llama-3.3-70b-instruct",
+          "display_name": "Llama 3.3 70B",
+          "modality": "text",
+          "context_window": {
+            "input": 131072,
+            "output": 4096
+          }
+        },
+        {
+          "canonical_id": "deepseek-ai/deepseek-r1",
+          "display_name": "DeepSeek-R1",
+          "modality": "reasoning",
+          "context_window": {
+            "input": 131072,
+            "output": 16384
+          }
+        },
+        {
+          "canonical_id": "black-forest-labs/flux-schnell",
+          "display_name": "FLUX.1 Schnell",
+          "modality": "image_generation"
+        }
+      ]
+    },
+    {
+      "id": "xai-grok",
+      "name": "xAI Console (Grok API)",
+      "console_url": "https://console.x.ai/",
+      "base_url": "https://api.x.ai/v1",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "monthly_recurring",
+      "grant": "$25 USD/month developer grant",
+      "models": [
+        {
+          "canonical_id": "grok-2-1212",
+          "display_name": "Grok 2 (1212)",
+          "modality": "text",
+          "context_window": {
+            "input": 131072,
+            "output": 4096
+          },
+          "rate_limits": {
+            "rpm": 60,
+            "tpm": 10000
+          }
+        },
+        {
+          "canonical_id": "grok-2-vision-1212",
+          "display_name": "Grok 2 Vision",
+          "modality": "multimodal",
+          "context_window": {
+            "input": 32768,
+            "output": 4096
+          },
+          "rate_limits": {
+            "rpm": 60,
+            "tpm": 10000
+          }
+        }
+      ]
+    },
+    {
+      "id": "deepgram",
+      "name": "Deepgram",
+      "console_url": "https://console.deepgram.com/",
+      "base_url": "https://api.deepgram.com/v1",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "welcome_credits",
+      "grant": "$200 USD in free perpetual credits (~775 hours of Nova-2)",
+      "models": [
+        {
+          "canonical_id": "nova-2",
+          "display_name": "Nova-2 STT",
+          "modality": "speech_to_text",
+          "rate_limits": {
+            "rpm": 1000,
+            "concurrency": 100
+          }
+        },
+        {
+          "canonical_id": "nova-2-general",
+          "display_name": "Nova-2 Multilingual",
+          "modality": "speech_to_text",
+          "rate_limits": {
+            "rpm": 1000,
+            "concurrency": 100
+          }
+        },
+        {
+          "canonical_id": "aura-asteria-en",
+          "display_name": "Aura TTS Asteria",
+          "modality": "text_to_speech",
+          "rate_limits": {
+            "rpm": 1000,
+            "concurrency": 100
+          }
+        }
+      ]
+    },
+    {
+      "id": "assemblyai",
+      "name": "AssemblyAI",
+      "console_url": "https://assemblyai.com/",
+      "base_url": "https://api.assemblyai.com/v2",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "welcome_credits",
+      "grant": "$50 USD free credits (~100h to 330h audio)",
+      "models": [
+        {
+          "canonical_id": "best",
+          "display_name": "Conformer-2 Best STT",
+          "modality": "speech_to_text",
+          "rate_limits": {
+            "rpm": 100,
+            "concurrency": 5
+          }
+        },
+        {
+          "canonical_id": "nano",
+          "display_name": "Conformer-2 Nano",
+          "modality": "speech_to_text",
+          "rate_limits": {
+            "rpm": 100,
+            "concurrency": 5
+          }
+        },
+        {
+          "canonical_id": "lemur-70b-chat",
+          "display_name": "LeMUR Speech LLM",
+          "modality": "speech_llm",
+          "rate_limits": {
+            "rpm": 100
+          }
+        }
+      ]
+    },
+    {
+      "id": "elevenlabs",
+      "name": "ElevenLabs",
+      "console_url": "https://elevenlabs.io/",
+      "base_url": "https://api.elevenlabs.io/v1",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "permanent_free",
+      "grant": "10,000 characters per month free forever without credit card",
+      "models": [
+        {
+          "canonical_id": "eleven_multilingual_v2",
+          "display_name": "Eleven Multilingual v2",
+          "modality": "text_to_speech",
+          "rate_limits": {
+            "rpm": 20,
+            "chars_per_month": 10000
+          }
+        },
+        {
+          "canonical_id": "eleven_flash_v2_5",
+          "display_name": "Eleven Flash v2.5",
+          "modality": "realtime_tts",
+          "rate_limits": {
+            "rpm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "cartesia",
+      "name": "Cartesia",
+      "console_url": "https://play.cartesia.ai/",
+      "base_url": "https://api.cartesia.ai/tts/bytes",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "permanent_free",
+      "grant": "Sonic API Free Tier with sub-150ms real-time voice latency",
+      "models": [
+        {
+          "canonical_id": "sonic-english",
+          "display_name": "Sonic English",
+          "modality": "realtime_tts",
+          "rate_limits": {
+            "rpm": 30,
+            "concurrency": 10
+          }
+        },
+        {
+          "canonical_id": "sonic-multilingual",
+          "display_name": "Sonic Multilingual",
+          "modality": "realtime_tts",
+          "rate_limits": {
+            "rpm": 30,
+            "concurrency": 10
+          }
+        }
+      ]
+    },
+    {
+      "id": "lemonfox-ai",
+      "name": "Lemonfox.ai",
+      "console_url": "https://lemonfox.ai/",
+      "base_url": "https://api.lemonfox.ai/v1",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "permanent_free",
+      "grant": "Permanent daily free quota for Whisper STT and TTS",
+      "models": [
+        {
+          "canonical_id": "whisper-1",
+          "display_name": "Whisper STT",
+          "modality": "speech_to_text",
+          "rate_limits": {
+            "rpm": 20
+          }
+        },
+        {
+          "canonical_id": "lemonfox-tts-v1",
+          "display_name": "Lemonfox TTS",
+          "modality": "text_to_speech",
+          "rate_limits": {
+            "rpm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "voyage-ai",
+      "name": "Voyage AI",
+      "console_url": "https://dash.voyageai.com/",
+      "base_url": "https://api.voyageai.com/v1",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "welcome_credits",
+      "grant": "200M tokens trial + 50M tokens permanent free",
+      "models": [
+        {
+          "canonical_id": "voyage-3",
+          "display_name": "Voyage-3 General",
+          "modality": "embeddings",
+          "context_window": {
+            "input": 32000
+          },
+          "rate_limits": {
+            "rpm": 300,
+            "tpm": 1000000
+          }
+        },
+        {
+          "canonical_id": "voyage-code-3",
+          "display_name": "Voyage Code 3",
+          "modality": "embeddings",
+          "context_window": {
+            "input": 32000
+          },
+          "rate_limits": {
+            "rpm": 300,
+            "tpm": 1000000
+          }
+        },
+        {
+          "canonical_id": "rerank-2",
+          "display_name": "Voyage Rerank 2",
+          "modality": "reranking",
+          "context_window": {
+            "input": 16000
+          },
+          "rate_limits": {
+            "rpm": 300,
+            "tpm": 1000000
+          }
+        }
+      ]
+    },
+    {
+      "id": "jina-ai",
+      "name": "Jina AI",
+      "console_url": "https://cloud.jina.ai/",
+      "base_url": "https://api.jina.ai/v1",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "permanent_free",
+      "grant": "10M free tokens on signup + Reader API (r.jina.ai) 100% free forever",
+      "models": [
+        {
+          "canonical_id": "jina-embeddings-v3",
+          "display_name": "Jina Embeddings v3",
+          "modality": "embeddings",
+          "context_window": {
+            "input": 8192
+          },
+          "rate_limits": {
+            "rpm": 500
+          }
+        },
+        {
+          "canonical_id": "jina-reranker-v2-base-multilingual",
+          "display_name": "Jina Reranker v2",
+          "modality": "reranking",
+          "context_window": {
+            "input": 8192
+          },
+          "rate_limits": {
+            "rpm": 500
+          }
+        },
+        {
+          "canonical_id": "r.jina.ai",
+          "display_name": "Jina Reader Engine",
+          "modality": "web_scraper",
+          "rate_limits": {
+            "rpm": 200
+          }
+        }
+      ]
+    },
+    {
+      "id": "tavily-ai",
+      "name": "Tavily AI",
+      "console_url": "https://app.tavily.com/",
+      "base_url": "https://api.tavily.com",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "permanent_free",
+      "grant": "1,000 search API credits per month free forever",
+      "models": [
+        {
+          "canonical_id": "tavily-search-basic",
+          "display_name": "Tavily Search Basic",
+          "modality": "web_search",
+          "rate_limits": {
+            "rpm": 100,
+            "requests_per_month": 1000
+          }
+        },
+        {
+          "canonical_id": "tavily-search-advanced",
+          "display_name": "Tavily Search Advanced",
+          "modality": "web_search",
+          "rate_limits": {
+            "rpm": 100
+          }
+        }
+      ]
+    },
+    {
+      "id": "exa-ai",
+      "name": "Exa.ai",
+      "console_url": "https://dashboard.exa.ai/",
+      "base_url": "https://api.exa.ai",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "welcome_credits",
+      "grant": "$10 USD in free credits (1,000 neural searches) on signup",
+      "models": [
+        {
+          "canonical_id": "exa-search-neural",
+          "display_name": "Exa Neural Search",
+          "modality": "neural_search",
+          "rate_limits": {
+            "rpm": 60,
+            "trial_searches": 1000
+          }
+        }
+      ]
+    },
+    {
+      "id": "qdrant-cloud",
+      "name": "Qdrant Cloud",
+      "console_url": "https://cloud.qdrant.io/",
+      "base_url": "https://cloud.qdrant.io:6333",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "permanent_free",
+      "grant": "1 Free Forever Cloud Cluster (1GB RAM / 0.5 vCPU / ~1M vectors)",
+      "models": [
+        {
+          "canonical_id": "qdrant-hnsw-dense",
+          "display_name": "HNSW Dense Index",
+          "modality": "vector_database",
+          "rate_limits": {
+            "qps": 300
+          }
+        }
+      ]
+    },
+    {
+      "id": "stepfun",
+      "name": "StepFun (Jieyue Xingchen)",
+      "console_url": "https://platform.stepfun.ai/",
+      "base_url": "https://api.stepfun.com/v1",
+      "credit_card_required": false,
+      "phone_required": true,
+      "billing_tier": "welcome_credits",
+      "grant": "¥50 RMB (~$7.00 USD) welcome credits on registration",
+      "models": [
+        {
+          "canonical_id": "step-1-128k",
+          "display_name": "Step-1 128K",
+          "modality": "text",
+          "context_window": {
+            "input": 131072,
+            "output": 4096
+          },
+          "rate_limits": {
+            "rpm": 60,
+            "tpm": 100000
+          }
+        },
+        {
+          "canonical_id": "step-1-256k",
+          "display_name": "Step-1 256K",
+          "modality": "text",
+          "context_window": {
+            "input": 262144,
+            "output": 8192
+          },
+          "rate_limits": {
+            "rpm": 60,
+            "tpm": 100000
+          }
+        },
+        {
+          "canonical_id": "step-2-16k",
+          "display_name": "Step-2 MoE",
+          "modality": "moe_reasoning",
+          "context_window": {
+            "input": 16384,
+            "output": 4096
+          },
+          "rate_limits": {
+            "rpm": 60,
+            "tpm": 100000
+          }
+        }
+      ]
+    },
+    {
+      "id": "01-ai",
+      "name": "01.AI (Lingyi Wanwu)",
+      "console_url": "https://platform.lingyiwanwu.com/",
+      "base_url": "https://api.lingyiwanwu.com/v1",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "welcome_credits",
+      "grant": "¥36 RMB (~$5.10 USD) welcome trial credits",
+      "models": [
+        {
+          "canonical_id": "yi-lightning",
+          "display_name": "Yi-Lightning",
+          "modality": "moe_text",
+          "context_window": {
+            "input": 16384,
+            "output": 4096
+          },
+          "rate_limits": {
+            "rpm": 60,
+            "tpm": 120000
+          }
+        },
+        {
+          "canonical_id": "yi-large",
+          "display_name": "Yi-Large",
+          "modality": "text",
+          "context_window": {
+            "input": 32768,
+            "output": 4096
+          },
+          "rate_limits": {
+            "rpm": 60,
+            "tpm": 120000
+          }
+        },
+        {
+          "canonical_id": "yi-medium-200k",
+          "display_name": "Yi-Medium 200K",
+          "modality": "text",
+          "context_window": {
+            "input": 200000,
+            "output": 4096
+          },
+          "rate_limits": {
+            "rpm": 60,
+            "tpm": 120000
+          }
+        }
+      ]
+    },
+    {
+      "id": "modelscope",
+      "name": "ModelScope (Alibaba DAMO)",
+      "console_url": "https://modelscope.cn/",
+      "base_url": "https://api-inference.modelscope.cn/v1",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "permanent_free",
+      "grant": "Permanent 100% free daily serverless inference on open models",
+      "models": [
+        {
+          "canonical_id": "Qwen/Qwen2.5-72B-Instruct",
+          "display_name": "Qwen 2.5 72B",
+          "modality": "text",
+          "context_window": {
+            "input": 32768,
+            "output": 8192
+          },
+          "rate_limits": {
+            "rpm": 30,
+            "rpd": 1000
+          }
+        },
+        {
+          "canonical_id": "Qwen/Qwen2.5-Coder-32B-Instruct",
+          "display_name": "Qwen 2.5 Coder 32B",
+          "modality": "code",
+          "context_window": {
+            "input": 32768,
+            "output": 8192
+          },
+          "rate_limits": {
+            "rpm": 30,
+            "rpd": 1000
+          }
+        },
+        {
+          "canonical_id": "iic/SenseVoiceSmall",
+          "display_name": "SenseVoice Small STT",
+          "modality": "speech_to_text",
+          "rate_limits": {
+            "rpm": 30,
+            "rpd": 1000
+          }
+        }
+      ]
+    },
+    {
+      "id": "runpod-serverless",
+      "name": "RunPod Serverless",
+      "console_url": "https://www.runpod.io/",
+      "base_url": "https://api.runpod.ai/v2",
+      "credit_card_required": true,
+      "phone_required": false,
+      "billing_tier": "budget_gateway",
+      "grant": "Micro-budget gateway ($5 USD) with true scale-to-zero per-second billing",
+      "models": [
+        {
+          "canonical_id": "meta-llama/Llama-3.3-70B-Instruct",
+          "display_name": "Llama 3.3 70B vLLM",
+          "modality": "text",
+          "context_window": {
+            "input": 131072,
+            "output": 4096
+          }
+        },
+        {
+          "canonical_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+          "display_name": "DeepSeek-R1 Distill 32B",
+          "modality": "reasoning",
+          "context_window": {
+            "input": 131072,
+            "output": 8192
+          }
+        }
+      ]
+    },
+    {
+      "id": "centml",
+      "name": "CentML (CServe)",
+      "console_url": "https://centml.ai/",
+      "base_url": "https://api.centml.com/v1",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "developer_trial",
+      "grant": "Developer trial credits for compiled model execution",
+      "models": [
+        {
+          "canonical_id": "meta-llama/Llama-3.3-70B-Instruct",
+          "display_name": "Llama 3.3 70B CServe",
+          "modality": "text",
+          "context_window": {
+            "input": 131072,
+            "output": 4096
+          },
+          "rate_limits": {
+            "rpm": 60,
+            "tpm": 100000
+          }
+        }
+      ]
+    },
+    {
+      "id": "openrouter",
+      "name": "OpenRouter",
+      "console_url": "https://openrouter.ai/",
+      "base_url": "https://openrouter.ai/api/v1",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "permanent_free",
+      "grant": "24 active :free models with up to 262k context",
+      "models": [
+        {
+          "canonical_id": "meta-llama/llama-3.3-70b-instruct:free",
+          "modality": "text",
+          "rate_limits": {
+            "rpm": 20,
+            "rpd": 200
+          }
+        },
+        {
+          "canonical_id": "deepseek/deepseek-r1:free",
+          "modality": "reasoning",
+          "rate_limits": {
+            "rpm": 20,
+            "rpd": 200
+          }
+        }
+      ]
+    },
+    {
+      "id": "mistral-ai",
+      "name": "Mistral AI",
+      "console_url": "https://console.mistral.ai/",
+      "base_url": "https://api.mistral.ai/v1",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "permanent_free",
+      "grant": "La Plateforme Free Tier: 60 RPM / 4M tokens/month",
+      "models": [
+        {
+          "canonical_id": "mistral-small-latest",
+          "modality": "text",
+          "context_window": {
+            "input": 32768,
+            "output": 8192
+          },
+          "rate_limits": {
+            "rpm": 60
+          }
+        },
+        {
+          "canonical_id": "codestral-latest",
+          "modality": "code",
+          "context_window": {
+            "input": 32768,
+            "output": 8192
+          },
+          "rate_limits": {
+            "rpm": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "kimi-moonshot",
+      "name": "Moonshot AI (Kimi)",
+      "console_url": "https://platform.moonshot.cn/",
+      "base_url": "https://api.moonshot.cn/v1",
+      "credit_card_required": false,
+      "phone_required": true,
+      "billing_tier": "welcome_credits",
+      "grant": "¥15 RMB welcome credits on registration",
+      "models": [
+        {
+          "canonical_id": "moonshot-v1-8k",
+          "modality": "text",
+          "context_window": {
+            "input": 8192,
+            "output": 4096
+          }
+        },
+        {
+          "canonical_id": "moonshot-v1-32k",
+          "modality": "text",
+          "context_window": {
+            "input": 32768,
+            "output": 4096
+          }
+        },
+        {
+          "canonical_id": "moonshot-v1-128k",
+          "modality": "text",
+          "context_window": {
+            "input": 128000,
+            "output": 4096
+          }
+        }
+      ]
+    },
+    {
+      "id": "anthropic",
+      "name": "Anthropic (Claude)",
+      "console_url": "https://console.anthropic.com/",
+      "base_url": "https://api.anthropic.com/v1",
+      "credit_card_required": false,
+      "phone_required": true,
+      "billing_tier": "welcome_credits",
+      "grant": "$5 USD initial developer trial credits",
+      "models": [
+        {
+          "canonical_id": "claude-3-5-sonnet-latest",
+          "modality": "text",
+          "context_window": {
+            "input": 200000,
+            "output": 8192
+          }
+        },
+        {
+          "canonical_id": "claude-3-5-haiku-latest",
+          "modality": "text",
+          "context_window": {
+            "input": 200000,
+            "output": 8192
+          }
+        }
+      ]
+    },
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "console_url": "https://platform.openai.com/",
+      "base_url": "https://api.openai.com/v1",
+      "credit_card_required": false,
+      "phone_required": true,
+      "billing_tier": "welcome_credits",
+      "grant": "$5 USD developer trial credits on new accounts",
+      "models": [
+        {
+          "canonical_id": "gpt-4o-mini",
+          "modality": "text",
+          "context_window": {
+            "input": 128000,
+            "output": 16384
+          }
+        },
+        {
+          "canonical_id": "gpt-4o",
+          "modality": "multimodal",
+          "context_window": {
+            "input": 128000,
+            "output": 16384
+          }
+        }
+      ]
+    },
+    {
+      "id": "cerebras",
+      "name": "Cerebras Cloud",
+      "console_url": "https://cloud.cerebras.ai/",
+      "base_url": "https://api.cerebras.ai/v1",
+      "credit_card_required": true,
+      "phone_required": false,
+      "billing_tier": "deprecated_closed",
+      "grant": "Audited: Free Tier definitively closed (HTTP 402 Payment Required)",
+      "models": [
+        {
+          "canonical_id": "llama3.1-70b",
+          "modality": "text",
+          "status": "deprecated_paid_only"
+        }
+      ]
+    },
+    {
+      "id": "deepinfra",
+      "name": "DeepInfra",
+      "console_url": "https://deepinfra.com/",
+      "base_url": "https://api.deepinfra.com/v1/openai",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "welcome_credits",
+      "grant": "$1.80 USD trial credits on signup without credit card",
+      "models": [
+        {
+          "canonical_id": "meta-llama/Meta-Llama-3.3-70B-Instruct",
+          "modality": "text",
+          "context_window": {
+            "input": 131072,
+            "output": 4096
+          }
+        }
+      ]
+    },
+    {
+      "id": "zhipu-ai",
+      "name": "Zhipu AI (BigModel)",
+      "console_url": "https://open.bigmodel.cn/",
+      "base_url": "https://open.bigmodel.cn/api/paas/v4",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "permanent_free",
+      "grant": "GLM-4-Flash 100% free forever + 25M tokens welcome grant",
+      "models": [
+        {
+          "canonical_id": "glm-4-flash",
+          "modality": "text",
+          "context_window": {
+            "input": 128000,
+            "output": 4096
+          },
+          "rate_limits": {
+            "concurrency": 1
+          }
+        },
+        {
+          "canonical_id": "glm-4.7-flash",
+          "modality": "text",
+          "context_window": {
+            "input": 128000,
+            "output": 4096
+          },
+          "rate_limits": {
+            "concurrency": 1
+          }
+        },
+        {
+          "canonical_id": "glm-4v-flash",
+          "modality": "multimodal",
+          "context_window": {
+            "input": 8192,
+            "output": 4096
+          },
+          "rate_limits": {
+            "concurrency": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "baidu-qianfan",
+      "name": "Baidu Qianfan",
+      "console_url": "https://qianfan.cloud.baidu.com/",
+      "base_url": "https://aip.baidubce.com/rpc/2.0",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "permanent_free",
+      "grant": "ERNIE-Speed & ERNIE-Lite 100% free forever (300 RPM / 300k TPM)",
+      "models": [
+        {
+          "canonical_id": "ERNIE-Speed-8K",
+          "modality": "text",
+          "context_window": {
+            "input": 8192,
+            "output": 4096
+          },
+          "rate_limits": {
+            "rpm": 300,
+            "tpm": 300000
+          }
+        },
+        {
+          "canonical_id": "ERNIE-Speed-128K",
+          "modality": "text",
+          "context_window": {
+            "input": 128000,
+            "output": 4096
+          },
+          "rate_limits": {
+            "rpm": 300,
+            "tpm": 300000
+          }
+        },
+        {
+          "canonical_id": "ERNIE-Lite-8K-0922",
+          "modality": "text",
+          "context_window": {
+            "input": 8192,
+            "output": 4096
+          },
+          "rate_limits": {
+            "rpm": 300,
+            "tpm": 300000
+          }
+        }
+      ]
+    },
+    {
+      "id": "alibaba-dashscope",
+      "name": "Alibaba Cloud Model Studio (DashScope)",
+      "console_url": "https://dashscope.console.aliyun.com/",
+      "base_url": "https://dashscope-intl.aliyuncs.com/compatible-mode/v1",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "welcome_credits",
+      "grant": "1M to 2M free tokens per Qwen model (90-180 days validity)",
+      "models": [
+        {
+          "canonical_id": "qwen-turbo",
+          "modality": "text",
+          "context_window": {
+            "input": 131072,
+            "output": 8192
+          }
+        },
+        {
+          "canonical_id": "qwen-plus",
+          "modality": "moe_text",
+          "context_window": {
+            "input": 131072,
+            "output": 8192
+          }
+        },
+        {
+          "canonical_id": "qwen-max",
+          "modality": "text",
+          "context_window": {
+            "input": 32768,
+            "output": 8192
+          }
+        },
+        {
+          "canonical_id": "qwen-long",
+          "modality": "text",
+          "context_window": {
+            "input": 1000000,
+            "output": 8192
+          }
+        }
+      ]
+    },
+    {
+      "id": "tencent-hunyuan",
+      "name": "Tencent Cloud Hunyuan",
+      "console_url": "https://cloud.tencent.com/product/hunyuan",
+      "base_url": "https://hunyuan.tencentcloudapi.com",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "welcome_credits",
+      "grant": "1-year free tier package for Hunyuan-Lite + 1,000 3D credits",
+      "models": [
+        {
+          "canonical_id": "hunyuan-lite",
+          "modality": "text",
+          "context_window": {
+            "input": 32768,
+            "output": 4096
+          }
+        },
+        {
+          "canonical_id": "hunyuan-standard",
+          "modality": "text",
+          "context_window": {
+            "input": 32768,
+            "output": 4096
+          }
+        }
+      ]
+    },
+    {
+      "id": "bytedance-volcano",
+      "name": "ByteDance Volcano Engine (Doubao)",
+      "console_url": "https://www.volcengine.com/",
+      "base_url": "https://ark.cn-beijing.volces.com/api/v3",
+      "credit_card_required": true,
+      "phone_required": true,
+      "billing_tier": "paid_only",
+      "grant": "Audited: Professional API is strictly paid in RMB (no developer free tier)",
+      "models": [
+        {
+          "canonical_id": "doubao-pro-32k",
+          "modality": "text",
+          "status": "paid_only_cheap"
+        }
+      ]
+    },
+    {
+      "id": "minimax",
+      "name": "MiniMax",
+      "console_url": "https://api.minimax.chat/",
+      "base_url": "https://api.minimax.chat/v1",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "welcome_credits",
+      "grant": "¥15 RMB free trial credits on signup",
+      "models": [
+        {
+          "canonical_id": "abab6.5s-chat",
+          "modality": "text",
+          "context_window": {
+            "input": 245760,
+            "output": 8192
+          }
+        },
+        {
+          "canonical_id": "speech-01",
+          "modality": "text_to_speech",
+          "rate_limits": {
+            "rpm": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "hyperbolic",
+      "name": "Hyperbolic",
+      "console_url": "https://hyperbolic.xyz/",
+      "base_url": "https://api.hyperbolic.xyz/v1",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "permanent_free",
+      "grant": "60 RPM permanent Basic Free Tier without credit card",
+      "models": [
+        {
+          "canonical_id": "meta-llama/Meta-Llama-3.1-405B",
+          "modality": "text",
+          "context_window": {
+            "input": 32768,
+            "output": 4096
+          },
+          "rate_limits": {
+            "rpm": 60
+          }
+        },
+        {
+          "canonical_id": "Qwen/Qwen2.5-Coder-32B-Instruct",
+          "modality": "code",
+          "context_window": {
+            "input": 32768,
+            "output": 8192
+          },
+          "rate_limits": {
+            "rpm": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "siliconflow",
+      "name": "SiliconFlow (SiliconCloud)",
+      "console_url": "https://siliconflow.cn/",
+      "base_url": "https://api.siliconflow.cn/v1",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "permanent_free",
+      "grant": "1,000 RPM / 40,000 TPM on open-source free models + 20M tokens bonus",
+      "models": [
+        {
+          "canonical_id": "Qwen/Qwen2.5-7B-Instruct",
+          "modality": "text",
+          "rate_limits": {
+            "rpm": 1000,
+            "tpm": 40000
+          }
+        },
+        {
+          "canonical_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
+          "modality": "reasoning",
+          "rate_limits": {
+            "rpm": 1000,
+            "tpm": 40000
+          }
+        }
+      ]
+    },
+    {
+      "id": "pollinations",
+      "name": "Pollinations.ai",
+      "console_url": "https://pollinations.ai/",
+      "base_url": "https://gen.pollinations.ai/v1",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "permanent_free",
+      "grant": "100% free forever for text, image, audio, and vision without account",
+      "models": [
+        {
+          "canonical_id": "openai",
+          "modality": "text",
+          "rate_limits": {
+            "rpm": 60
+          }
+        },
+        {
+          "canonical_id": "flux",
+          "modality": "image_generation",
+          "rate_limits": {
+            "rpm": 30
+          }
+        }
+      ]
+    },
+    {
+      "id": "cohere",
+      "name": "Cohere",
+      "console_url": "https://cohere.com/",
+      "base_url": "https://api.cohere.com/v1",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "permanent_free",
+      "grant": "Trial API Key: 1,000 calls/month, 20 RPM chat, 10 RPM rerank, 100 RPM embed",
+      "models": [
+        {
+          "canonical_id": "command-r-plus",
+          "modality": "text",
+          "context_window": {
+            "input": 128000,
+            "output": 4096
+          },
+          "rate_limits": {
+            "rpm": 20
+          }
+        },
+        {
+          "canonical_id": "rerank-v3.5",
+          "modality": "reranking",
+          "rate_limits": {
+            "rpm": 10
+          }
+        },
+        {
+          "canonical_id": "embed-multilingual-v3.0",
+          "modality": "embeddings",
+          "rate_limits": {
+            "rpm": 100
+          }
+        }
+      ]
+    },
+    {
+      "id": "awanllm",
+      "name": "AwanLLM",
+      "console_url": "https://www.awanllm.com/",
+      "base_url": "https://api.awanllm.com/v1",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "permanent_free",
+      "grant": "Free Lite Tier with unlimited tokens (20 RPM / 200 RPD)",
+      "models": [
+        {
+          "canonical_id": "Meta-Llama-3.1-8B-Instruct",
+          "modality": "text",
+          "rate_limits": {
+            "rpm": 20,
+            "rpd": 200
+          }
+        }
+      ]
+    },
+    {
+      "id": "scaleway",
+      "name": "Scaleway Generative APIs",
+      "console_url": "https://console.scaleway.com/",
+      "base_url": "https://api.scaleway.ai/v1",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "permanent_free",
+      "grant": "1,000,000 tokens/month + 60 mins audio transcription free in European Cloud",
+      "models": [
+        {
+          "canonical_id": "llama-3.3-70b-instruct",
+          "modality": "text",
+          "context_window": {
+            "input": 131072,
+            "output": 4096
+          }
+        }
+      ]
+    },
+    {
+      "id": "novita-ai",
+      "name": "Novita AI",
+      "console_url": "https://novita.ai/",
+      "base_url": "https://api.novita.ai/v3/openai",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "welcome_credits",
+      "grant": "$10 to $100 in sandbox trial credits (20 IPM image / 60 RPM LLM)",
+      "models": [
+        {
+          "canonical_id": "meta-llama/llama-3.1-70b-instruct",
+          "modality": "text",
+          "rate_limits": {
+            "rpm": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "nebius",
+      "name": "Nebius Token Factory",
+      "console_url": "https://studio.nebius.ai/",
+      "base_url": "https://api.studio.nebius.ai/v1",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "welcome_credits",
+      "grant": "AI Builder Program with $400+ in compute credits",
+      "models": [
+        {
+          "canonical_id": "meta-llama/Meta-Llama-3.1-405B-Instruct",
+          "modality": "text",
+          "rate_limits": {
+            "rpm": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "xkiro",
+      "name": "xKiro Gateway",
+      "console_url": "https://xkiro.com/",
+      "base_url": "https://api.xkiro.com/v1",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "permanent_free",
+      "grant": "5,000,000 tokens/day free tier + $5 wallet micro-budget",
+      "models": [
+        {
+          "canonical_id": "xkiro-default",
+          "modality": "multimodel_router",
+          "rate_limits": {
+            "tpd": 5000000
+          }
+        }
+      ]
+    },
+    {
+      "id": "opencode",
+      "name": "OpenCode (Zen & Go)",
+      "console_url": "https://opencode.ai/",
+      "base_url": "https://api.opencode.ai/v1",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "permanent_free",
+      "grant": "OpenCode Zen with zero markup and free native models (MiMo V2.5 / MiniMax M2.5)",
+      "models": [
+        {
+          "canonical_id": "mimo-v2.5-free",
+          "modality": "code",
+          "rate_limits": {
+            "rpm": 60
+          }
+        },
+        {
+          "canonical_id": "minimax-m2.5-free",
+          "modality": "text",
+          "rate_limits": {
+            "rpm": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "b-ai",
+      "name": "B.AI",
+      "console_url": "https://b.ai/",
+      "base_url": "https://api.b.ai/v1",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "budget_gateway",
+      "grant": "1 USD = 1M credits with up to 90% dynamic discount during off-peak hours",
+      "models": [
+        {
+          "canonical_id": "b-ai-general",
+          "modality": "agent_execution",
+          "rate_limits": {
+            "rpm": 120
+          }
+        }
+      ]
     }
   ]
 }

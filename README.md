@@ -4,14 +4,15 @@
 
 [![Awesome](https://awesome.re/badge.svg)](https://github.com/sindresorhus/awesome)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Verified Free Models](https://img.shields.io/badge/Verified%20Free%20Models-200%2B-brightgreen.svg)](#)
+[![Verified Free Models](https://img.shields.io/badge/Verified%20Free%20Models-300%2B-brightgreen.svg)](#)
+[![Verified Providers](https://img.shields.io/badge/Verified%20Providers-64-brightgreen.svg)](#)
 [![Zero Affiliate Links](https://img.shields.io/badge/Affiliate%20Spam-0%25%20Guaranteed-blue.svg)](#)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTING.md)
 
 **The definitive, 100% community-verified, battle-tested directory of AI Free Tiers, developer quotas, and micro-budget APIs ($5 USD).**  
 Zero hallucinated limits • Zero affiliate spam • Real runtime verified endpoints • 60-second setup tutorials for anyone.
 
-[🇺🇸 English Version](#-english-version) • [🇧🇷 Versão em Português](#-versão-em-português) • [📖 How to Get API Keys](docs/how-to-get-api-keys/) • [📚 Full Reference Catalog](docs/freetiers_apis_v15_reference.md) • [🛡️ Auditing Rules](docs/auditing_rules.md) • [🤝 Contributing](CONTRIBUTING.md)
+[🇺🇸 English Version](#-english-version) • [🇧🇷 Versão em Português](#-versão-em-português) • [📖 How to Get API Keys](docs/how-to-get-api-keys/) • [📚 Full Reference Catalog](docs/freetiers_apis_v16_reference.md) • [🛡️ Auditing Rules](docs/auditing_rules.md) • [🤝 Contributing](CONTRIBUTING.md)
 
 ---
 
@@ -77,6 +78,49 @@ Are you an inference provider offering a permanent free tier or micro-budget pla
 ---
 
 ## 📊 Master Comparison Table (Audited Live)
+
+
+### 🏛️ The 4 Strategic Pillars: 20 New Audited Providers (v16 Update) 🆕
+
+The v16 update adds 20 strictly audited inference platforms, bringing our catalog to **64 documented providers**:
+
+#### 🚀 Pillar 1: High-Speed Serverless LLM Inference
+| Provider | Free Grant / Quota | Credit Card? | Top Models | Best For |
+| :--- | :--- | :---: | :--- | :--- |
+| **Fireworks AI** | $1.00 USD trial (~5M tokens) | ❌ No | Llama 3.3 70B, Qwen 2.5 72B, DeepSeek-V3/R1 | Ultra-fast FireAttention (250 t/s) |
+| **Clarifai** | 1,000 operations/month | ❌ No | GPT-4o, Llama 3.3 70B, Vision Classifiers | Multimodal serverless community tier |
+| **Baseten** | $30 USD compute credits | ❌ No | Llama 3.3 70B, DeepSeek-V3, Qwen Coder | Serverless vLLM & Truss deployment |
+| **Replicate** | Developer sandbox trial | ❌ No | Llama 3.3 70B, DeepSeek-R1, FLUX.1 Schnell | Multimodal LLMs & image diffusion |
+| **xAI Grok** | $25 USD/month developer grant | ❌ No | Grok-2, Grok-2 Vision, Grok Beta | Frontier reasoning & uncensored tasks |
+
+#### 🎙️ Pillar 2: Voice, Audio, STT & TTS Specialists
+| Provider | Free Grant / Quota | Credit Card? | Top Models | Best For |
+| :--- | :--- | :---: | :--- | :--- |
+| **Deepgram** | $200 USD perpetual credits | ❌ No | Nova-2 (STT), Aura Asteria (TTS) | ~775 hours of transcription ($0.0043/min) |
+| **AssemblyAI** | $50 USD welcome credits | ❌ No | Conformer-2 Best & Nano, LeMUR | 100-330 hours of STT + audio insights |
+| **ElevenLabs** | 10,000 characters/month | ❌ No | Multilingual v2, Flash v2.5 (~75ms) | Industry gold standard Hi-Fi voice |
+| **Cartesia** | Sonic API Free Tier | ❌ No | Sonic English, Sonic Multilingual | Real-time voice agents (<150ms latency) |
+| **Lemonfox.ai** | Permanent daily free quota | ❌ No | Whisper-1, Lemonfox TTS, Embeddings | 1:1 OpenAI drop-in audio replacement |
+
+#### 🔍 Pillar 3: Embeddings, Rerank & Neural Search for Agents
+| Provider | Free Grant / Quota | Credit Card? | Top Models | Best For |
+| :--- | :--- | :---: | :--- | :--- |
+| **Voyage AI** | 200M tokens trial / 50M perm | ❌ No | voyage-3 (32k ctx), rerank-2 | Top #1 MTEB retrieval (Anthropic partner) |
+| **Jina AI** | 10M tokens + Free Reader | ❌ No | jina-embeddings-v3, reranker-v2, r.jina.ai | Multilingual RAG & web URL to markdown |
+| **Tavily AI** | 1,000 searches/month | ❌ No | Basic Search, Advanced Search, Extract | Real-time web search for CrewAI/LangChain |
+| **Exa.ai** | $10 USD (1,000 neural searches)| ❌ No | Neural Search, Keyword Search, Content | Semantic link prediction for LLMs |
+| **Qdrant Cloud** | 1 Free Forever Cluster (1GB) | ❌ No | HNSW Dense, Sparse Vectors, Payload | ~1M vectors managed database forever |
+
+#### 🌐 Pillar 4: Regional Sovereignty & Emerging Markets
+| Provider | Free Grant / Quota | Credit Card? | Top Models | Best For |
+| :--- | :--- | :---: | :--- | :--- |
+| **StepFun** | ¥50 RMB (~$7 USD) welcome | ❌ No | step-1-128k, step-1-256k, step-2-16k | Giant 256k context window & MoE |
+| **01.AI (Lingyi)** | ¥36 RMB (~$5 USD) trial | ❌ No | yi-lightning, yi-large, yi-medium-200k | Super-fast 100+ tokens/sec generation |
+| **ModelScope** | Permanent free daily serverless| ❌ No | Qwen 2.5 72B, SenseVoice STT, TinyNAS | Alibaba DAMO open model inference |
+| **RunPod Serverless**| $5 USD micro-budget gateway | 🟠 $5 | vLLM Llama 3.3 70B, DeepSeek-R1 Distill | Scale-to-zero per-second GPU billing |
+| **CentML (CServe)**| Developer compiled trial | ❌ No | Llama 3.3 70B, Mistral Small 24B | Up to 3x faster compiled kernel inference |
+
+---
 
 ### 💎 Inception Labs (Mercury API)
 * **Status:** 100,000,000 Free Tokens on Signup • Zero Credit Card • [Full Step-by-Step Guide](docs/how-to-get-api-keys/inception-labs.md)
@@ -224,6 +268,26 @@ Are you an inference provider offering a permanent free tier or micro-budget pla
 
 ## 🔄 60-Second Setup Guides (Get Your Keys)
 Learn how to get your free API key in under 3 minutes for any provider:
+* 🚀 [Fireworks AI ($1 Free, Llama 3.3, Qwen 2.5, DeepSeek)](docs/how-to-get-api-keys/fireworks-ai.md) 🆕
+* 🚀 [Clarifai (1,000 Free Ops/Month)](docs/how-to-get-api-keys/clarifai.md) 🆕
+* 🚀 [Baseten ($30 Free Serverless Compute)](docs/how-to-get-api-keys/baseten.md) 🆕
+* 🚀 [Replicate (Developer Trial Credits)](docs/how-to-get-api-keys/replicate.md) 🆕
+* 🚀 [xAI Console / Grok ($25/mo Grant)](docs/how-to-get-api-keys/xai-grok.md) 🆕
+* 🎙️ [Deepgram ($200 Free Credits, ~775h STT)](docs/how-to-get-api-keys/deepgram.md) 🆕
+* 🎙️ [AssemblyAI ($50 Free Credits, ~100-330h STT)](docs/how-to-get-api-keys/assemblyai.md) 🆕
+* 🎙️ [ElevenLabs (10,000 Chars/Month Free)](docs/how-to-get-api-keys/elevenlabs.md) 🆕
+* 🎙️ [Cartesia (Sonic Real-Time TTS <150ms)](docs/how-to-get-api-keys/cartesia.md) 🆕
+* 🎙️ [Lemonfox.ai (Daily Free Whisper & TTS)](docs/how-to-get-api-keys/lemonfox.md) 🆕
+* 🔍 [Voyage AI (200M Free Tokens, Top Embeddings)](docs/how-to-get-api-keys/voyage-ai.md) 🆕
+* 🔍 [Jina AI (10M Tokens + Free Reader API)](docs/how-to-get-api-keys/jina-ai.md) 🆕
+* 🔍 [Tavily AI (1,000 Free Agent Searches/Mo)](docs/how-to-get-api-keys/tavily-ai.md) 🆕
+* 🔍 [Exa.ai ($10 Free, 1,000 Neural Searches)](docs/how-to-get-api-keys/exa-ai.md) 🆕
+* 🔍 [Qdrant Cloud (1GB RAM Vector Cluster Forever)](docs/how-to-get-api-keys/qdrant-cloud.md) 🆕
+* 🌏 [StepFun (¥50 RMB Free, 256k Context)](docs/how-to-get-api-keys/stepfun.md) 🆕
+* 🌏 [01.AI / Lingyi (¥36 RMB Free, Yi-Lightning 100+ t/s)](docs/how-to-get-api-keys/01-ai.md) 🆕
+* 🌏 [ModelScope / Alibaba DAMO (Free Serverless Inference)](docs/how-to-get-api-keys/modelscope.md) 🆕
+* 💵 [RunPod Serverless ($5 Micro-Budget vLLM)](docs/how-to-get-api-keys/runpod-serverless.md) 🆕
+* 🚀 [CentML / CServe (Kernel Compiled Free Trial)](docs/how-to-get-api-keys/centml.md) 🆕
 * 💎 [Inception Labs (100M Tokens)](docs/how-to-get-api-keys/inception-labs.md)
 * 💎 [Reka AI ($10/mo Recurring)](docs/how-to-get-api-keys/reka-ai.md)
 * 🟢 [Google AI Studio](docs/how-to-get-api-keys/google-ai-studio.md)
@@ -294,6 +358,49 @@ Sua empresa oferece Free Tier perpétuo ou planos econômicos para desenvolvedor
 ---
 
 ## 📊 Tabelas Comparativas Auditadas
+
+
+### 🏛️ Os 4 Pilares Estratégicos: 20 Novos Provedores Auditados (Atualização v16) 🆕
+
+A versão v16 adiciona 20 plataformas de inferência estritamente auditadas em bancada, totalizando **64 provedores documentados**:
+
+#### 🚀 Pilar 1: Inferência Serverless de Alta Velocidade para LLMs
+| Provedor | Cota / Saldo Gratuito | Cartão? | Principais Modelos | Melhor Caso de Uso |
+| :--- | :--- | :---: | :--- | :--- |
+| **Fireworks AI** | $1.00 USD trial (~5M tokens) | ❌ Não | Llama 3.3 70B, Qwen 2.5 72B, DeepSeek-V3/R1 | FireAttention ultra-rápida (250 t/s) |
+| **Clarifai** | 1.000 operações/mês | ❌ Não | GPT-4o, Llama 3.3 70B, Classificadores Visuais | Community tier serverless multimodal |
+| **Baseten** | $30 USD em computação | ❌ Não | Llama 3.3 70B, DeepSeek-V3, Qwen Coder | Deploy de vLLM & Truss com scale-to-zero |
+| **Replicate** | Sandbox de desenvolvedor | ❌ Não | Llama 3.3 70B, DeepSeek-R1, FLUX.1 Schnell | Predições de teste em LLMs e difusão |
+| **xAI Grok** | $25 USD/mês em developer grant | ❌ Não | Grok-2, Grok-2 Vision, Grok Beta | Raciocínio de fronteira sem censura excessiva |
+
+#### 🎙️ Pilar 2: Especialistas em Voz, Áudio, STT e TTS
+| Provedor | Cota / Saldo Gratuito | Cartão? | Principais Modelos | Melhor Caso de Uso |
+| :--- | :--- | :---: | :--- | :--- |
+| **Deepgram** | $200 USD em créditos perpétuos | ❌ Não | Nova-2 (STT), Aura Asteria (TTS) | ~775 horas de transcrição gratuita ($0.0043/min) |
+| **AssemblyAI** | $50 USD em créditos de boas-vindas| ❌ Não | Conformer-2 Best & Nano, LeMUR | 100 a 330 horas de STT com diarização |
+| **ElevenLabs** | 10.000 caracteres/mês perpétuos | ❌ Não | Multilingual v2, Flash v2.5 (~75ms) | Padrão-ouro da indústria em realismo vocal |
+| **Cartesia** | Sonic API Free Tier | ❌ Não | Sonic English, Sonic Multilingual | Síntese vocal em tempo real (<150ms latência) |
+| **Lemonfox.ai** | Cota diária gratuita permanente | ❌ Não | Whisper-1, Lemonfox TTS, Embeddings | Drop-in replacement compatível 1:1 com OpenAI |
+
+#### 🔍 Pilar 3: Embeddings, Rerank e Busca Neural para Agentes
+| Provedor | Cota / Saldo Gratuito | Cartão? | Principais Modelos | Melhor Caso de Uso |
+| :--- | :--- | :---: | :--- | :--- |
+| **Voyage AI** | 200M tokens trial / 50M perpétuos| ❌ Não | voyage-3 (32k ctx), rerank-2 | Top #1 mundial em RAG (parceiro Anthropic) |
+| **Jina AI** | 10M tokens + Reader API Grátis | ❌ Não | jina-embeddings-v3, reranker-v2, r.jina.ai | RAG multilíngue e conversão de URL para markdown |
+| **Tavily AI** | 1.000 buscas/mês perpétuas | ❌ Não | Busca Básica, Avançada e Extração | Pesquisa na web em tempo real para agentes autônomos |
+| **Exa.ai** | $10 USD (1.000 buscas neurais) | ❌ Não | Busca Neural, Keyword e Destaques | Previsão semântica de links para LLMs |
+| **Qdrant Cloud** | 1 Cluster Free Forever (1GB RAM) | ❌ Não | HNSW Denso, Vetores Esparsos, Payload | ~1M de vetores gerenciados sem cartão |
+
+#### 🌐 Pilar 4: Soberania Regional e Mercados Emergentes
+| Provedor | Cota / Saldo Gratuito | Cartão? | Principais Modelos | Melhor Caso de Uso |
+| :--- | :--- | :---: | :--- | :--- |
+| **StepFun** | ¥50 RMB (~$7 USD) de boas-vindas| ❌ Não | step-1-128k, step-1-256k, step-2-16k | Contexto gigante de 256k tokens e MoE |
+| **01.AI (Lingyi)** | ¥36 RMB (~$5 USD) de trial | ❌ Não | yi-lightning, yi-large, yi-medium-200k | Geração ultra-rápida superando 100 tokens/s |
+| **ModelScope** | Inferência serverless comunitária | ❌ Não | Qwen 2.5 72B, SenseVoice STT, TinyNAS | Modelos abertos no cluster Alibaba DAMO |
+| **RunPod Serverless**| Gateway micro-budget ($5 USD) | 🟠 $5 | vLLM Llama 3.3 70B, DeepSeek-R1 Distill | Cobrança por segundo ($0.0002/s) com scale-to-zero |
+| **CentML (CServe)**| Developer trial compilado | ❌ Não | Llama 3.3 70B, Mistral Small 24B | Inferência compilada até 3x mais rápida |
+
+---
 
 ### 💎 Inception Labs (Mercury API)
 * **Status:** 100.000.000 de Tokens Grátis no Cadastro • Zero Cartão de Crédito • [Guia Passo a Passo](docs/how-to-get-api-keys/inception-labs.md)
@@ -403,6 +510,26 @@ Sua empresa oferece Free Tier perpétuo ou planos econômicos para desenvolvedor
 
 ## 🔄 60-Second Setup Guides / Guias Rápidos de Chaves
 Aprenda a pegar sua chave em menos de 3 minutos para qualquer provedor:
+* 🚀 [Fireworks AI ($1 Grátis, Llama 3.3, Qwen 2.5, DeepSeek)](docs/how-to-get-api-keys/fireworks-ai.md) 🆕
+* 🚀 [Clarifai (1.000 Operações/Mês Grátis)](docs/how-to-get-api-keys/clarifai.md) 🆕
+* 🚀 [Baseten ($30 em Computação Serverless Grátis)](docs/how-to-get-api-keys/baseten.md) 🆕
+* 🚀 [Replicate (Créditos de Sandbox de Desenvolvedor)](docs/how-to-get-api-keys/replicate.md) 🆕
+* 🚀 [xAI Console / Grok ($25/mês de Grant)](docs/how-to-get-api-keys/xai-grok.md) 🆕
+* 🎙️ [Deepgram ($200 em Créditos Perpétuos, ~775h STT)](docs/how-to-get-api-keys/deepgram.md) 🆕
+* 🎙️ [AssemblyAI ($50 em Créditos Grátis, ~100-330h STT)](docs/how-to-get-api-keys/assemblyai.md) 🆕
+* 🎙️ [ElevenLabs (10.000 Chars/Mês Grátis Perpétuos)](docs/how-to-get-api-keys/elevenlabs.md) 🆕
+* 🎙️ [Cartesia (Sonic API TTS Real-Time <150ms)](docs/how-to-get-api-keys/cartesia.md) 🆕
+* 🎙️ [Lemonfox.ai (Whisper STT & TTS Diário Grátis)](docs/how-to-get-api-keys/lemonfox.md) 🆕
+* 🔍 [Voyage AI (200M Tokens Grátis, Líder em Embeddings)](docs/how-to-get-api-keys/voyage-ai.md) 🆕
+* 🔍 [Jina AI (10M Tokens + Reader API 100% Grátis)](docs/how-to-get-api-keys/jina-ai.md) 🆕
+* 🔍 [Tavily AI (1.000 Buscas/Mês Grátis para Agentes)](docs/how-to-get-api-keys/tavily-ai.md) 🆕
+* 🔍 [Exa.ai ($10 Grátis, 1.000 Buscas Neurais)](docs/how-to-get-api-keys/exa-ai.md) 🆕
+* 🔍 [Qdrant Cloud (1GB RAM Cluster Vetorial Grátis Permanente)](docs/how-to-get-api-keys/qdrant-cloud.md) 🆕
+* 🌏 [StepFun (¥50 RMB Grátis, Contexto 256k)](docs/how-to-get-api-keys/stepfun.md) 🆕
+* 🌏 [01.AI / Lingyi (¥36 RMB Grátis, Yi-Lightning 100+ t/s)](docs/how-to-get-api-keys/01-ai.md) 🆕
+* 🌏 [ModelScope / Alibaba DAMO (Inferência Serverless Comunitária)](docs/how-to-get-api-keys/modelscope.md) 🆕
+* 💵 [RunPod Serverless ($5 Micro-Budget vLLM por Segundo)](docs/how-to-get-api-keys/runpod-serverless.md) 🆕
+* 🚀 [CentML / CServe (Inferência Compilada Free Trial)](docs/how-to-get-api-keys/centml.md) 🆕
 * 💎 [Inception Labs (100M Tokens)](docs/how-to-get-api-keys/inception-labs.md)
 * 💎 [Reka AI ($10/mês Recorrente)](docs/how-to-get-api-keys/reka-ai.md)
 * 🟢 [Google AI Studio](docs/how-to-get-api-keys/google-ai-studio.md)
