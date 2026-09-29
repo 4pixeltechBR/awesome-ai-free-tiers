@@ -11,7 +11,8 @@
 * **Credit Card Required for Free Tier?** ❌ **NO** (Tier 0 free experimentation quota)
 * **Phone / SMS Verification?** ❌ **NO** (Email or Google login)
 * **Free Quota Highlights:**
-  * **Tier 0 (Free):** Up to **50 RPM and 500,000 TPM** for developer testing without entering a credit card.
+  * **Tier 0 (Free):** 60 RPM, 128,000 input TPM, 10,000 output TPM, and Batch API quota of 4,000,000 characters/day (~1M tokens/day) without entering a credit card.
+  * **BRL Pricing (Tier 1+ Pay-As-You-Go):** Sabiá-4 (R$ 5 in / R$ 20 out per 1M tokens), Sabiá-4 Thinking (R$ 5 in / R$ 40 out), Sabiazinho-4 (R$ 1 in / R$ 4 out). 50% discount for off-peak (22h-06h BRT) and Batch API, 75% prompt caching discount.
   * **OpenAI SDK Compatible:** Native compatibility via base URL `https://chat.maritaca.ai/api`.
 * **Canonical API Model IDs:**
   * **`sabia-4`**: State-of-the-art frontier model for Portuguese, Brazilian cultural/legal context, and complex reasoning.
@@ -44,7 +45,8 @@ curl https://chat.maritaca.ai/api/chat/completions \
 * **Exige Cartão de Crédito?** ❌ **NÃO** (Cota gratuita no Tier 0 para testes)
 * **Exige SMS ou Telefone?** ❌ **NÃO** (Cadastro rápido com email ou Google)
 * **Destaques da Cota Gratuita:**
-  * **Tier 0 (Gratuito):** Até **50 requisições/minuto (RPM) e 500.000 tokens/minuto (TPM)** para experimentação sem cobrança.
+  * **Tier 0 (Gratuito):** 60 RPM, 128.000 tokens/minuto de entrada (TPM), 10.000 tokens/minuto de saída (TPM) e cota da Batch API de 4.000.000 de caracteres/dia (~1M tokens) sem cartão de crédito.
+  * **Preços Oficiais em BRL (Tier 1+ Pay-as-you-go):** Sabiá-4 (R$ 5 in / R$ 20 out por 1M tokens), Sabiá-4 Thinking (R$ 5 in / R$ 40 out), Sabiazinho-4 (R$ 1 in / R$ 4 out). Desconto de 50% em horário noturno (22h-06h BRT) e Batch API, e 75% em Prompt Caching.
   * **Compatível com o SDK da OpenAI:** Basta apontar o `base_url` para `https://chat.maritaca.ai/api`.
 * **Identificadores Canônicos de Modelo:**
   * **`sabia-4`**: Modelo de fronteira com entendimento profundo da língua portuguesa, jurisprudência brasileira, ENEM, concursos e nuances culturais.

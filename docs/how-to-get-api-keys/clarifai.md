@@ -1,20 +1,24 @@
-# Clarifai — Community Free Tier (1,000 Free Ops/Month)
+# Clarifai — [RETIRED / DESCONTINUADO] (Acquired by Nebius)
+
+> ⚠️ **STATUS ALERT (July 2026 / Setembro 2026)**:
+> **EN:** Clarifai officially ceased independent platform operations on **July 17, 2026** following its acquisition by **Nebius** (NASDAQ: NBIS). Clarifai's core research team and inference engine were absorbed into the **Nebius Token Factory** (`api.studio.nebius.ai`). The standalone `api.clarifai.com` APIs are no longer operational for new accounts.
+> **PT:** A Clarifai encerrou formalmente suas operações independentes em **17 de julho de 2026** após sua aquisição pela **Nebius**. Sua equipe e tecnologia foram absorvidas pelo **Nebius Token Factory** (`api.studio.nebius.ai`). As APIs `api.clarifai.com` estão desligadas para novas contas.
 
 [🇺🇸 English](#english) | [🇧🇷 Português](#português)
 
 ---
 
 <a name="english"></a>
-## 🇺🇸 Clarifai — Community Free Tier (1,000 Free Ops/Month) Setup Guide
+## 🇺🇸 Clarifai — Platform Status & Nebius Migration
 
-* **Official Platform:** [https://portal.clarifai.com/](https://portal.clarifai.com/)
-* **Credit Card Required?** ❌ NO / NÃO
-* **Phone / SMS Verification?** ❌ NO / NÃO
-* **Free Quota Highlights:**
-  * **Free Allocation:** 1,000 operations per month free forever without credit card.
-  * **Rate Limits:** 10 RPM (1 concurrency).
-  * **Base Endpoint:** `https://api.clarifai.com/v2`
-* **Canonical API Model IDs:**
+* **Official Status:** ❌ **RETIRED (July 17, 2026)** — Acquired by Nebius
+* **Successor Platform:** [Nebius Token Factory](https://studio.nebius.ai/)
+* **Original Platform:** [https://portal.clarifai.com/](https://portal.clarifai.com/)
+* **Credit Card Required?** N/A (Platform retired)
+* **Phone / SMS Verification?** N/A
+* **Historical Free Quota (Legacy):**
+  * **Free Allocation:** Previously 1,000 operations per month free.
+  * **Status:** Discontinued. Users must migrate to Nebius Token Factory or active providers like Google AI Studio, NVIDIA NIM, and OpenRouter Free.
 
 | Canonical Model ID | Display Name | Context Window | Technical Capabilities |
 | :--- | :--- | :---: | :--- |

@@ -11,7 +11,7 @@
 * **Credit Card Required?** ❌ NO / NÃO
 * **Phone / SMS Verification?** ❌ NO / NÃO
 * **Free Quota Highlights:**
-  * **Free Allocation:** $10 USD in free credits (1,000 neural searches) on signup.
+  * **Free Allocation:** Recurring $10 USD/month grant (resets on the 1st of every month, ~1,400 neural searches/month) + $10 USD one-time onboarding bonus without credit card.
   * **Rate Limits:** 60 RPM.
   * **Base Endpoint:** `https://api.exa.ai`
 * **Canonical API Model IDs:**
@@ -67,7 +67,7 @@ print(res.json())
 * **Exige Cartão de Crédito?** ❌ NO / NÃO
 * **Exige Telefone / SMS?** ❌ NO / NÃO
 * **Destaques da Cota Gratuita:**
-  * **Concessão Free:** $10 USD em créditos gratuitos sem cartão (~1.000 buscas semânticas).
+  * **Concessão Free:** Cota recorrente de $10 USD/mês (renovada todo dia 1º de cada mês, ~1.400 buscas neurais/mês) + bônus inicial de boas-vindas de $10 USD sem exigência de cartão de crédito.
   * **Limites de Taxa:** 60 RPM.
   * **Endpoint Base:** `https://api.exa.ai`
 * **Identificadores Canônicos de Modelo:**

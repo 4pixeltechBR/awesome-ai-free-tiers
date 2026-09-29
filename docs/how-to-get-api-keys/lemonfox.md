@@ -1,18 +1,18 @@
-# Lemonfox.ai — Permanent Free Whisper STT & TTS (OpenAI Compatible)
+# Lemonfox.ai — Whisper STT, TTS & Embeddings (1-Month Free Trial + $5/mo Budget Plan)
 
 [🇺🇸 English](#english) | [🇧🇷 Português](#português)
 
 ---
 
 <a name="english"></a>
-## 🇺🇸 Lemonfox.ai — Permanent Free Whisper STT & TTS (OpenAI Compatible) Setup Guide
+## 🇺🇸 Lemonfox.ai — Whisper STT, TTS & Embeddings (1-Month Free Trial + $5/mo Budget Plan) Setup Guide
 
 * **Official Platform:** [https://lemonfox.ai/](https://lemonfox.ai/)
 * **Credit Card Required?** ❌ NO / NÃO
 * **Phone / SMS Verification?** ❌ NO / NÃO
 * **Free Quota Highlights:**
-  * **Free Allocation:** Permanent daily free quota for Whisper STT and TTS synthesis.
-  * **Rate Limits:** 20 RPM (daily free allocation).
+  * **Free Allocation:** 1-month free trial with 10M compute credits (~100 hours of Whisper STT or TTS). Followed by an accessible micro-budget plan at $5/month (50M credits).
+  * **Rate Limits:** 20 RPM (trial and developer allocation).
   * **Base Endpoint:** `https://api.lemonfox.ai/v1`
 * **Canonical API Model IDs:**
 
@@ -62,14 +62,14 @@ print(transcript.text)
 ---
 
 <a name="português"></a>
-## 🇧🇷 Lemonfox.ai — Whisper STT & TTS Gratuito Permanente (Compatível OpenAI) — Guia de Configuração
+## 🇧🇷 Lemonfox.ai — Whisper STT, TTS e Embeddings (Trial Gratuito de 1 Mês + Plano Budget de $5/mês) — Guia de Configuração
 
 * **Link da Plataforma:** [https://lemonfox.ai/](https://lemonfox.ai/)
 * **Exige Cartão de Crédito?** ❌ NO / NÃO
 * **Exige Telefone / SMS?** ❌ NO / NÃO
 * **Destaques da Cota Gratuita:**
-  * **Concessão Free:** Cota diária gratuita permanente para transcrição Whisper e TTS.
-  * **Limites de Taxa:** 20 RPM (daily free allocation).
+  * **Concessão Free:** Trial gratuito de 1 mês com 10M de créditos de computação (~100 horas de Whisper STT ou TTS). Após o período, oferece plano budget ultra-acessível de $5/mês (50M créditos).
+  * **Limites de Taxa:** 20 RPM (alocação de trial e desenvolvedor).
   * **Endpoint Base:** `https://api.lemonfox.ai/v1`
 * **Identificadores Canônicos de Modelo:**
 

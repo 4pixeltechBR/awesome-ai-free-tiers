@@ -8,10 +8,10 @@
 ## 🇺🇸 Baseten — Serverless Model Deployments ($30 Free Compute) Setup Guide
 
 * **Official Platform:** [https://baseten.co/](https://baseten.co/)
-* **Credit Card Required?** ❌ NO / NÃO (for initial $30 compute credits)
+* **Credit Card Required?** 🟠 YES (Required to activate $30 compute credits in workspace)
 * **Phone / SMS Verification?** ❌ NO / NÃO
 * **Free Quota Highlights:**
-  * **Free Allocation:** $30 USD free compute credits on onboarding.
+  * **Free Allocation:** $30 USD free compute credits on workspace initialization (credit card verification required).
   * **Rate Limits:** 60 RPM bridge default (scale to zero).
   * **Base Endpoint:** `https://bridge.baseten.co/v1`
 * **Canonical API Model IDs:**
@@ -66,10 +66,10 @@ print(response.choices[0].message.content)
 ## 🇧🇷 Baseten — Deploy Serverless de Modelos ($30 em Computação Grátis) — Guia de Configuração
 
 * **Link da Plataforma:** [https://baseten.co/](https://baseten.co/)
-* **Exige Cartão de Crédito?** ❌ NO / NÃO (for initial $30 compute credits)
+* **Exige Cartão de Crédito?** 🟠 SIM (Necessário cadastrar cartão para ativar a franquia de $30 de computação na workspace)
 * **Exige Telefone / SMS?** ❌ NO / NÃO
 * **Destaques da Cota Gratuita:**
-  * **Concessão Free:** $30 USD em créditos de computação gratuitos no onboarding.
+  * **Concessão Free:** $30 USD em créditos de computação gratuitos na ativação da workspace (requer cartão).
   * **Limites de Taxa:** 60 RPM bridge default (scale to zero).
   * **Endpoint Base:** `https://bridge.baseten.co/v1`
 * **Identificadores Canônicos de Modelo:**

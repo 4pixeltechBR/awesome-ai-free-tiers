@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "name": "Awesome AI Free Tiers Dataset",
-  "version": "1.2.0",
-  "last_audit_date": "2026-09-20",
+  "version": "1.3.0",
+  "last_audit_date": "2026-09-29",
   "maintainer": "4Pixel Tech",
   "providers": [
     {
@@ -166,28 +166,36 @@
       "credit_card_required": false,
       "phone_required": false,
       "billing_tier": "permanent_free",
+      "grant": "Tier 0 permanent free quota (60 RPM, 128k input TPM, 10k output TPM, 4M chars/day Batch API)",
       "models": [
         {
           "canonical_id": "sabia-4",
           "display_name": "Sabiá-4",
           "modality": "text",
           "rate_limits": {
-            "rpm": 50,
-            "tpm": 500000
+            "rpm": 60,
+            "tpm_input": 128000,
+            "tpm_output": 10000
           }
         },
         {
           "canonical_id": "sabia-4-thinking",
           "display_name": "Sabiá-4 Thinking",
-          "modality": "reasoning"
+          "modality": "reasoning",
+          "rate_limits": {
+            "rpm": 60,
+            "tpm_input": 128000,
+            "tpm_output": 10000
+          }
         },
         {
           "canonical_id": "sabiazinho-4",
           "display_name": "Sabiazinho-4",
           "modality": "text",
           "rate_limits": {
-            "rpm": 50,
-            "tpm": 500000
+            "rpm": 60,
+            "tpm_input": 128000,
+            "tpm_output": 10000
           }
         }
       ]
@@ -246,12 +254,14 @@
       "id": "sambanova",
       "name": "SambaNova Cloud",
       "console_url": "https://cloud.sambanova.ai/",
-      "credit_card_required": false,
+      "credit_card_required": true,
       "phone_required": false,
-      "billing_tier": "permanent_free",
+      "billing_tier": "paid_developer_tier",
+      "notes": "Transitioned to Developer Tier requiring payment method registration (credit card); 20M tokens/day developer cap",
       "rate_limits": {
         "rpm": 30,
-        "tpm": 6000
+        "tpm": 6000,
+        "tpd": 20000000
       },
       "models": [
         {
@@ -563,41 +573,26 @@
     },
     {
       "id": "clarifai",
-      "name": "Clarifai",
+      "name": "Clarifai (Deprecated / Acquired)",
       "console_url": "https://portal.clarifai.com/",
       "base_url": "https://api.clarifai.com/v2",
       "credit_card_required": false,
       "phone_required": false,
-      "billing_tier": "permanent_free",
-      "grant": "1,000 free operations per month forever",
-      "models": [
-        {
-          "canonical_id": "openai/chat-completion/models/gpt-4o",
-          "display_name": "GPT-4o via Clarifai",
-          "modality": "multimodal",
-          "rate_limits": {
-            "rpm": 10
-          }
-        },
-        {
-          "canonical_id": "meta/Llama-3/models/llama-3_3-70b-instruct",
-          "display_name": "Llama 3.3 70B",
-          "modality": "text",
-          "rate_limits": {
-            "rpm": 10
-          }
-        }
-      ]
+      "billing_tier": "deprecated_closed",
+      "status": "retired",
+      "notes": "Shut down on 17/07/2026 following acquisition by Nebius (NASDAQ: NBIS). Core team and technology absorbed into Nebius Token Factory (api.studio.nebius.ai).",
+      "grant": "None (Service discontinued)",
+      "models": []
     },
     {
       "id": "baseten",
       "name": "Baseten",
       "console_url": "https://baseten.co/",
       "base_url": "https://bridge.baseten.co/v1",
-      "credit_card_required": false,
+      "credit_card_required": true,
       "phone_required": false,
       "billing_tier": "welcome_credits",
-      "grant": "$30 USD free compute credits on onboarding",
+      "grant": "$30 USD free compute credits on workspace initialization (requires credit card)",
       "models": [
         {
           "canonical_id": "meta-llama/Llama-3.3-70B-Instruct",
@@ -841,8 +836,8 @@
       "base_url": "https://api.lemonfox.ai/v1",
       "credit_card_required": false,
       "phone_required": false,
-      "billing_tier": "permanent_free",
-      "grant": "Permanent daily free quota for Whisper STT and TTS",
+      "billing_tier": "trial_and_budget",
+      "grant": "1-month free trial with 10M compute credits, followed by $5/month budget tier (50M credits)",
       "models": [
         {
           "canonical_id": "whisper-1",
@@ -988,8 +983,8 @@
       "base_url": "https://api.exa.ai",
       "credit_card_required": false,
       "phone_required": false,
-      "billing_tier": "welcome_credits",
-      "grant": "$10 USD in free credits (1,000 neural searches) on signup",
+      "billing_tier": "monthly_recurring",
+      "grant": "Recurring $10 USD/month grant (resets 1st of each month, ~1,400 searches) + $10 USD onboarding bonus",
       "models": [
         {
           "canonical_id": "exa-search-neural",
@@ -997,7 +992,7 @@
           "modality": "neural_search",
           "rate_limits": {
             "rpm": 60,
-            "trial_searches": 1000
+            "monthly_grant_usd": 10
           }
         }
       ]

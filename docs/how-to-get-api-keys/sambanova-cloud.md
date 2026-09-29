@@ -8,9 +8,9 @@
 ## 🇺🇸 SambaNova Cloud Setup Guide
 
 * **Official Portal:** [https://cloud.sambanova.ai/](https://cloud.sambanova.ai/)
-* **Credit Card Required for Free Tier?** ❌ **NO**
+* **Credit Card Required?** 🟠 **YES** (Developer Tier requires an active payment method to run requests as of late September 2026).
 * **Hardware:** Proprietary SN40L Reconfigurable Dataflow Units (RDUs) delivering sub-second frontier inference.
-* **Free Quota:** Free Developer Tier with per-day token caps and up to **30 RPM / 6,000 TPM**.
+* **Developer Tier Quota:** 20 Million tokens per day cap across production and preview models once payment method is verified.
 * **Base URL:** `https://api.sambanova.ai/v1` (OpenAI SDK Compatible)
 * **Key Free Models:**
   * `Meta-Llama-3.3-70B-Instruct`
@@ -19,9 +19,10 @@
   * `Qwen2.5-72B-Instruct`
 
 ### Step-by-Step Instructions:
-1. Visit [https://cloud.sambanova.ai/](https://cloud.sambanova.ai/) and register a free developer account.
-2. Go to **APIs** in the left sidebar.
-3. Click **Create API Key** and copy your token.
+1. Visit [https://cloud.sambanova.ai/](https://cloud.sambanova.ai/) and register a developer account.
+2. Link a payment method to activate the Developer Tier.
+3. Go to **APIs** in the left sidebar.
+4. Click **Create API Key** and copy your token.
 
 ### 1-Line Test Command (Terminal / cURL):
 ```bash
@@ -40,6 +41,7 @@ curl https://api.sambanova.ai/v1/chat/completions \
 ## 🇧🇷 Guia SambaNova Cloud (RDUs de Altíssima Velocidade)
 
 * **Link Oficial:** [https://cloud.sambanova.ai/](https://cloud.sambanova.ai/)
-* **Exige Cartão de Crédito?** ❌ **NÃO** para o plano de desenvolvedor gratuito.
+* **Exige Cartão de Crédito?** 🟠 **SIM** (A plataforma transicionou para o Developer Tier comercial em setembro de 2026, exigindo método de pagamento ativo).
 * **Arquitetura:** Processadores RDU SN40L com taxas altíssimas de geração de tokens por segundo.
+* **Cota do Developer Tier:** Limite de até 20 Milhões de tokens por dia.
 * **Modelos Disponíveis:** Llama 3.3 70B, DeepSeek-R1, Qwen 2.5 72B.
