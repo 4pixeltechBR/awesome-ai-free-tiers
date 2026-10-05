@@ -73,6 +73,39 @@ Este documento consolida as cotas gratuitas (Free Tiers), especificações técn
 
 ---
 
+## 0. DIRETRIZES MANDATÓRIAS DE GOVERNANÇA & REGRAS OPERACIONAIS
+
+Para manter este catálogo e o repositório como a **referência mundial de consulta técnica sobre Free Tiers e assinaturas de IA**, todas as auditorias, agentes autônomos e mantenedores seguem rigorosamente as seguintes diretrizes:
+
+### 🏛️ As 5 Regras Mandatórias de Governança Operacional:
+1. **Release Obrigatório no GitHub a Cada Atualização:**  
+   Sempre que o catálogo canônico for atualizado, é obrigatório publicar imediatamente uma nova Release formal no repositório GitHub (com tag semântica). As notas da release devem explicitar com precisão cirúrgica:
+   * Quais modelos foram lançados, adicionados ou ativados.
+   * Quais modelos foram deprecados, descontinuados ou removidos, com indicação de rotas de substituição.
+2. **Rastreamento Ativo de Promoções e Concessões Temporárias:**  
+   Pesquisar ativamente se algum provedor está com promoção ou créditos promocionais temporários vigentes, especificando:
+   * Modelos contemplados na promoção.
+   * Limitações de vazão ou volume (tokens, gerações, concorrência).
+   * Prazos e data limite de expiração da concessão.
+   * *Aviso de Encerramento:* Quando a promoção acabar ou expirar, deve-se avisar formalmente na Release seguinte e atualizar o catálogo.
+3. **Expansão Multimodal para Produção & Regra dos Dois Planos Mais Baratos:**  
+   Buscar ativamente novos provedores que agreguem à produção real: texto, código, geração de imagens, música, vídeo, áudio e efeitos especiais.  
+   * **Regra dos 2 Planos Budget:** Para provedores pagos ou híbridos com cotas gratuitas ou micro-orçamentos (estilo OpenCode, xKiro, B.AI), é obrigatório documentar os **dois planos mais baratos de cada um**, seus limites numéricos e benefícios reais. Se uma plataforma paga não oferecer free tier e não possuir diferencial em micro-planos, não deve ser adicionada ao catálogo.
+4. **Verdade Concreta e Auditável (Tolerância Zero a Alucinações):**  
+   Buscar sempre dados técnicos sólidos, verificáveis em documentação oficial ou testes ativos no terminal. Na menor dúvida, não avance; deixe explicitamente registrado que o dado é volátil e passível de alteração pela operadora.
+5. **Padrão Ouro de Referência Global:**  
+   Este catálogo é a referência de consulta para desenvolvedores, startups e arquitetos de IA. Traga apenas informações pertinentes, de altíssima precisão e utilidade prática para o ecossistema de infraestrutura de inteligência artificial.
+
+### 🛡️ As 6 Regras de Ouro de Verificação Técnica:
+1. **Verificabilidade em Runtime (Nada de Especulação):** Teste ativo no terminal ou documentação oficial em vigência.
+2. **Apenas Identificadores Canônicos de API:** Nomes comerciais sempre mapeados ao payload JSON exato (`deepseek-chat`, `gemini-2.5-flash`, etc.).
+3. **Transparência Granular de Limites:** Proibido termos como "ilimitado"; especifique RPM, TPM, RPD e concorrência.
+4. **Classificação Rigorosa de Faturamento:** Segregação estrita entre 🟢 Free Permanente sem cartão, 🟡 Trial de Boas-Vindas com expiração, 🟠 Free Tier exigindo cartão de crédito e 🔵 Micro-Orçamento ($5 USD).
+5. **Tolerância Zero a Afiliados e Interesses Comerciais:** Links diretos aos consoles oficiais, sem rastreadores ou parcerias comerciais opacas.
+6. **Rastreamento Ativo de Depreciações:** Modelos encerrados nunca são deletados em silêncio; são movidos para o arquivo histórico com data e rotas de migração.
+
+---
+
 ## 1. QUADRO COMPARATIVO GERAL DE MODELOS FREE & POLÍTICAS
 
 ---

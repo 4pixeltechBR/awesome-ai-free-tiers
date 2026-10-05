@@ -66,6 +66,15 @@ Most "free AI API" lists on the web suffer from three fatal flaws:
 
 This repository fixes that with **strict runtime auditing, zero affiliate links, and verifiable test snippets**.
 
+### 🛡️ Our 5 Core Governance Directives
+1. **Mandatory GitHub Release on Every Update:** Every catalog update is accompanied by a formal GitHub Release detailing added/launched models, active promotions, and deprecated models with replacement paths.
+2. **Active Promotion Tracking:** We actively track promotional grants and temporary developer quotas, highlighting limits and expiration dates, and explicitly notifying in the next release when they end.
+3. **Production-First Multimodal Expansion:** We curate high-utility production tools across text, code, image generation, video, music, audio, and visual effects. For hybrid/budget services (like OpenCode, xKiro, B.AI), we strictly document their **two cheapest plans**.
+4. **Concrete, Auditable Truth:** Zero guesswork and zero hallucinated numbers. If a quota is unverified or volatile, it is explicitly flagged.
+5. **Global Benchmark Precision:** Built as the definitive, zero-affiliate technical reference for developers and infrastructure providers worldwide.
+
+👉 Read our complete **[Auditing Rules & Governance Manifesto](docs/auditing_rules.md)**.
+
 ---
 
 ## 🏢 AI Providers: Get Listed & Verified!
@@ -347,6 +356,15 @@ A maioria dos tutoriais de IA na internet engana o desenvolvedor com três probl
 3. **Nomes Incorretos de Modelos:** Publicar nomes de marketing que quebram a requisição da API por não serem os IDs canônicos.
 
 Nosso compromisso é com a **verdade técnica, transparência total e zero links de afiliados**.
+
+### 🛡️ Nossas 5 Diretrizes Mandatórias de Governança
+1. **Release Oficial Obrigatório a Cada Atualização:** Toda atualização do catálogo é acompanhada de uma Release formal no GitHub detalhando novos modelos, promoções ativas e modelos deprecados com rotas de substituição.
+2. **Rastreamento Ativo de Promoções:** Monitoramos concessões promocionais e cotas temporárias de desenvolvedor, com prazos claros e avisos formais na release seguinte quando forem encerradas.
+3. **Expansão Multimodal para Produção:** Curadoria de ferramentas úteis para produção (texto, código, geração de imagens, música, vídeo, áudio e efeitos especiais). Para plataformas híbridas/pagas (como OpenCode, xKiro, B.AI), documentamos obrigatoriamente os **dois planos mais baratos de cada uma**.
+4. **Verdade Concreta e Auditável:** Tolerância zero a alucinações e métricas inventadas. Limites não confirmados ou voláteis são explicitamente sinalizados com avisos de cautela.
+5. **Padrão Ouro de Referência Global:** Construído como a referência técnica mundial e independente para desenvolvedores, startups e provedores de infraestrutura de IA.
+
+👉 Leia o manifesto completo: **[Diretrizes de Governança & Regras de Auditoria](docs/auditing_rules.md)**.
 
 ---
 
