@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "name": "Awesome AI Free Tiers Dataset",
-  "version": "1.3.0",
-  "last_audit_date": "2026-09-29",
+  "version": "1.4.0",
+  "last_audit_date": "2026-10-05",
   "maintainer": "4Pixel Tech",
   "providers": [
     {
@@ -138,6 +138,17 @@
       "billing_tier": "welcome_bonus_and_budget",
       "welcome_free_tokens": 5000000,
       "models": [
+        {
+          "canonical_id": "deepseek-flash",
+          "display_name": "DeepSeek-V4.1-Flash (Multimodal)",
+          "modality": "multimodal",
+          "pricing_per_1m": {
+            "input_cache_miss_usd": 0.14,
+            "input_cache_hit_usd": 0.014,
+            "output_usd": 0.28,
+            "off_peak_discount": 0.5
+          }
+        },
         {
           "canonical_id": "deepseek-chat",
           "display_name": "DeepSeek-V3",

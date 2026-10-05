@@ -6,14 +6,14 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Verified Free Models](https://img.shields.io/badge/Verified%20Free%20Models-300%2B-brightgreen.svg)](#)
 [![Verified Providers](https://img.shields.io/badge/Verified%20Providers-64-brightgreen.svg)](#)
-[![Audit Version](https://img.shields.io/badge/Audit%20Version-v17%20(29%2F09%2F2026)-blue.svg)](#)
+[![Audit Version](https://img.shields.io/badge/Audit%20Version-v18%20(05%2F10%2F2026)-blue.svg)](#)
 [![Zero Affiliate Links](https://img.shields.io/badge/Affiliate%20Spam-0%25%20Guaranteed-blue.svg)](#)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTING.md)
 
 **The definitive, 100% community-verified, battle-tested directory of AI Free Tiers, developer quotas, and micro-budget APIs ($5 USD).**  
 Zero hallucinated limits • Zero affiliate spam • Real runtime verified endpoints • 60-second setup tutorials for anyone.
 
-[🇺🇸 English Version](#-english-version) • [🇧🇷 Versão em Português](#-versão-em-português) • [📖 How to Get API Keys](docs/how-to-get-api-keys/) • [📚 Full Reference Catalog](docs/freetiers_apis_v17_reference.md) • [🛡️ Auditing Rules](docs/auditing_rules.md) • [🤝 Contributing](CONTRIBUTING.md)
+[🇺🇸 English Version](#-english-version) • [🇧🇷 Versão em Português](#-versão-em-português) • [📖 How to Get API Keys](docs/how-to-get-api-keys/) • [📚 Full Reference Catalog](docs/freetiers_apis_v18_reference.md) • [🛡️ Auditing Rules](docs/auditing_rules.md) • [🤝 Contributing](CONTRIBUTING.md)
 
 ---
 
@@ -23,14 +23,12 @@ If this directory helps you build and save money, please **give it a Star ⭐** 
 </div>
 
 > [!IMPORTANT]
-> **🚨 Late September 2026 Live Audit Alert (v17 Update / 29-09-2026):**
-> * **Clarifai Closed & Acquired:** Ceased standalone operations on July 17, 2026 after acquisition by Nebius (NASDAQ: NBIS). All standalone `api.clarifai.com` endpoints retired; core tech absorbed into Nebius Token Factory (`api.studio.nebius.ai`).
-> * **GitHub Models Retired:** Legacy `models.inference.ai.azure.com` endpoint discontinued on July 30, 2026 by Microsoft.
-> * **SambaNova Cloud:** Free Tier transitioned to Developer Tier requiring payment method registration (credit card), with a 20M tokens/day developer cap once linked.
-> * **Baseten Compute:** $30 compute credits require entering a credit card in the workspace settings.
-> * **Maritaca AI:** Exact documented Tier 0 limits: 60 RPM, 128k input TPM, 10k output TPM, 4M chars/day Batch API, official BRL rates (Sabiá-4 R$ 5 in / R$ 20 out per 1M tokens).
-> * **Exa.ai:** Confirmed recurring $10 USD/month grant (resets 1st of month) + $10 onboarding bonus.
-> * **Lemonfox.ai:** Confirmed 1-month free trial (10M credits) followed by $5/month budget tier (50M credits).
+> **🚨 Early October 2026 Live Audit Alert (v18 Update / 05-10-2026):**
+> * **Google Gemini 3.8 Live GA:** Gemini 3.8 Live and Extended Thinking are generally available via WebSocket. Production pricing for Gemini 3.8 Flash locked on Google AI Studio console; Free Tier active on 3.1 Flash / Flash-Lite.
+> * **DeepSeek-V4.1-Flash Released:** New native multimodal visual model deployed. Canonical routing aliases `deepseek-flash`, `deepseek-chat` (V3) and `deepseek-reasoner` (R1) confirmed with 50% Off-Peak discounts (00:30–08:30 UTC+8).
+> * **NVIDIA NIM Expanded:** Free developer catalog expanded to **90+ enterprise and research AI models** at 40 RPM / 1,000 RPD without credit card.
+> * **Mistral AI (La Plateforme):** Strict boundary established between the free experimentation prototyping tier and production commercial endpoints (Mistral Large 3 / Small 4).
+> * **Clarifai & GitHub Models Deprecations Active:** Standalone Clarifai APIs (`api.clarifai.com`) shut down following Nebius acquisition (migrated to Nebius Token Factory `api.studio.nebius.ai`); GitHub Models legacy endpoint retired.
 
 ---
 
