@@ -12,6 +12,13 @@ import datetime
 import urllib.request
 import subprocess
 
+# Garantir UTF-8 no stdout do Windows
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
 BASE_DIR = r"E:\Arquivos desenvolvimento"
 REPO_DIR = os.path.join(BASE_DIR, "awesome-ai-free-tiers")
 LOGS_DIR = os.path.join(REPO_DIR, "logs")
@@ -127,7 +134,13 @@ def main():
     with open(log_file, "a", encoding="utf-8") as f:
         f.write(output_text)
 
-    print(output_text)
+    try:
+        print(output_text)
+    except Exception:
+        try:
+            print(output_text.encode("ascii", errors="replace").decode("ascii"))
+        except Exception:
+            pass
 
     # 5. Notificação no Windows
     notify_windows(
