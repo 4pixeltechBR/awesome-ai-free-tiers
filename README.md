@@ -5,15 +5,15 @@
 [![Awesome](https://awesome.re/badge.svg)](https://github.com/sindresorhus/awesome)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Verified Free Models](https://img.shields.io/badge/Verified%20Free%20Models-300%2B-brightgreen.svg)](#)
-[![Verified Providers](https://img.shields.io/badge/Verified%20Providers-64-brightgreen.svg)](#)
-[![Audit Version](https://img.shields.io/badge/Audit%20Version-v18%20(05%2F10%2F2026)-blue.svg)](#)
+[![Verified Providers](https://img.shields.io/badge/Verified%20Providers-65-brightgreen.svg)](#)
+[![Audit Version](https://img.shields.io/badge/Audit%20Version-v19%20(07%2F10%2F2026)-blue.svg)](#)
 [![Zero Affiliate Links](https://img.shields.io/badge/Affiliate%20Spam-0%25%20Guaranteed-blue.svg)](#)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTING.md)
 
 **The definitive, 100% community-verified, battle-tested directory of AI Free Tiers, developer quotas, and micro-budget APIs ($5 USD).**  
 Zero hallucinated limits • Zero affiliate spam • Real runtime verified endpoints • 60-second setup tutorials for anyone.
 
-[🇺🇸 English Version](#-english-version) • [🇧🇷 Versão em Português](#-versão-em-português) • [📖 How to Get API Keys](docs/how-to-get-api-keys/) • [📚 Full Reference Catalog](docs/freetiers_apis_v18_reference.md) • [🛡️ Auditing Rules](docs/auditing_rules.md) • [🤝 Contributing](CONTRIBUTING.md)
+[🇺🇸 English Version](#-english-version) • [🇧🇷 Versão em Português](#-versão-em-português) • [📖 How to Get API Keys](docs/how-to-get-api-keys/) • [📚 Full Reference Catalog](docs/freetiers_apis_v19_reference.md) • [🛡️ Auditing Rules](docs/auditing_rules.md) • [🤝 Contributing](CONTRIBUTING.md)
 
 ---
 
@@ -23,12 +23,14 @@ If this directory helps you build and save money, please **give it a Star ⭐** 
 </div>
 
 > [!IMPORTANT]
-> **🚨 Early October 2026 Live Audit Alert (v18 Update / 05-10-2026):**
-> * **Google Gemini 3.8 Live GA:** Gemini 3.8 Live and Extended Thinking are generally available via WebSocket. Production pricing for Gemini 3.8 Flash locked on Google AI Studio console; Free Tier active on 3.1 Flash / Flash-Lite.
-> * **DeepSeek-V4.1-Flash Released:** New native multimodal visual model deployed. Canonical routing aliases `deepseek-flash`, `deepseek-chat` (V3) and `deepseek-reasoner` (R1) confirmed with 50% Off-Peak discounts (00:30–08:30 UTC+8).
-> * **NVIDIA NIM Expanded:** Free developer catalog expanded to **90+ enterprise and research AI models** at 40 RPM / 1,000 RPD without credit card.
-> * **Mistral AI (La Plateforme):** Strict boundary established between the free experimentation prototyping tier and production commercial endpoints (Mistral Large 3 / Small 4).
-> * **Clarifai & GitHub Models Deprecations Active:** Standalone Clarifai APIs (`api.clarifai.com`) shut down following Nebius acquisition (migrated to Nebius Token Factory `api.studio.nebius.ai`); GitHub Models legacy endpoint retired.
+> **🚨 October 2026 Fact-Check & Legal/LGPD Governance Audit (v19 Update / 07-10-2026):**
+> * **DeepSeek Official Alignment:** Recommended model is **`deepseek-flash`** (DeepSeek-V4.1-Flash). Peak hours corrected: 01:00–04:00 & 06:00–10:00 UTC weekdays (= 22:00–01:00 & 03:00–07:00 BRT). Peak pricing: $0.30 in / $1.20 out (50% OFF off-peak). Thinking enabled by default. Data residency in China.
+> * **Google Gemini Terms & Age Restriction:** Gemini 2.0 Flash/Lite shut down on 2026-06-01. Gemini 3.x series has NO Search Grounding in the Free Tier. Critical policy alert: Free Tier data is reviewed by humans; Google API terms explicitly prohibit services directed at or accessible by individuals under 18 (applies to Free and Paid).
+> * **NVIDIA NIM Production Prohibition:** Developer quotas are strictly for evaluation/trial. Commercial production is prohibited under the NVIDIA API Trial Terms.
+> * **Groq Cloud Realignment:** Llama-3.3-70b-versatile and Llama-3.1-8b-instant moved to Enterprise ("Contact Sales"). Qwen 3.6 replaced by Qwen 3.8. Limits enforced per organization.
+> * **Maritaca AI:** No continuous free tier (R$ 20 onboarding credit). Sabiá-4-br-sp variant offers 100% Brazilian data residency and strict LGPD DPA.
+> * **Xiaomi MiMo Added:** Pay-as-you-go at $0.14 input / $0.28 output per 1M tokens (`mimo-v2.6-flash`), plus coding token subscriptions.
+> * **Workload-Segmented Strategy & LGPD Governance:** Replaces legacy fallback chains with a workload-based matrix: (a) Personal data (LGPD compliant routes), (b) Non-personal data (legitimate Free Tiers), (c) Coding agents.
 
 ---
 

@@ -20,7 +20,7 @@ def get_github_token():
 token = get_github_token()
 url = "https://api.github.com/repos/4pixeltechBR/awesome-ai-free-tiers/releases"
 
-body_content = """# 🚀 Awesome AI Free Tiers — Release v18.0.0 (Early October 2026 Live Audit)
+body_content = """# ⚖️ Awesome AI Free Tiers — Release v19.0.0 (October 2026 Fact-Check & Legal/LGPD Governance Audit)
 
 [🇺🇸 English](#english) | [🇧🇷 Português](#português)
 
@@ -29,73 +29,104 @@ body_content = """# 🚀 Awesome AI Free Tiers — Release v18.0.0 (Early Octobe
 <a name="english"></a>
 ## 🇺🇸 Release Notes (English)
 
-The **v18.0.0** release represents our benchmark live audit for early October 2026, delivering fresh validations, major model launches, multimodal expansions, and critical policy updates across 64 curated AI inference providers.
+The **v19.0.0** release marks a major paradigm shift for the directory: an exhaustive, sober **fact-check audit against primary official documentation, platform terms of service, and privacy policies** conducted on October 7, 2026. 
 
-### 🌟 Key Highlights & Model Updates
-* **Google Gemini 3.8 Live (General Availability):**
-  * Official GA release of **Gemini 3.8 Live** and *Live Extended Thinking* via WebSocket real-time bidirectional streaming.
-  * Commercial billing rates for **Gemini 3.8 Flash** locked into Google AI Studio console.
-  * Free Tier quotas for Gemini 3.1 Flash & Flash-Lite remain active with dynamic per-project limits.
-* **DeepSeek Architecture Expansion (DeepSeek-V4.1-Flash):**
-  * Launch of **DeepSeek-V4.1-Flash** featuring native multimodal visual understanding.
-  * Canonical routing consolidation: official support for `deepseek-flash`, `deepseek-chat` (V3), and `deepseek-reasoner` (R1).
-  * 50% discount confirmed for Off-Peak usage (00:30–08:30 UTC+8).
-* **NVIDIA NIM Catalog Expansion:**
-  * Expanded to **90+ production & research AI models** for NVIDIA Developer Program members.
-  * Free rate limits confirmed: 40 RPM / 1,000 RPD with zero credit card required.
-* **Mistral AI (La Plateforme Clarification):**
-  * Explicit boundary defined between the free developer experimentation tier and commercial production endpoints (Mistral Large 3 / Small 4).
+This release moves the catalog beyond a mere "free tier hack list" into an **enterprise-grade architectural reference with legal and data privacy (LGPD) compliance**.
 
-### 🚨 Critical Security & Deprecation Notices (Preserved from v17 Audit)
-* **Clarifai Encerrado (Service Retired):** Ceased standalone operations on July 17, 2026 following acquisition by **Nebius** (NASDAQ: NBIS). Endpoints (`api.clarifai.com`) shut down; technology migrated to Nebius Token Factory (`api.studio.nebius.ai`).
-* **GitHub Models Deprecated:** Legacy `models.inference.ai.azure.com` playground officially retired by Microsoft/GitHub on July 30, 2026.
-* **SambaNova Cloud Developer Tier:** Transitioned to Developer Tier requiring payment method / credit card registration (20M tokens/day cap once linked).
-* **Baseten Serverless:** $30 compute credits require entering a credit card in the workspace settings.
-* **Maritaca AI (MariTalk):** Official documented Tier 0 limits calibrated: 60 RPM, 128k input TPM, 10k output TPM, 4M chars/day Batch API, official BRL rates (Sabiá-4 R$ 5 in / R$ 20 out).
-* **Exa.ai:** Confirmed recurring $10 USD/month grant (resets 1st of month) + $10 onboarding bonus.
-* **Lemonfox.ai:** Confirmed 1-month free trial (10M credits) followed by $5/month budget tier (50M credits).
+### 🔍 Major Corrections & Findings
 
-### 🛠️ Infrastructure & Repository Updates
-* **Autonomous Windows Task Scheduler Integration:** Automated background runner (`scripts/scheduled_catalog_audit.py`) running every Mon/Wed/Fri at 17:00 BRT with automatic backup, health checks, and git sync.
-* **Dataset Updated:** `data/providers.json` elevated to version `1.4.0` (`last_audit_date: 2026-10-05`).
-* **Reference Catalog:** Full reference document updated to `docs/freetiers_apis_v18_reference.md`.
+1. **DeepSeek Official Realignment:**
+   * **Canonical API Identifier:** The recommended model is officially **`deepseek-flash`** (DeepSeek-V4.1-Flash). The legacy `deepseek-v4-flash` remains accepted. Prior assertions that only `deepseek-chat`/`reasoner` were valid have been corrected.
+   * **Corrected Peak Hours:** Peak pricing applies **01:00–04:00 and 06:00–10:00 UTC on business days** (= **22:00–01:00 and 03:00–07:00 BRT**). Weekends are 100% Off-Peak.
+   * **Pricing per 1M Tokens:** Peak: $0.30 input ($0.006 cache hit) / $1.20 output. Off-Peak (50% OFF): $0.15 input ($0.003 cache hit) / $0.60 output.
+   * **Promotional Grant:** The unadvertised "5M tokens / 30 days" bonus has been removed. Thinking mode is enabled by default (consumes output tokens; disable via `extra_body`). Data is stored in China.
+
+2. **Google Gemini & AI Studio (Terms, Privacy & Under-18 Restriction):**
+   * **Model Deprecations:** Gemini 2.0 Flash and Flash-Lite were permanently shut down on June 1, 2026. Gemini 1.5 family is fully deprecated. Gemini 2.5 Pro remains active.
+   * **Grounding Quotas:** Free Tier Search Grounding exists only on Gemini 2.5 Flash/Lite. The Gemini 3.x series has **no Search Grounding in the Free Tier**.
+   * **Critical Terms Alert:** Free Tier logs are reviewed by humans for model improvement. Furthermore, Gemini API terms **strictly prohibit use in services directed towards or likely to be accessed by individuals under 18 years of age** (applies to both Free and Paid tiers).
+
+3. **NVIDIA NIM (Production Prohibition):**
+   * Developer API access is governed by the *NVIDIA API Trial Terms*, which **strictly prohibit commercial production use**. Documented rate limits (40 RPM / 1,000 RPD) are exclusively for evaluation and prototyping.
+
+4. **Groq Cloud Realignment:**
+   * `llama-3.3-70b-versatile` and `llama-3.1-8b-instant` have been transitioned to Enterprise tier ("Contact Sales").
+   * `qwen/qwen3.6-27b` officially retired and replaced by `qwen/qwen3.8-27b`.
+   * Rate limits are enforced strictly per organization (key rotation under the same org provides zero multiplier).
+
+5. **Maritaca AI (Brazilian Sovereign Champion):**
+   * Clarified that there is no perpetual free API tier; access starts with a one-time R$ 20 onboarding credit.
+   * Night tariff discount (-30%) and Batch API discount (-50%).
+   * `sabia-4-br-sp` variant offers 100% Brazilian data residency and Data Processing Agreements (DPA) compliant with LGPD.
+
+6. **Inception Labs (Mercury API):**
+   * The 100M token grant is a **one-time onboarding credit** per account, not a recurring monthly pool. Active models: `mercury-2` and `mercury-2.5`.
+
+7. **New Additions & Budget Providers:**
+   * **Xiaomi MiMo Added:** Pay-as-you-go at $0.14 input / $0.28 output per 1M tokens (`mimo-v2.6-flash`), plus coding assistant token plans (MiMo Token Plan Lite at $6/mo).
+   * **Coding Token Plans Detailed:** Structured comparison of OpenCode Go ($10/mo), Alibaba Token Plan ($6/mo), and Z.ai GLM Coding Plan.
+
+### 🏛️ Architecture & Governance Restructuring
+
+* **Workload-Segmented Strategy (Section 4):** Replaces legacy fallback chains with a workload-specific routing matrix:
+  * **(a) Personal / Sensitive Data:** Strict LGPD compliance routes with DPA and Zero Data Retention (Maritaca `-br-sp` or Groq Paid ZDR; Gemini disqualified due to under-18 clause).
+  * **(b) Non-Personal Data:** Legitimate Free Tiers (Google Flash-Lite, Groq gpt-oss-120b, Cloudflare Workers AI).
+  * **(c) Coding Agents:** Codex, OpenCode Go, MiMo Token Plan.
+* **New Section 5 (Terms & LGPD Compliance):** Enforcing rules against multi-account quota stacking, API reselling, and age gating.
+* **Appendix A (Archived / Non-Recommended):** Safely archiving legacy fallback chains, anonymous gateways, and domestic Chinese platforms without loss of audit history.
 
 ---
 
 <a name="português"></a>
 ## 🇧🇷 Notas da Versão (Português)
 
-A versão **v18.0.0** consolida a auditoria de início de outubro de 2026, trazendo novas validações de modelos, expansão multimodal e alinhamento estrito de políticas em 64 provedores de inferência de IA.
+A versão **v19.0.0** representa uma evolução de maturidade indispensável: uma **revisão de fatos e auditoria jurídica/LGPD completa**, confrontando diretamente as documentações oficiais, termos de serviço e políticas de privacidade vigentes em 07/10/2026.
 
-### 🌟 Principais Atualizações de Modelos
-* **Google Gemini 3.8 Live (Disponibilidade Geral - GA):**
-  * Lançamento oficial em GA do **Gemini 3.8 Live** com *Live Extended Thinking* via streaming bidirecional em WebSockets.
-  * Preços comerciais do **Gemini 3.8 Flash** consolidados no console do Google AI Studio; Free Tier preservado dinamicamente para Gemini 3.1 Flash / Flash-Lite.
-* **DeepSeek-V4.1-Flash (Multimodal Nativo):**
-  * Lançamento do novo modelo com visão computacional e entendimento multimodal.
-  * Roteamento canônico unificado: suporte a `deepseek-flash`, `deepseek-chat` (V3) e `deepseek-reasoner` (R1) com 50% de desconto no horário econômico Off-Peak (00:30–08:30 UTC+8).
-* **NVIDIA NIM (Catálogo Ampliado de 90+ Modelos):**
-  * Mais de 90 modelos de ponta gratuitos para membros do NVIDIA Developer Program com cota de 40 RPM / 1.000 RPD sem cartão de crédito.
-* **Mistral AI (La Plateforme):**
-  * Delimitação clara do nível de experimentação gratuito para prototipagem de desenvolvedores.
+### 🔍 Principais Correções e Fatos Auditados
 
-### 🚨 Alertas Críticos de Encerramento e Faturamento
-* **Clarifai:** Encerrado e absorvido pela Nebius Token Factory em 17/07/2026.
-* **GitHub Models:** Descontinuado oficialmente em 30/07/2026 pela Microsoft.
-* **SambaNova Cloud:** Developer Tier passou a exigir método de pagamento (cartão) para emissão de chaves.
-* **Baseten:** Créditos de $30 USD exigem cadastro de cartão no console.
-* **Maritaca AI:** Métricas oficiais de Tier 0 (60 RPM, 128k input TPM, 10k output TPM, 4M caracteres/dia na Batch API).
-* **Exa.ai:** Cota de $10 USD/mês confirmada como recorrente mensal + bônus de $10.
-* **Lemonfox.ai:** Trial de 1 mês (10M créditos) + plano budget de $5/mês.
+1. **Alinhamento Oficial DeepSeek:**
+   * **Identificador Recomendado:** O ID oficial atual é **`deepseek-flash`** (DeepSeek-V4.1-Flash); o `deepseek-v4-flash` é legado aceito. A tese anterior de "rotas internas" foi revogada.
+   * **Horário de Pico:** Corrigido para **01:00–04:00 e 06:00–10:00 UTC em dias úteis** (= **22:00–01:00 e 03:00–07:00 BRT**). Fins de semana são 100% fora de pico (50% de desconto).
+   * **Preços por 1M:** Pico: $0.30 entrada ($0.006 cache hit) / $1.20 saída. Fora de pico: $0.15 entrada ($0.003 cache hit) / $0.60 saída.
+   * **Bônus:** Removido o bônus não comprovado de 5M tokens. Thinking vem ligado por padrão; dados armazenados na China.
+
+2. **Google Gemini & AI Studio (Termos, Menores de 18 Anos & Grounding):**
+   * **Deprecações Confirmadas:** Família Gemini 2.0 Flash/Lite desligada em 01/06/2026; linha 1.5 fora do catálogo; 2.5 Pro segue ativo.
+   * **Grounding:** Série 3.x não possui Grounding no Free Tier (apenas na linha 2.5).
+   * **Cláusula Crítica de Idade:** Termos do Google **proíbem expressamente o uso da API (Free e Paga) em serviços direcionados ou acessados por menores de 18 anos**. Inviabiliza Gemini para sistemas escolares/alunos menores de idade.
+   * **Privacidade:** Logs do Free Tier são revisados por humanos para treinamento de modelos.
+
+3. **NVIDIA NIM (Proibição de Produção Comercial):**
+   * O acesso gratuito de desenvolvedor é governado pelos *NVIDIA API Trial Terms*, que **proíbem expressamente uso em produção comercial**. Cotas de 40 RPM / 1.000 RPD são exclusivas para prototipagem e avaliação.
+
+4. **Groq Cloud:**
+   * Modelos `llama-3.3-70b-versatile` e `llama-3.1-8b-instant` migrados para Enterprise ("Contact Sales").
+   * `qwen/qwen3.6-27b` descontinuado em favor de `qwen/qwen3.8-27b`. Limites valem por organização.
+
+5. **Maritaca AI (LGPD & Soberania Nacional):**
+   * Sem Free Tier perpétuo na API; concessão única de R$ 20 no cadastro.
+   * Desconto noturno (-30%) e batch (-50%). Variante `sabia-4-br-sp` oferece 100% de residência de dados no Brasil e DPA formal da LGPD.
+
+6. **Xiaomi MiMo & Planos de Coding Adicionados:**
+   * Xiaomi MiMo pay-as-you-go a $0.14 entrada / $0.28 saída por 1M de tokens (`mimo-v2.6-flash`), além dos planos de assinatura de tokens para coding (MiMo Token Plan Lite a $6/mês).
+
+### 🏛️ Reestruturação Arquitetural e Governança
+
+* **Estratégia Segmentada por Carga de Trabalho (Seção 4):**
+  * **Cargas com dados pessoais (escola/alunos):** Maritaca `-br-sp` ou Groq pago com ZDR (Zero Data Retention); eliminação de Gemini por cláusula de menores de idade e de free tiers que treinam com dados.
+  * **Cargas sem dados pessoais (conteúdo viral, análises públicas):** Free tiers legítimos (Google Flash-Lite, Groq gpt-oss-120b, Cloudflare Workers AI).
+  * **Agentes de código:** Codex, OpenCode Go, MiMo Token Plan.
+* **Nova Seção 5 (Termos de Uso & LGPD):** Proibição de empilhamento de contas/chaves para somar free tiers, proibição de revenda e diretrizes da LGPD (Art. 11, 14 e 33 da Res. CD/ANPD nº 19/2024).
+* **Apêndice A:** Gateways anônimos e plataformas domésticas arquivadas com integridade histórica.
 
 ---
 ⭐ **Apoie o Projeto:** Se este repositório economiza dinheiro para você e sua equipe, deixe uma Star ⭐ no repositório!
 """
 
 payload = {
-    "tag_name": "v18.0.0",
+    "tag_name": "v19.0.0",
     "target_commitish": "main",
-    "name": "🚀 v18.0.0 — Early October 2026 Audit: Gemini 3.8 Live GA, DeepSeek-V4.1 Multimodal & NVIDIA NIM 90+ Models",
+    "name": "⚖️ v19.0.0 — Fact-Check Audit, Legal/LGPD Governance & Workload-Segmented Architecture",
     "body": body_content,
     "draft": False,
     "prerelease": False

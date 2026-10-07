@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "name": "Awesome AI Free Tiers Dataset",
-  "version": "1.4.0",
-  "last_audit_date": "2026-10-05",
+  "version": "1.5.0",
+  "last_audit_date": "2026-10-07",
   "maintainer": "4Pixel Tech",
   "providers": [
     {
@@ -47,7 +47,9 @@
           "grounding": {
             "search_rpd": 1500,
             "map_rpd": 500
-          }
+          },
+          "status": "deprecated",
+          "deprecation_date": "2026-06-01"
         },
         {
           "canonical_id": "gemini-3.5-flash-lite",
@@ -67,7 +69,8 @@
             "map_rpd": 500
           }
         }
-      ]
+      ],
+      "compliance_notes": "Free Tier data logged and reviewed by humans for model training. Prohibited for services directed to individuals under 18 (applies to Free and Paid)."
     },
     {
       "id": "groq-cloud",
@@ -114,7 +117,8 @@
             "audio_seconds_per_hour": 2000
           }
         }
-      ]
+      ],
+      "notes": "llama-3.3-70b-versatile and llama-3.1-8b-instant moved to Enterprise (Contact Sales). Limits enforced per organization."
     },
     {
       "id": "nvidia-nim",
@@ -122,12 +126,13 @@
       "console_url": "https://build.nvidia.com/",
       "credit_card_required": false,
       "phone_required": false,
-      "billing_tier": "permanent_free",
+      "billing_tier": "trial_evaluation",
       "models_count": 82,
       "universal_limits": {
         "rpm": 40,
         "rpd": 1000
-      }
+      },
+      "terms_restriction": "Evaluation & Trial only. Commercial production strictly prohibited under NVIDIA API Trial Terms."
     },
     {
       "id": "deepseek",
@@ -136,39 +141,30 @@
       "credit_card_required": false,
       "phone_required": true,
       "billing_tier": "welcome_bonus_and_budget",
-      "welcome_free_tokens": 5000000,
+      "welcome_free_tokens": null,
       "models": [
         {
           "canonical_id": "deepseek-flash",
-          "display_name": "DeepSeek-V4.1-Flash (Multimodal)",
+          "display_name": "DeepSeek-V4.1-Flash (Recommended)",
           "modality": "multimodal",
           "pricing_per_1m": {
-            "input_cache_miss_usd": 0.14,
-            "input_cache_hit_usd": 0.014,
-            "output_usd": 0.28,
-            "off_peak_discount": 0.5
+            "peak_input_cache_miss_usd": 0.3,
+            "peak_input_cache_hit_usd": 0.006,
+            "peak_output_usd": 1.2,
+            "off_peak_input_cache_miss_usd": 0.15,
+            "off_peak_input_cache_hit_usd": 0.003,
+            "off_peak_output_usd": 0.6
           }
         },
         {
-          "canonical_id": "deepseek-chat",
-          "display_name": "DeepSeek-V3",
-          "pricing_per_1m": {
-            "input_cache_miss_usd": 0.14,
-            "input_cache_hit_usd": 0.014,
-            "output_usd": 0.28,
-            "off_peak_discount": 0.5
-          }
-        },
-        {
-          "canonical_id": "deepseek-reasoner",
-          "display_name": "DeepSeek-R1",
-          "pricing_per_1m": {
-            "input_cache_miss_usd": 0.55,
-            "input_cache_hit_usd": 0.14,
-            "output_usd": 2.19
-          }
+          "canonical_id": "deepseek-v4-flash",
+          "display_name": "DeepSeek-V4-Flash (Legacy accepted)",
+          "modality": "multimodal"
         }
-      ]
+      ],
+      "data_residency": "China",
+      "off_peak_window": "01:00-04:00 and 06:00-10:00 UTC weekdays (= 22:00-01:00 and 03:00-07:00 BRT). Weekends 100% off-peak.",
+      "thinking_mode": "Enabled by default (consumes output tokens). Disable via extra_body: {\"thinking\": {\"type\": \"disabled\"}}"
     },
     {
       "id": "maritaca-ai",
@@ -176,8 +172,8 @@
       "console_url": "https://plataforma.maritaca.ai/",
       "credit_card_required": false,
       "phone_required": false,
-      "billing_tier": "permanent_free",
-      "grant": "Tier 0 permanent free quota (60 RPM, 128k input TPM, 10k output TPM, 4M chars/day Batch API)",
+      "billing_tier": "onboarding_credit_and_paid",
+      "grant": "R$ 20 one-time onboarding credit. No perpetual free API tier.",
       "models": [
         {
           "canonical_id": "sabia-4",
@@ -209,7 +205,9 @@
             "tpm_output": 10000
           }
         }
-      ]
+      ],
+      "compliance": "LGPD DPA available. sabia-4-br-sp variant offers 100% Brazilian data residency.",
+      "discounts": "Night rate -30% (22h-06h), Batch API -50%."
     },
     {
       "id": "cloudflare-workers-ai",
@@ -327,31 +325,17 @@
       "credit_card_required": false,
       "phone_required": false,
       "billing_tier": "welcome_credits",
-      "grant": "100,000,000 free tokens",
+      "grant": "100,000,000 free tokens (one-time onboarding grant per account, non-recurring)",
       "models": [
         {
-          "canonical_id": "mercury-chat",
-          "display_name": "Mercury Chat",
-          "modality": "text",
-          "context_window": {
-            "input": 128000,
-            "output": 8192
-          },
-          "rate_limits": {
-            "rpm": 60
-          }
+          "canonical_id": "mercury-2",
+          "display_name": "Mercury 2",
+          "modality": "text"
         },
         {
-          "canonical_id": "mercury-coder",
-          "display_name": "Mercury Coder",
-          "modality": "code",
-          "context_window": {
-            "input": 128000,
-            "output": 16384
-          },
-          "rate_limits": {
-            "rpm": 60
-          }
+          "canonical_id": "mercury-2.5",
+          "display_name": "Mercury 2.5",
+          "modality": "text"
         }
       ]
     },
@@ -1898,6 +1882,38 @@
           }
         }
       ]
+    },
+    {
+      "id": "xiaomi-mimo",
+      "name": "Xiaomi MiMo",
+      "console_url": "https://api.xiaomimimo.com/",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "budget_pay_as_you_go",
+      "pricing_per_1m": {
+        "input_usd": 0.14,
+        "output_usd": 0.28
+      },
+      "models": [
+        {
+          "canonical_id": "mimo-v2.6-flash",
+          "display_name": "MiMo V2.6 Flash",
+          "modality": "text"
+        }
+      ],
+      "budget_token_plans": [
+        {
+          "name": "MiMo Token Plan Lite",
+          "price_usd_monthly": 6.0,
+          "target": "Coding IDE Assistant"
+        },
+        {
+          "name": "MiMo Token Plan Pro",
+          "price_usd_monthly": 15.0,
+          "target": "High-Volume Coding"
+        }
+      ]
     }
-  ]
+  ],
+  "audit_notes": "v19 Fact-Check Audit against official terms, pricing, and LGPD compliance."
 }

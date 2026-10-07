@@ -35,6 +35,9 @@ We maintain 100% independence. Referral codes (`?ref=abc`), affiliate links, spo
 ### 6. Transparent Deprecation Tracking
 When a model is sunset or deprecated, it is never silently deleted. It is cataloged in the Deprecation Archive with its sunset date, last known specs, and recommended drop-in replacement route so existing codebases do not break unexpectedly.
 
+### 7. Terms of Service & Privacy/LGPD Compliance (v19)
+No route may be recommended for commercial production if the provider's terms explicitly prohibit production use (e.g. trial-only tiers), if the provider logs and trains models on customer data without enterprise guarantees, if the operator is unidentified/unverifiable, or if operating the route requires circumventing terms (such as multi-account pooling). Workloads involving personal or sensitive data must strictly satisfy applicable data privacy laws (LGPD / GDPR).
+
 ---
 
 ## 🏛️ Mandatory Repository Governance Directives (Rules of Engagement)
@@ -86,6 +89,9 @@ Independência técnica total. Links de indicação (`?ref=`), códigos de afili
 
 ### 6. Rastreamento Ativo de Depreciações
 Modelos encerrados ou descontinuados nunca são deletados em silêncio. Eles são movidos para a seção de Histórico de Depreciação com a data de encerramento e a rota de substituição recomendada.
+
+### 7. Conformidade de Termos de Serviço & Privacidade/LGPD (v19)
+Nenhuma rota deve ser recomendada para produção comercial se os termos do provedor proibirem expressamente o uso em produção (ex.: tiers restritos a avaliação/trial), se o provedor registrar e treinar modelos em dados de usuários sem garantias corporativas, se o operador for anônimo/não identificável, ou se o uso exigir burlar termos contratuais (como empilhamento de contas para multiplicar cotas). Cargas com dados pessoais ou sensíveis devem atender rigorosamente à legislação de proteção de dados (LGPD / GDPR).
 
 ---
 
