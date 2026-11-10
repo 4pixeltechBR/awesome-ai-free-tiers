@@ -20,7 +20,7 @@ def get_github_token():
 token = get_github_token()
 url = "https://api.github.com/repos/4pixeltechBR/awesome-ai-free-tiers/releases"
 
-body_content = """# ⚖️ Awesome AI Free Tiers — Release v19.0.0 (October 2026 Fact-Check & Legal/LGPD Governance Audit)
+body_content = """# 🎙️ Awesome AI Free Tiers — Release v20.0.0 (November 2026 Multimodal Media & Neural Audio Audit)
 
 [🇺🇸 English](#english) | [🇧🇷 Português](#português)
 
@@ -29,104 +29,81 @@ body_content = """# ⚖️ Awesome AI Free Tiers — Release v19.0.0 (October 20
 <a name="english"></a>
 ## 🇺🇸 Release Notes (English)
 
-The **v19.0.0** release marks a major paradigm shift for the directory: an exhaustive, sober **fact-check audit against primary official documentation, platform terms of service, and privacy policies** conducted on October 7, 2026. 
+The **v20.0.0** release delivers a major expansion into creative multimodal media (voice synthesis, speech-to-text, generative video, and graphic design), while consolidating dynamic meta-routing and global domain infrastructures across **66 verified providers**.
 
-This release moves the catalog beyond a mere "free tier hack list" into an **enterprise-grade architectural reference with legal and data privacy (LGPD) compliance**.
+### 🌟 Key Highlights & Model Updates
 
-### 🔍 Major Corrections & Findings
+1. **Fish Audio (`fish.audio`) Added (Permanent Free Developer API):**
+   * Integration of state-of-the-art neural Text-to-Speech (TTS) and zero-shot voice cloning.
+   * Model **`s2.1-pro-free`** is permanently available via API at **$0.00 / 1M UTF-8 bytes** (zero consumption fee) with up to **5 concurrent connections** without requiring a credit card.
+   * Web Studio provides 8,000 monthly credits (~7 minutes of audio) renewed every month.
 
-1. **DeepSeek Official Realignment:**
-   * **Canonical API Identifier:** The recommended model is officially **`deepseek-flash`** (DeepSeek-V4.1-Flash). The legacy `deepseek-v4-flash` remains accepted. Prior assertions that only `deepseek-chat`/`reasoner` were valid have been corrected.
-   * **Corrected Peak Hours:** Peak pricing applies **01:00–04:00 and 06:00–10:00 UTC on business days** (= **22:00–01:00 and 03:00–07:00 BRT**). Weekends are 100% Off-Peak.
-   * **Pricing per 1M Tokens:** Peak: $0.30 input ($0.006 cache hit) / $1.20 output. Off-Peak (50% OFF): $0.15 input ($0.003 cache hit) / $0.60 output.
-   * **Promotional Grant:** The unadvertised "5M tokens / 30 days" bonus has been removed. Thinking mode is enabled by default (consumes output tokens; disable via `extra_body`). Data is stored in China.
+2. **Groq Cloud (Speech Synthesis & Canopy Labs Audio):**
+   * Real-time Text-to-Speech models **`canopy-labs/orpheus-v1-en`** and **`canopy-labs/orpheus-arabic-saudi`** integrated directly onto Groq's ultra-low latency LPU hardware.
+   * Operates alongside production speech-to-text models **`whisper-large-v3`** and **`whisper-large-v3-turbo`**.
 
-2. **Google Gemini & AI Studio (Terms, Privacy & Under-18 Restriction):**
-   * **Model Deprecations:** Gemini 2.0 Flash and Flash-Lite were permanently shut down on June 1, 2026. Gemini 1.5 family is fully deprecated. Gemini 2.5 Pro remains active.
-   * **Grounding Quotas:** Free Tier Search Grounding exists only on Gemini 2.5 Flash/Lite. The Gemini 3.x series has **no Search Grounding in the Free Tier**.
-   * **Critical Terms Alert:** Free Tier logs are reviewed by humans for model improvement. Furthermore, Gemini API terms **strictly prohibit use in services directed towards or likely to be accessed by individuals under 18 years of age** (applies to both Free and Paid tiers).
+3. **OpenRouter Dynamic Meta-Router (`openrouter/free`):**
+   * Mapped official support for **`openrouter/free`**, an autonomous meta-router that dynamically inspects prompt requirements (tool-calling, JSON structured outputs, vision) and routes to the best available free model with minimal queue latency.
+   * Rate limits confirmed: **20 RPM** global; **50 RPD** for standard free accounts; scaled to **1,000 RPD** upon completing a single lifetime deposit of $10 USD.
 
-3. **NVIDIA NIM (Production Prohibition):**
-   * Developer API access is governed by the *NVIDIA API Trial Terms*, which **strictly prohibit commercial production use**. Documented rate limits (40 RPM / 1,000 RPD) are exclusively for evaluation and prototyping.
+4. **SiliconFlow (Global GTM Domain & FLUX.2 Deployment):**
+   * SiliconFlow services unified under **`https://api.siliconflow.cn/v1`** with Global Traffic Management (GTM) acceleration, replacing deprecated legacy domains.
+   * Maintained permanent free tier for lightweight open models (Qwen and DeepSeek series); launched FLUX.2 serverless pay-per-image inference.
 
-4. **Groq Cloud Realignment:**
-   * `llama-3.3-70b-versatile` and `llama-3.1-8b-instant` have been transitioned to Enterprise tier ("Contact Sales").
-   * `qwen/qwen3.6-27b` officially retired and replaced by `qwen/qwen3.8-27b`.
-   * Rate limits are enforced strictly per organization (key rotation under the same org provides zero multiplier).
+5. **Creative Multimodal Media Audit (Video & Image):**
+   * **Kling AI (`kling.ai`)**: Web app provides **66 daily free credits** (up to 2–3 720p 5s video generations/day). API access is strictly prepaid (trial packs from ~$9 USD; ~$0.30–$0.42 per 5s video).
+   * **Recraft AI (`recraft.ai`)**: Recraft Studio web app offers **50 daily free credits** for vector SVG/raster design. Recraft API is 100% prepaid at $1 USD = 1,000 API units (units do not expire).
+   * **fal.ai (`fal.ai`)**: Confirmed no perpetual free API tier. Fair billing pay-as-you-go per megapixel ($0.003 for FLUX.1 [schnell], $0.025 for FLUX.1 [dev]) and per video second ($0.20–$0.40/s).
 
-5. **Maritaca AI (Brazilian Sovereign Champion):**
-   * Clarified that there is no perpetual free API tier; access starts with a one-time R$ 20 onboarding credit.
-   * Night tariff discount (-30%) and Batch API discount (-50%).
-   * `sabia-4-br-sp` variant offers 100% Brazilian data residency and Data Processing Agreements (DPA) compliant with LGPD.
-
-6. **Inception Labs (Mercury API):**
-   * The 100M token grant is a **one-time onboarding credit** per account, not a recurring monthly pool. Active models: `mercury-2` and `mercury-2.5`.
-
-7. **New Additions & Budget Providers:**
-   * **Xiaomi MiMo Added:** Pay-as-you-go at $0.14 input / $0.28 output per 1M tokens (`mimo-v2.6-flash`), plus coding assistant token plans (MiMo Token Plan Lite at $6/mo).
-   * **Coding Token Plans Detailed:** Structured comparison of OpenCode Go ($10/mo), Alibaba Token Plan ($6/mo), and Z.ai GLM Coding Plan.
-
-### 🏛️ Architecture & Governance Restructuring
-
-* **Workload-Segmented Strategy (Section 4):** Replaces legacy fallback chains with a workload-specific routing matrix:
-  * **(a) Personal / Sensitive Data:** Strict LGPD compliance routes with DPA and Zero Data Retention (Maritaca `-br-sp` or Groq Paid ZDR; Gemini disqualified due to under-18 clause).
-  * **(b) Non-Personal Data:** Legitimate Free Tiers (Google Flash-Lite, Groq gpt-oss-120b, Cloudflare Workers AI).
-  * **(c) Coding Agents:** Codex, OpenCode Go, MiMo Token Plan.
-* **New Section 5 (Terms & LGPD Compliance):** Enforcing rules against multi-account quota stacking, API reselling, and age gating.
-* **Appendix A (Archived / Non-Recommended):** Safely archiving legacy fallback chains, anonymous gateways, and domestic Chinese platforms without loss of audit history.
+6. **Active Q4 2026 Promotion Tracking:**
+   * **DeepSeek Off-Peak (-50%):** Active 01:00–04:00 & 06:00–10:00 UTC weekdays (= 22:00–01:00 & 03:00–07:00 BRT) and 100% on weekends.
+   * **Maritaca AI:** Maintained 30% discount during night hours (22:00–06:00 BRT) and 50% discount on Batch API.
+   * **Voyage AI:** Maintained 200M tokens trial grant for new developer accounts.
+   * Zero active promotional developer quotas expired without formal documentation.
 
 ---
 
 <a name="português"></a>
 ## 🇧🇷 Notas da Versão (Português)
 
-A versão **v19.0.0** representa uma evolução de maturidade indispensável: uma **revisão de fatos e auditoria jurídica/LGPD completa**, confrontando diretamente as documentações oficiais, termos de serviço e políticas de privacidade vigentes em 07/10/2026.
+A versão **v20.0.0** consolida a auditoria de novembro de 2026 com grande expansão em **mídia multimodal criativa (síntese de voz, transcrição, geração de vídeo e design gráfico)**, mapeamento de meta-roteadores dinâmicos e consolidação de endpoints globais em **66 provedores verificados**.
 
-### 🔍 Principais Correções e Fatos Auditados
+### 🌟 Principais Destaques e Modelos Adicionados
 
-1. **Alinhamento Oficial DeepSeek:**
-   * **Identificador Recomendado:** O ID oficial atual é **`deepseek-flash`** (DeepSeek-V4.1-Flash); o `deepseek-v4-flash` é legado aceito. A tese anterior de "rotas internas" foi revogada.
-   * **Horário de Pico:** Corrigido para **01:00–04:00 e 06:00–10:00 UTC em dias úteis** (= **22:00–01:00 e 03:00–07:00 BRT**). Fins de semana são 100% fora de pico (50% de desconto).
-   * **Preços por 1M:** Pico: $0.30 entrada ($0.006 cache hit) / $1.20 saída. Fora de pico: $0.15 entrada ($0.003 cache hit) / $0.60 saída.
-   * **Bônus:** Removido o bônus não comprovado de 5M tokens. Thinking vem ligado por padrão; dados armazenados na China.
+1. **Fish Audio (`fish.audio`) Adicionado (API Gratuita Permanente):**
+   * Inclusão de provedor de referência em Text-to-Speech (TTS) e clonagem de voz zero-shot (10-30s de amostra).
+   * Modelo neural **`s2.1-pro-free`** 100% gratuito na API a **$0.00 / 1 Milhão de UTF-8 bytes**, com concorrência de até **5 conexões simultâneas** sem exigência de cartão de crédito.
+   * Interface web concede 8.000 créditos mensais renovados todo mês.
 
-2. **Google Gemini & AI Studio (Termos, Menores de 18 Anos & Grounding):**
-   * **Deprecações Confirmadas:** Família Gemini 2.0 Flash/Lite desligada em 01/06/2026; linha 1.5 fora do catálogo; 2.5 Pro segue ativo.
-   * **Grounding:** Série 3.x não possui Grounding no Free Tier (apenas na linha 2.5).
-   * **Cláusula Crítica de Idade:** Termos do Google **proíbem expressamente o uso da API (Free e Paga) em serviços direcionados ou acessados por menores de 18 anos**. Inviabiliza Gemini para sistemas escolares/alunos menores de idade.
-   * **Privacidade:** Logs do Free Tier são revisados por humanos para treinamento de modelos.
+2. **Groq Cloud (Síntese Vocal / TTS Canopy Labs):**
+   * Modelos em tempo real **`canopy-labs/orpheus-v1-en`** e **`canopy-labs/orpheus-arabic-saudi`** integrados à infraestrutura de LPUs do GroqCloud ao lado de `whisper-large-v3` e `whisper-large-v3-turbo`.
 
-3. **NVIDIA NIM (Proibição de Produção Comercial):**
-   * O acesso gratuito de desenvolvedor é governado pelos *NVIDIA API Trial Terms*, que **proíbem expressamente uso em produção comercial**. Cotas de 40 RPM / 1.000 RPD são exclusivas para prototipagem e avaliação.
+3. **OpenRouter (Meta-Roteador Dinâmico `openrouter/free`):**
+   * Suporte documentado para o roteador autônomo **`openrouter/free`**, que despacha chamadas automaticamente para modelos gratuitos com suporte a chamadas de função (tool use), saídas estruturadas e visão computacional.
+   * Limites de taxa: 20 RPM; 50 RPD para contas gratuitas; **1.000 RPD** após recarga acumulada de $10 USD vitalícia.
 
-4. **Groq Cloud:**
-   * Modelos `llama-3.3-70b-versatile` e `llama-3.1-8b-instant` migrados para Enterprise ("Contact Sales").
-   * `qwen/qwen3.6-27b` descontinuado em favor de `qwen/qwen3.8-27b`. Limites valem por organização.
+4. **SiliconFlow (Domínio Global GTM & FLUX.2):**
+   * Endpoint oficial unificado em **`https://api.siliconflow.cn/v1`** com aceleração global GTM.
+   * Modelos abertos Qwen e DeepSeek mantidos no Free Tier perpétuo; suporte a FLUX.2 em bilhetagem serverless por imagem.
 
-5. **Maritaca AI (LGPD & Soberania Nacional):**
-   * Sem Free Tier perpétuo na API; concessão única de R$ 20 no cadastro.
-   * Desconto noturno (-30%) e batch (-50%). Variante `sabia-4-br-sp` oferece 100% de residência de dados no Brasil e DPA formal da LGPD.
+5. **Auditoria de Mídia Multimodal (Vídeo, Imagem e Design):**
+   * **Kling AI (`kling.ai`)**: Interface web com **66 créditos diários gratuitos** renovados a cada 24h (vídeos de 5s a 720p). API direta sem free tier permanente (pacotes de avaliação a partir de $9 USD).
+   * **Recraft AI (`recraft.ai`)**: Studio web gratuito com **50 créditos diários** (vetores SVG e raster). API 100% pré-paga ($1 USD = 1.000 unidades que não expiram).
+   * **fal.ai (`fal.ai`)**: Modelo pré-pago por megapixel ($0.003 em FLUX.1-schnell, $0.025 em FLUX.1-dev) e vídeo ($0.20 a $0.40/s), sem cota perpétua gratuita de API.
 
-6. **Xiaomi MiMo & Planos de Coding Adicionados:**
-   * Xiaomi MiMo pay-as-you-go a $0.14 entrada / $0.28 saída por 1M de tokens (`mimo-v2.6-flash`), além dos planos de assinatura de tokens para coding (MiMo Token Plan Lite a $6/mês).
-
-### 🏛️ Reestruturação Arquitetural e Governança
-
-* **Estratégia Segmentada por Carga de Trabalho (Seção 4):**
-  * **Cargas com dados pessoais (escola/alunos):** Maritaca `-br-sp` ou Groq pago com ZDR (Zero Data Retention); eliminação de Gemini por cláusula de menores de idade e de free tiers que treinam com dados.
-  * **Cargas sem dados pessoais (conteúdo viral, análises públicas):** Free tiers legítimos (Google Flash-Lite, Groq gpt-oss-120b, Cloudflare Workers AI).
-  * **Agentes de código:** Codex, OpenCode Go, MiMo Token Plan.
-* **Nova Seção 5 (Termos de Uso & LGPD):** Proibição de empilhamento de contas/chaves para somar free tiers, proibição de revenda e diretrizes da LGPD (Art. 11, 14 e 33 da Res. CD/ANPD nº 19/2024).
-* **Apêndice A:** Gateways anônimos e plataformas domésticas arquivadas com integridade histórica.
+6. **Monitoramento de Promoções Ativas (Q4 2026):**
+   * DeepSeek Off-Peak (-50%): das 22h-01h e 03h-07h BRT em dias úteis e 100% nos fins de semana.
+   * Maritaca AI: -30% em horário noturno (22h-06h) e -50% na Batch API.
+   * Voyage AI: Franquia de 200M tokens trial preservada.
 
 ---
 ⭐ **Apoie o Projeto:** Se este repositório economiza dinheiro para você e sua equipe, deixe uma Star ⭐ no repositório!
 """
 
 payload = {
-    "tag_name": "v19.0.0",
+    "tag_name": "v20.0.0",
     "target_commitish": "main",
-    "name": "⚖️ v19.0.0 — Fact-Check Audit, Legal/LGPD Governance & Workload-Segmented Architecture",
+    "name": "🎙️ v20.0.0 — Multimodal Media Expansion: Fish Audio Free API, Groq TTS & OpenRouter Meta-Router",
     "body": body_content,
     "draft": False,
     "prerelease": False

@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "name": "Awesome AI Free Tiers Dataset",
-  "version": "1.5.0",
-  "last_audit_date": "2026-10-07",
+  "version": "1.6.0",
+  "last_audit_date": "2026-11-10",
   "maintainer": "4Pixel Tech",
   "providers": [
     {
@@ -115,6 +115,24 @@
           "rate_limits": {
             "rpm": 20,
             "audio_seconds_per_hour": 2000
+          }
+        },
+        {
+          "canonical_id": "canopy-labs/orpheus-v1-en",
+          "display_name": "Canopy Labs Orpheus V1 English",
+          "modality": "audio_tts",
+          "rate_limits": {
+            "rpm": 30,
+            "rpd": 1000
+          }
+        },
+        {
+          "canonical_id": "canopy-labs/orpheus-arabic-saudi",
+          "display_name": "Canopy Labs Orpheus Arabic Saudi",
+          "modality": "audio_tts",
+          "rate_limits": {
+            "rpm": 30,
+            "rpd": 1000
           }
         }
       ],
@@ -1227,6 +1245,16 @@
       "grant": "24 active :free models with up to 262k context",
       "models": [
         {
+          "canonical_id": "openrouter/free",
+          "display_name": "OpenRouter Free Meta-Router",
+          "modality": "dynamic_multimodal",
+          "rate_limits": {
+            "rpm": 20,
+            "rpd": 50,
+            "rpd_with_10usd_topup": 1000
+          }
+        },
+        {
           "canonical_id": "meta-llama/llama-3.3-70b-instruct:free",
           "modality": "text",
           "rate_limits": {
@@ -1653,7 +1681,7 @@
     {
       "id": "siliconflow",
       "name": "SiliconFlow (SiliconCloud)",
-      "console_url": "https://siliconflow.cn/",
+      "console_url": "https://cloud.siliconflow.cn/",
       "base_url": "https://api.siliconflow.cn/v1",
       "credit_card_required": false,
       "phone_required": false,
@@ -1676,7 +1704,9 @@
             "tpm": 40000
           }
         }
-      ]
+      ],
+      "api_endpoint": "https://api.siliconflow.cn/v1",
+      "notes": "Global traffic accelerated via GTM domain api.siliconflow.cn. Permanent free tier for lightweight open models; FLUX.2 serverless pay-per-image."
     },
     {
       "id": "pollinations",
@@ -1913,7 +1943,33 @@
           "target": "High-Volume Coding"
         }
       ]
+    },
+    {
+      "id": "fish-audio",
+      "name": "Fish Audio",
+      "console_url": "https://fish.audio/",
+      "credit_card_required": false,
+      "phone_required": false,
+      "billing_tier": "permanent_free",
+      "grant": "Model s2.1-pro-free 100% free at $0.00 / 1M UTF-8 bytes in the API with 5 concurrency. Web app provides 8,000 monthly credits.",
+      "models": [
+        {
+          "canonical_id": "s2.1-pro-free",
+          "display_name": "Fish Speech 2.1 Pro Free",
+          "modality": "audio_tts",
+          "pricing_per_1m_bytes_usd": 0.0,
+          "rate_limits": {
+            "concurrency": 5
+          }
+        },
+        {
+          "canonical_id": "s2.1-pro",
+          "display_name": "Fish Speech 2.1 Pro (Studio)",
+          "modality": "audio_tts",
+          "pricing_per_1m_bytes_usd": 1.5
+        }
+      ]
     }
   ],
-  "audit_notes": "v19 Fact-Check Audit against official terms, pricing, and LGPD compliance."
+  "audit_notes": "v20 Live Audit: Fish Audio permanent free API added, Groq TTS Orpheus models added, OpenRouter openrouter/free meta-router mapped, SiliconFlow GTM endpoint updated."
 }
