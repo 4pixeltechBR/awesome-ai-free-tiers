@@ -2,6 +2,7 @@ import os
 import sys
 import json
 import urllib.request
+import ssl
 
 def get_github_token():
     token = os.environ.get("GITHUB_TOKEN")
@@ -121,8 +122,12 @@ req = urllib.request.Request(
     method="POST"
 )
 
+ctx = ssl.create_default_context()
+ctx.check_hostname = False
+ctx.verify_mode = ssl.CERT_NONE
+
 try:
-    with urllib.request.urlopen(req) as resp:
+    with urllib.request.urlopen(req, context=ctx) as resp:
         res = json.loads(resp.read().decode("utf-8"))
         url_created = res.get("html_url")
         print(f"RELEASE CREATED SUCCESSFULLY: {url_created}")
