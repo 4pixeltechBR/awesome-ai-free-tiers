@@ -12,6 +12,13 @@ def get_github_token():
     if os.path.exists(key_file):
         with open(key_file, "r", encoding="utf-8") as f:
             for line in f:
+                if "Antigravity" in line and "ghp_" in line:
+                    for part in line.replace(":", " ").replace("=", " ").split():
+                        if part.startswith("ghp_"):
+                            return part.strip()
+            # fallback to any valid token in file
+            f.seek(0)
+            for line in f:
                 if "ghp_" in line:
                     for part in line.replace(":", " ").replace("=", " ").split():
                         if part.startswith("ghp_"):
