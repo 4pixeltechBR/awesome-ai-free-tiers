@@ -6,14 +6,14 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Verified Free Models](https://img.shields.io/badge/Verified%20Free%20Models-300%2B-brightgreen.svg)](#)
 [![Verified Providers](https://img.shields.io/badge/Verified%20Providers-66-brightgreen.svg)](#)
-[![Audit Version](https://img.shields.io/badge/Audit%20Version-v20%20(10%2F11%2F2026)-blue.svg)](#)
+[![Audit Version](https://img.shields.io/badge/Audit%20Version-v21%20(19%2F11%2F2026)-blue.svg)](#)
 [![Zero Affiliate Links](https://img.shields.io/badge/Affiliate%20Spam-0%25%20Guaranteed-blue.svg)](#)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTING.md)
 
 **The definitive, 100% community-verified, battle-tested directory of AI Free Tiers, developer quotas, and micro-budget APIs ($5 USD).**  
 Zero hallucinated limits • Zero affiliate spam • Real runtime verified endpoints • 60-second setup tutorials for anyone.
 
-[🇺🇸 English Version](#-english-version) • [🇧🇷 Versão em Português](#-versão-em-português) • [📖 How to Get API Keys](docs/how-to-get-api-keys/) • [📚 Full Reference Catalog](docs/freetiers_apis_v20_reference.md) • [🛡️ Auditing Rules](docs/auditing_rules.md) • [🤝 Contributing](CONTRIBUTING.md)
+[🇺🇸 English Version](#-english-version) • [🇧🇷 Versão em Português](#-versão-em-português) • [📖 How to Get API Keys](docs/how-to-get-api-keys/) • [📚 Full Reference Catalog](docs/freetiers_apis_v21_reference.md) • [🛡️ Auditing Rules](docs/auditing_rules.md) • [🤝 Contributing](CONTRIBUTING.md)
 
 ---
 
@@ -22,6 +22,15 @@ If this directory helps you build and save money, please **give it a Star ⭐** 
 
 </div>
 
+> [!IMPORTANT]
+> **🚨 November 2026 Live Audit & Sovereign Keyless Expansion (v21 Update / 19-11-2026):**
+> * **OVHcloud AI Endpoints Added (Sovereign GDPR Tier-0):** Keyless anonymous tier (2 RPM/IP) or ~400 RPM with free key, hosted 100% in France with zero user prompt training and GDPR compliance. 21 models active: `gpt-oss-120b`, `Qwen3.5-397B-A17B`, `Mistral-Small-3.2-24B`, `whisper-large-v3-turbo`, and `bge-m3`.
+> * **Kilo Code Gateway Added:** Keyless developer gateway with header `Authorization: Bearer anonymous`, ~200 requests/hour per IP for coding agents and open workloads.
+> * **Aion Labs Added:** 15 RPM / 20k TPD without credit card for creative writing, narrative fiction and roleplay.
+> * **Gemma 4 Generation & Gemini 3.6 Flash:** Mapped live `google/gemma-4-31b-it:free` and `google/gemma-4-26b-a4b-it:free` on OpenRouter alongside Gemini 3.6 Flash.
+> * **6 Production Routing Quirks:** Mapped critical edge-cases in multi-provider routers (OpenCode session header, GitHub Models fake 200 trap, Pollinations in-band 402, Groq 413 parser, Moonshot partial prefill, open-weight inline tool-call rescue).
+> * **New Welcome Trials & Status Updates:** Documented Nscale ($5), Upstage Solar ($10), AI21 Studio ($10), Inference.net ($5) and NLP Cloud ($15). Clarified Ollama Cloud commercial transition ($0.05/M tokens; free tier remains local). Confirmed shutdown of `glhf.chat` (now `synthetic.new`, paid only).
+>
 > [!IMPORTANT]
 > **🚨 November 2026 Live Audit & Multimodal Media Expansion (v20 Update / 10-11-2026):**
 > * **Fish Audio (`fish.audio`) Added:** Permanent Free Developer API for neural Text-to-Speech and voice cloning via model `s2.1-pro-free` at **$0.00 / 1M UTF-8 bytes** (5 concurrent connections, zero credit card required) + 8,000 monthly credits on web app.
@@ -89,10 +98,10 @@ Are you an inference provider offering a permanent free tier or micro-budget pla
 
 | Tier Category | What You Get | Payment Method? | Top Providers |
 | :--- | :--- | :---: | :--- |
-| **🟢 Tier 0: 100% Free Forever** | Permanent daily quotas, zero billing account needed | ❌ **No CC** | [Google AI Studio](docs/how-to-get-api-keys/google-ai-studio.md), [Groq](docs/how-to-get-api-keys/groq-cloud.md), [NVIDIA NIM](docs/how-to-get-api-keys/nvidia-nim.md), [Maritaca AI](docs/how-to-get-api-keys/maritaca-ai.md), [Hyperbolic](docs/how-to-get-api-keys/hyperbolic.md), [Pollinations](docs/how-to-get-api-keys/pollinations.md), [SEA-LION](docs/how-to-get-api-keys/regional-sovereign-gems.md) |
+| **🟢 Tier 0: 100% Free Forever** | Permanent daily quotas, zero billing account needed | ❌ **No CC** | [OVHcloud AI Endpoints](docs/freetiers_apis_v21_reference.md), [Google AI Studio](docs/how-to-get-api-keys/google-ai-studio.md), [Groq](docs/how-to-get-api-keys/groq-cloud.md), [NVIDIA NIM](docs/how-to-get-api-keys/nvidia-nim.md), [Maritaca AI](docs/how-to-get-api-keys/maritaca-ai.md), [Hyperbolic](docs/how-to-get-api-keys/hyperbolic.md), [Pollinations](docs/how-to-get-api-keys/pollinations.md), [SEA-LION](docs/how-to-get-api-keys/regional-sovereign-gems.md) |
 | **💎 Tier 1: Recurring Monthly Credits** | Fresh credits deposited every month or 4 weeks | ❌ **No CC** | [Reka AI ($10/mo + 3h video)](docs/how-to-get-api-keys/reka-ai.md), [Bytez ($1/4w)](docs/how-to-get-api-keys/bytez.md), [Morph Labs (250k credits/mo)](docs/how-to-get-api-keys/morph-labs.md), [InternLM (1M in / 3M out/mo)](docs/how-to-get-api-keys/regional-sovereign-gems.md), [Cloudflare (10k Neurons/day)](docs/how-to-get-api-keys/cloudflare-workers-ai.md) |
 | **🟡 Tier 2: Welcome Trial Tokens** | Massive free token pools on signup | ❌ **No CC** | [Inception Labs (100M tokens)](docs/how-to-get-api-keys/inception-labs.md), [DeepSeek (5M tokens)](docs/how-to-get-api-keys/deepseek.md), [SiliconFlow (20M tokens)](docs/how-to-get-api-keys/siliconflow.md), [Zhipu (25M tokens)](docs/how-to-get-api-keys/chinese-providers.md), [Sarvam AI (₹1,000)](docs/how-to-get-api-keys/regional-sovereign-gems.md) |
-| **🕵️ Tier 3: Anonymous & Keyless** | Zero sign-up, zero API key, zero logging | ❌ **No Account** | [LLM7.io (2 req/s)](docs/how-to-get-api-keys/regional-sovereign-gems.md), [AI Horde (Key: 0000000000)](docs/how-to-get-api-keys/anonymous-and-keyless.md), [DuckDuckGo AI](docs/how-to-get-api-keys/anonymous-and-keyless.md) |
+| **🕵️ Tier 3: Anonymous & Keyless** | Zero sign-up, zero API key, zero logging | ❌ **No Account** | [OVHcloud AI (Keyless)](docs/freetiers_apis_v21_reference.md), [Kilo Code Gateway](docs/freetiers_apis_v21_reference.md), [LLM7.io (2 req/s)](docs/how-to-get-api-keys/regional-sovereign-gems.md), [AI Horde (Key: 0000000000)](docs/how-to-get-api-keys/anonymous-and-keyless.md), [DuckDuckGo AI](docs/how-to-get-api-keys/anonymous-and-keyless.md) |
 | **🪙 Tier 4: The $5 Budget Champions** | Paid, but \$5 USD buys tens of millions of tokens | Minimal Top-up | [DeepSeek Direct](docs/how-to-get-api-keys/deepseek.md), [xKiro](docs/how-to-get-api-keys/budget-gateways.md), [OpenCode](docs/how-to-get-api-keys/budget-gateways.md), [B.AI](docs/how-to-get-api-keys/budget-gateways.md) |
 
 ---
@@ -359,6 +368,15 @@ A maioria dos tutoriais de IA na internet engana o desenvolvedor com três probl
 
 Nosso compromisso é com a **verdade técnica, transparência total e zero links de afiliados**.
 
+> [!IMPORTANT]
+> **🚨 Auditoria ao Vivo v21 (19/11/2026) — Soberania Europeia Sem Chave, Kilo Code, Aion Labs, Gemma 4 & Quirks de Produção:**
+> * **OVHcloud AI Endpoints Adicionado (Tier-0 Soberano GDPR):** Endpoint direto compatível com OpenAI sem chave (2 RPM/IP) ou com chave gratuita (~400 RPM), hospedado 100% na França sem retenção para treino. 21 modelos ativos incluindo `gpt-oss-120b`, `Qwen3.5-397B-A17B`, `Mistral-Small-3.2-24B`, `whisper-large-v3-turbo` e `bge-m3`.
+> * **Kilo Code Gateway Adicionado:** Hub anônimo via `Authorization: Bearer anonymous` (~200 req/hora por IP) com 21 modelos para coding.
+> * **Aion Labs Adicionado:** 15 RPM / 20k TPD sem cartão para escrita criativa, RPG e narrativa.
+> * **Gemma 4 & Gemini 3.6 Flash:** Inclusão dos modelos `gemma-4-31b-it:free` e `gemma-4-26b-a4b-it:free` no OpenRouter.
+> * **6 Quirks de Roteamento em Produção:** Documentação das salvaguardas para `cascade.py` (OpenCode session header, GitHub Models fake 200, Pollinations in-band, Groq 413, Moonshot prefill e rescue regex de tool calling).
+> * **Atualizações de Billing & Status:** Ollama Cloud agora é pay-as-you-go ($0.05/M; free tier apenas localmente). Novos trials adicionados: Nscale ($5), Upstage Solar ($10), AI21 Studio ($10), Inference.net ($5) e NLP Cloud ($15). `glhf.chat` encerrado.
+>
 ### 🛡️ Nossas 5 Diretrizes Mandatórias de Governança
 1. **Release Oficial Obrigatório a Cada Atualização:** Toda atualização do catálogo é acompanhada de uma Release formal no GitHub detalhando novos modelos, promoções ativas e modelos deprecados com rotas de substituição.
 2. **Rastreamento Ativo de Promoções:** Monitoramos concessões promocionais e cotas temporárias de desenvolvedor, com prazos claros e avisos formais na release seguinte quando forem encerradas.

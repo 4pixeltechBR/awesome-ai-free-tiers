@@ -21,7 +21,7 @@ def get_github_token():
 token = get_github_token()
 url = "https://api.github.com/repos/4pixeltechBR/awesome-ai-free-tiers/releases"
 
-body_content = """# 🎙️ Awesome AI Free Tiers — Release v20.0.0 (November 2026 Multimodal Media & Neural Audio Audit)
+body_content = """# 🚀 Awesome AI Free Tiers — Release v21.0.0 (Sovereign Keyless Gateways, Production Quirks & Gemma 4)
 
 [🇺🇸 English](#english) | [🇧🇷 Português](#português)
 
@@ -30,81 +30,94 @@ body_content = """# 🎙️ Awesome AI Free Tiers — Release v20.0.0 (November 
 <a name="english"></a>
 ## 🇺🇸 Release Notes (English)
 
-The **v20.0.0** release delivers a major expansion into creative multimodal media (voice synthesis, speech-to-text, generative video, and graphic design), while consolidating dynamic meta-routing and global domain infrastructures across **66 verified providers**.
+The **v21.0.0** release incorporates exhaustive live-runtime auditing from the Trinity Nexus × OmniRoute Super-Hub audit, expanding the catalog to **74 verified providers** with sovereign European GDPR infrastructure, anonymous developer gateways, Gemma 4 models, and battle-tested mitigations for 6 production routing quirks.
 
 ### 🌟 Key Highlights & Model Updates
 
-1. **Fish Audio (`fish.audio`) Added (Permanent Free Developer API):**
-   * Integration of state-of-the-art neural Text-to-Speech (TTS) and zero-shot voice cloning.
-   * Model **`s2.1-pro-free`** is permanently available via API at **$0.00 / 1M UTF-8 bytes** (zero consumption fee) with up to **5 concurrent connections** without requiring a credit card.
-   * Web Studio provides 8,000 monthly credits (~7 minutes of audio) renewed every month.
+1. **OVHcloud AI Endpoints (`kepler.ai.cloud.ovh.net`) — Sovereign European Tier-0:**
+   * Direct OpenAI-compatible endpoint offering **keyless anonymous access** (2 RPM/IP) or **~400 RPM** with a free developer key generated instantly in the OVHcloud Manager (zero credit card required).
+   * **100% Hosted in France (EU/GDPR compliant):** Contractual guarantee of zero prompt retention and zero training on customer data. Completely insulated from the US CLOUD Act.
+   * **21 Active Models Audited:** Includes `gpt-oss-120b`, `Qwen3.5-397B-A17B`, `Mistral-Small-3.2-24B`, `DeepSeek-R1-Distill-Llama-70B`, `whisper-large-v3-turbo` (hardware-accelerated STT), and `bge-m3` (dense/sparse multilingual embeddings).
 
-2. **Groq Cloud (Speech Synthesis & Canopy Labs Audio):**
-   * Real-time Text-to-Speech models **`canopy-labs/orpheus-v1-en`** and **`canopy-labs/orpheus-arabic-saudi`** integrated directly onto Groq's ultra-low latency LPU hardware.
-   * Operates alongside production speech-to-text models **`whisper-large-v3`** and **`whisper-large-v3-turbo`**.
+2. **Kilo Code Gateway (`api.kilo.ai/api/gateway`) — Anonymous Coding Gateway:**
+   * Keyless developer gateway authenticated via fixed header `Authorization: Bearer anonymous`.
+   * Rate quota: **~200 requests/hour per IP**.
+   * 21 models optimized for developer workflows (`kilo/auto`, Qwen 2.5 Coder 32B/7B, DeepSeek Coder V2.5).
+   * *Privacy Guardrail:* Traffic routed through distributed partner nodes; strictly reserved for open-source and non-sensitive workloads.
 
-3. **OpenRouter Dynamic Meta-Router (`openrouter/free`):**
-   * Mapped official support for **`openrouter/free`**, an autonomous meta-router that dynamically inspects prompt requirements (tool-calling, JSON structured outputs, vision) and routes to the best available free model with minimal queue latency.
-   * Rate limits confirmed: **20 RPM** global; **50 RPD** for standard free accounts; scaled to **1,000 RPD** upon completing a single lifetime deposit of $10 USD.
+3. **Aion Labs (`api.aionlabs.ai/v1`) — Creative Writing & Roleplay Free Tier:**
+   * **15 RPM / 20k TPD** perpetual free quota without credit card.
+   * Fine-tuned models tailored for multi-turn roleplay, rich character dialogue, and literature without artificial refusal loops.
 
-4. **SiliconFlow (Global GTM Domain & FLUX.2 Deployment):**
-   * SiliconFlow services unified under **`https://api.siliconflow.cn/v1`** with Global Traffic Management (GTM) acceleration, replacing deprecated legacy domains.
-   * Maintained permanent free tier for lightweight open models (Qwen and DeepSeek series); launched FLUX.2 serverless pay-per-image inference.
+4. **Gemma 4 Generation & Gemini 3.6 Flash:**
+   * Added official support for Google's newest open-weight generation: `google/gemma-4-31b-it:free` and `google/gemma-4-26b-a4b-it:free` on OpenRouter, alongside Gemini 3.6 Flash.
+   * Verified 17 operational `:free` models on OpenRouter (including `nvidia/nemotron-3-ultra-550b-a55b:free`, `cohere/north-mini-code:free`, and `google/lyria-3-pro-preview`).
 
-5. **Creative Multimodal Media Audit (Video & Image):**
-   * **Kling AI (`kling.ai`)**: Web app provides **66 daily free credits** (up to 2–3 720p 5s video generations/day). API access is strictly prepaid (trial packs from ~$9 USD; ~$0.30–$0.42 per 5s video).
-   * **Recraft AI (`recraft.ai`)**: Recraft Studio web app offers **50 daily free credits** for vector SVG/raster design. Recraft API is 100% prepaid at $1 USD = 1,000 API units (units do not expire).
-   * **fal.ai (`fal.ai`)**: Confirmed no perpetual free API tier. Fair billing pay-as-you-go per megapixel ($0.003 for FLUX.1 [schnell], $0.025 for FLUX.1 [dev]) and per video second ($0.20–$0.40/s).
+5. **The 6 Production Routing Quirks (Forensic Router Safeguards):**
+   * Cataloged concrete production bugs in multi-provider routers (`cascade.py`):
+     * *QUIRK 1 (OpenCode session header):* Enforce `X-Session-ID` to avoid HTTP 400.
+     * *QUIRK 2 (GitHub Models fake 200 trap):* Intercept text/plain `"OK"` responses on retired endpoints before calling `response.json()`.
+     * *QUIRK 3 (Pollinations in-band 402/rate-limit notice):* Sniff first 100 characters of assistant content for in-band rate limit strings.
+     * *QUIRK 4 (Groq 413 token count parser):* Extract exact token counts from error payload to auto-rescale requests.
+     * *QUIRK 5 (Moonshot partial prefill host-gate):* Enforce `partial=True` when assistant message is sent last.
+     * *QUIRK 6 (Open-weight inline tool-call rescue):* Regex extraction of `<tool_call>...</tool_call>` inside text blocks to construct compliant OpenAI tool call objects.
 
-6. **Active Q4 2026 Promotion Tracking:**
-   * **DeepSeek Off-Peak (-50%):** Active 01:00–04:00 & 06:00–10:00 UTC weekdays (= 22:00–01:00 & 03:00–07:00 BRT) and 100% on weekends.
-   * **Maritaca AI:** Maintained 30% discount during night hours (22:00–06:00 BRT) and 50% discount on Batch API.
-   * **Voyage AI:** Maintained 200M tokens trial grant for new developer accounts.
-   * Zero active promotional developer quotas expired without formal documentation.
+6. **New Welcome Trials & Status Updates:**
+   * Added new verified trial credits: **Nscale** ($5 USD), **Upstage Solar** ($10 USD), **AI21 Studio** ($10 USD / 3 months), **Inference.net** ($5 USD via SMS), and **NLP Cloud** ($15 USD).
+   * **Ollama Cloud Status Clarification:** Confirmed the old cloud beta free tier is sunset. Cloud now runs on Pay-As-You-Go ($0.05/M) and Pro ($20/mo) / Max ($100/mo) plans. 100% free usage remains available via local hardware execution (`localhost`).
+   * **Exclusions:** Confirmed `glhf.chat` shutdown (rebranded to `synthetic.new`, paid only); `Chutes.ai` paid only; `Gonka Broker` requires GNK crypto utility tokens.
 
 ---
 
 <a name="português"></a>
 ## 🇧🇷 Notas da Versão (Português)
 
-A versão **v20.0.0** consolida a auditoria de novembro de 2026 com grande expansão em **mídia multimodal criativa (síntese de voz, transcrição, geração de vídeo e design gráfico)**, mapeamento de meta-roteadores dinâmicos e consolidação de endpoints globais em **66 provedores verificados**.
+A versão **v21.0.0** consolida a auditoria completa da Trinity Nexus × OmniRoute Super-Hub, expandindo o catálogo para **74 provedores verificados** com infraestrutura soberana europeia GDPR sem chave, gateways anônimos para desenvolvedores, modelos Gemma 4 e salvaguardas robustas para 6 quirks de roteamento em produção.
 
 ### 🌟 Principais Destaques e Modelos Adicionados
 
-1. **Fish Audio (`fish.audio`) Adicionado (API Gratuita Permanente):**
-   * Inclusão de provedor de referência em Text-to-Speech (TTS) e clonagem de voz zero-shot (10-30s de amostra).
-   * Modelo neural **`s2.1-pro-free`** 100% gratuito na API a **$0.00 / 1 Milhão de UTF-8 bytes**, com concorrência de até **5 conexões simultâneas** sem exigência de cartão de crédito.
-   * Interface web concede 8.000 créditos mensais renovados todo mês.
+1. **OVHcloud AI Endpoints (`kepler.ai.cloud.ovh.net`) — Soberania Europeia Tier-0:**
+   * Endpoint compatível com OpenAI oferecendo **acesso anônimo sem chave** (2 RPM/IP) ou **~400 RPM** com chave gratuita de desenvolvedor emitida instantaneamente no OVHcloud Manager (zero cartão de crédito).
+   * **100% Hospedado na França (Conformidade GDPR/RGPD):** Garantia contratual de zero retenção e zero treinamento de IA com os dados de inferência. Imune ao CLOUD Act norte-americano.
+   * **21 Modelos Auditados em Produção:** `gpt-oss-120b`, `Qwen3.5-397B-A17B`, `Mistral-Small-3.2-24B`, `DeepSeek-R1-Distill-Llama-70B`, `whisper-large-v3-turbo` (STT acelerado) e `bge-m3` (embeddings densos e esparsos).
 
-2. **Groq Cloud (Síntese Vocal / TTS Canopy Labs):**
-   * Modelos em tempo real **`canopy-labs/orpheus-v1-en`** e **`canopy-labs/orpheus-arabic-saudi`** integrados à infraestrutura de LPUs do GroqCloud ao lado de `whisper-large-v3` e `whisper-large-v3-turbo`.
+2. **Kilo Code Gateway (`api.kilo.ai/api/gateway`) — Hub Anônimo para Programação:**
+   * Acesso keyless direto com cabeçalho `Authorization: Bearer anonymous`.
+   * Cota: **~200 requisições/hora por IP**.
+   * 21 modelos com ênfase em auxílio ao código (`kilo/auto`, Qwen 2.5 Coder 32B/7B, DeepSeek Coder V2.5).
+   * *Salvaguarda de Privacidade:* Tráfego processado em nós parceiros; restrito a código aberto e cargas sem dados sensíveis.
 
-3. **OpenRouter (Meta-Roteador Dinâmico `openrouter/free`):**
-   * Suporte documentado para o roteador autônomo **`openrouter/free`**, que despacha chamadas automaticamente para modelos gratuitos com suporte a chamadas de função (tool use), saídas estruturadas e visão computacional.
-   * Limites de taxa: 20 RPM; 50 RPD para contas gratuitas; **1.000 RPD** após recarga acumulada de $10 USD vitalícia.
+3. **Aion Labs (`api.aionlabs.ai/v1`) — Escrita Criativa & Roleplay Gratuito:**
+   * Cota permanente de **15 RPM / 20.000 TPD** sem exigência de cartão de crédito.
+   * Modelos abertos finetunados para diálogos complexos, RPG e literatura sem recusas artificiais.
 
-4. **SiliconFlow (Domínio Global GTM & FLUX.2):**
-   * Endpoint oficial unificado em **`https://api.siliconflow.cn/v1`** com aceleração global GTM.
-   * Modelos abertos Qwen e DeepSeek mantidos no Free Tier perpétuo; suporte a FLUX.2 em bilhetagem serverless por imagem.
+4. **Geração Gemma 4 & Gemini 3.6 Flash:**
+   * Inclusão dos modelos `google/gemma-4-31b-it:free` e `google/gemma-4-26b-a4b-it:free` no OpenRouter, além do Gemini 3.6 Flash no Google AI Studio.
+   * Catálogo ativo de 17 modelos gratuitos `:free` operacionais no OpenRouter (incluindo Nemotron 3 Ultra 550B, Cohere North Mini Code e Lyria 3 preview).
 
-5. **Auditoria de Mídia Multimodal (Vídeo, Imagem e Design):**
-   * **Kling AI (`kling.ai`)**: Interface web com **66 créditos diários gratuitos** renovados a cada 24h (vídeos de 5s a 720p). API direta sem free tier permanente (pacotes de avaliação a partir de $9 USD).
-   * **Recraft AI (`recraft.ai`)**: Studio web gratuito com **50 créditos diários** (vetores SVG e raster). API 100% pré-paga ($1 USD = 1.000 unidades que não expiram).
-   * **fal.ai (`fal.ai`)**: Modelo pré-pago por megapixel ($0.003 em FLUX.1-schnell, $0.025 em FLUX.1-dev) e vídeo ($0.20 a $0.40/s), sem cota perpétua gratuita de API.
+5. **Os 6 Quirks de Roteamento em Produção (Mitigação Forense):**
+   * Documentação de salvaguardas para o `cascade.py` e bibliotecas de resiliência:
+     * *QUIRK 1 (OpenCode session header):* Injeção de `X-Session-ID` persistente para evitar erro 400.
+     * *QUIRK 2 (GitHub Models fake 200 trap):* Interceptação de respostas `text/plain` `"OK"` para evitar falha no `response.json()`.
+     * *QUIRK 3 (Pollinations in-band notice):* Varredura do início do texto para detecção de avisos embutidos de rate limit.
+     * *QUIRK 4 (Groq 413 token parser):* Extração do cálculo exato de tokens da mensagem 413 para redimensionar requisições.
+     * *QUIRK 5 (Moonshot prefill):* Parâmetro `partial=True` quando a última mensagem for do assistente.
+     * *QUIRK 6 (Rescue regex de tool calling):* Conversão automática de blocos literais `<tool_call>...</tool_call>` em objetos nativos de tool calls da OpenAI.
 
-6. **Monitoramento de Promoções Ativas (Q4 2026):**
-   * DeepSeek Off-Peak (-50%): das 22h-01h e 03h-07h BRT em dias úteis e 100% nos fins de semana.
-   * Maritaca AI: -30% em horário noturno (22h-06h) e -50% na Batch API.
-   * Voyage AI: Franquia de 200M tokens trial preservada.
+6. **Novos Créditos de Boas-Vindas & Status de Billing:**
+   * Novos provedores com créditos iniciais auditados: **Nscale** ($5 USD), **Upstage Solar** ($10 USD), **AI21 Studio** ($10 USD / 3 meses), **Inference.net** ($5 USD via SMS) e **NLP Cloud** ($15 USD).
+   * **Clarificação do Ollama Cloud:** O antigo free tier em nuvem foi encerrado. A nuvem opera em Pay-As-You-Go ($0.05/M) e planos Pro ($20/mês) / Max ($100/mês). Uso 100% gratuito é mantido via hardware local (`localhost`).
+   * **Descontinuações Confirmadas:** `glhf.chat` encerrado (rebatizado para `synthetic.new`, pago); `Chutes.ai` pago; `Gonka Broker` requer tokens de cripto GNK.
 
 ---
+
 ⭐ **Apoie o Projeto:** Se este repositório economiza dinheiro para você e sua equipe, deixe uma Star ⭐ no repositório!
 """
 
 payload = {
-    "tag_name": "v20.0.0",
+    "tag_name": "v21.0.0",
     "target_commitish": "main",
-    "name": "🎙️ v20.0.0 — Multimodal Media Expansion: Fish Audio Free API, Groq TTS & OpenRouter Meta-Router",
+    "name": "🚀 v21.0.0 — Sovereign Keyless Gateways: OVHcloud AI GDPR Tier, Kilo Code, Aion Labs, Gemma 4 & Production Quirks",
     "body": body_content,
     "draft": False,
     "prerelease": False
